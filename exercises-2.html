@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | PO3B3: Quantitative Pathway</title>
-  <meta name="description" content="Page not found | PO3B3: Quantitative Pathway" />
+  <title>8 Exercises | PO3B3: Quantitative Pathway</title>
+  <meta name="description" content="8 Exercises | PO3B3: Quantitative Pathway" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | PO3B3: Quantitative Pathway" />
+  <meta property="og:title" content="8 Exercises | PO3B3: Quantitative Pathway" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | PO3B3: Quantitative Pathway" />
+  <meta name="twitter:title" content="8 Exercises | PO3B3: Quantitative Pathway" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="joint-estimation-of-emergence-and-survival.html"/>
+<link rel="next" href="downlads.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -294,19 +294,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="exercises-2" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Exercises<a href="exercises-2.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-data-set" class="section level3 hasAnchor" number="8.0.1">
+<h3><span class="header-section-number">8.0.1</span> The Data Set<a href="exercises-2.html#the-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+Use the data set called <code>prz.dta</code>. This is the data set used in Przeworski et al.’s 2000 book, Democracy and Development. Deposit this in an appropriate working directory and import the data set into a data frame called . We will only be looking at a few variables – democ = 1 if democracy, 0 otherwise; gdpw - GDP per worker; g = growth rate; oil = 1 if oil producer, 0 otherwise.</p>
 </div>
+<div id="basics" class="section level3 hasAnchor" number="8.0.2">
+<h3><span class="header-section-number">8.0.2</span> Basics<a href="exercises-2.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Run a probit model where is the dependent variable and and are the independent variables. Put the results in column 1 of Table 1. What is (possibly) wrong with this approach? Interpret the coefficients on one or two of the variables.</li>
+</ol>
+<p>. Run the same probit model as before but now include a lagged dependent variable. To create the lagged dependent variable, call:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="exercises-2.html#cb81-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a href="exercises-2.html#cb81-2" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="exercises-2.html#cb81-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
+<span id="cb81-4"><a href="exercises-2.html#cb81-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<p>Put the results in column two of Table 1. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Now estimate a probit “transition to democracy” model i.e. how do growth, wealth and oil affect the probability that a country is a democracy this year given that it was a dictatorship last year. We are also lagging the independent variables by one year. Put the results in column 3 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>
+<li><p>Now estimate a probit “survival of democracy” model i.e. how do (lagged) growth, wealth and oil affect the probability that a country is a democracy this year given that it was a democracy last year. Put the results in column 4 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>
+</ol>
+</div>
+<div id="advanced" class="section level3 hasAnchor" number="8.0.3">
+<h3><span class="header-section-number">8.0.3</span> Advanced<a href="exercises-2.html#advanced" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+For this section you will have to read through the instructions for joint estimation, provided separately</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Now interact all the lagged independent variables with the lagged dependent variable. Estimate a fully interactive model and include all the constitutive terms. Put the results in column 5 of Table 1. What is the relationship between these coefficients and those in the previous two columns? Is there any extra information provided by this full interaction model that was not available from the previous two models?</li>
+<li>Now consider the straight probit model, the probit model with the lagged dependent variable, and the full interaction model. Produce the ROC curve for each of these models. Interpret a point on one of these curves. What do the ROC curves tell you about the fit of these three models?</li>
+</ol>
+
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="joint-estimation-of-emergence-and-survival.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="downlads.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

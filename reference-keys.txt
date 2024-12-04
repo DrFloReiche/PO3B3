@@ -84,6 +84,10 @@ emergence-full-model
 graphically
 survival
 for-completenesss-sake
+joint-estimation-of-emergence-and-survival
+rationale
+example-1
+application-in-r
 exercises-2
 the-data-set
 basics
