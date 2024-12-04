@@ -329,18 +329,18 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <li>We will use the global data set</li>
 <li>Creating it, requires the package, as part of the <code>tidyverse</code></li>
 </ul>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="markov-transition-models.html#cb57-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb57-2"><a href="markov-transition-models.html#cb57-2" tabindex="-1"></a></span>
-<span id="cb57-3"><a href="markov-transition-models.html#cb57-3" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;files/Week 7/world.dta&quot;</span>)</span>
-<span id="cb57-4"><a href="markov-transition-models.html#cb57-4" tabindex="-1"></a></span>
-<span id="cb57-5"><a href="markov-transition-models.html#cb57-5" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="markov-transition-models.html#cb58-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb58-2"><a href="markov-transition-models.html#cb58-2" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="markov-transition-models.html#cb58-3" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;files/Week 7/world.dta&quot;</span>)</span>
+<span id="cb58-4"><a href="markov-transition-models.html#cb58-4" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="markov-transition-models.html#cb58-5" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <ul>
 <li>We can now create the lagged democracy value</li>
 </ul>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="markov-transition-models.html#cb58-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
-<span id="cb58-2"><a href="markov-transition-models.html#cb58-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrykey) <span class="sc">%&gt;%</span></span>
-<span id="cb58-3"><a href="markov-transition-models.html#cb58-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democracy =</span> <span class="fu">lag</span>(democracy)) <span class="sc">%&gt;%</span></span>
-<span id="cb58-4"><a href="markov-transition-models.html#cb58-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="markov-transition-models.html#cb59-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
+<span id="cb59-2"><a href="markov-transition-models.html#cb59-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrykey) <span class="sc">%&gt;%</span></span>
+<span id="cb59-3"><a href="markov-transition-models.html#cb59-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democracy =</span> <span class="fu">lag</span>(democracy)) <span class="sc">%&gt;%</span></span>
+<span id="cb59-4"><a href="markov-transition-models.html#cb59-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <ul>
 <li>This creates a new variable in which all values are lagged by one year. As the first observation for each country cannot be lagged, it creates as many missing values as we have countries in the data set</li>
 </ul>
@@ -362,35 +362,35 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <li>Same procedure as before.</li>
 <li>For “per capita GDP” we call</li>
 </ul>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="markov-transition-models.html#cb59-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
-<span id="cb59-2"><a href="markov-transition-models.html#cb59-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrykey) <span class="sc">%&gt;%</span></span>
-<span id="cb59-3"><a href="markov-transition-models.html#cb59-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.gdp_pc =</span> <span class="fu">lag</span>(gdp_pc)) <span class="sc">%&gt;%</span></span>
-<span id="cb59-4"><a href="markov-transition-models.html#cb59-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="markov-transition-models.html#cb60-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="markov-transition-models.html#cb60-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrykey) <span class="sc">%&gt;%</span></span>
+<span id="cb60-3"><a href="markov-transition-models.html#cb60-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.gdp_pc =</span> <span class="fu">lag</span>(gdp_pc)) <span class="sc">%&gt;%</span></span>
+<span id="cb60-4"><a href="markov-transition-models.html#cb60-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <ul>
 <li>Let’s do the same for: Life Expectancy:</li>
 </ul>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="markov-transition-models.html#cb60-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
-<span id="cb60-2"><a href="markov-transition-models.html#cb60-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrykey) <span class="sc">%&gt;%</span></span>
-<span id="cb60-3"><a href="markov-transition-models.html#cb60-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.lifeexp =</span> <span class="fu">lag</span>(lifeexp)) <span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a href="markov-transition-models.html#cb60-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="markov-transition-models.html#cb61-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
+<span id="cb61-2"><a href="markov-transition-models.html#cb61-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrykey) <span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href="markov-transition-models.html#cb61-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.lifeexp =</span> <span class="fu">lag</span>(lifeexp)) <span class="sc">%&gt;%</span></span>
+<span id="cb61-4"><a href="markov-transition-models.html#cb61-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <ul>
 <li>and Primary Gross Enrolment Rate:</li>
 </ul>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="markov-transition-models.html#cb61-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
-<span id="cb61-2"><a href="markov-transition-models.html#cb61-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrykey) <span class="sc">%&gt;%</span></span>
-<span id="cb61-3"><a href="markov-transition-models.html#cb61-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.enrl_gross =</span> <span class="fu">lag</span>(enrl_gross)) <span class="sc">%&gt;%</span></span>
-<span id="cb61-4"><a href="markov-transition-models.html#cb61-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="markov-transition-models.html#cb62-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="markov-transition-models.html#cb62-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrykey) <span class="sc">%&gt;%</span></span>
+<span id="cb62-3"><a href="markov-transition-models.html#cb62-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.enrl_gross =</span> <span class="fu">lag</span>(enrl_gross)) <span class="sc">%&gt;%</span></span>
+<span id="cb62-4"><a href="markov-transition-models.html#cb62-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 </div>
 <div id="subsetting-the-data-for-conditional-probabilities" class="section level3 hasAnchor" number="7.2.6">
 <h3><span class="header-section-number">7.2.6</span> Subsetting the Data for Conditional Probabilities<a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Select observations in which </li>
 </ol>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="markov-transition-models.html#cb62-1" tabindex="-1"></a>world_democ0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, l.democracy<span class="sc">==</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="markov-transition-models.html#cb63-1" tabindex="-1"></a>world_democ0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, l.democracy<span class="sc">==</span><span class="dv">0</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Select observations in which </li>
 </ol>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="markov-transition-models.html#cb63-1" tabindex="-1"></a>world_democ1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, l.democracy<span class="sc">==</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="markov-transition-models.html#cb64-1" tabindex="-1"></a>world_democ1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, l.democracy<span class="sc">==</span><span class="dv">1</span>)</span></code></pre></div>
 <ul>
 <li>Recall: <span class="math inline">\(P(y_{i,t} = 1 | y_{i, t-1} = 0)\)</span></li>
 <li>Suppose, we want to see the effect of on democratic emergence.</li>
@@ -398,69 +398,69 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 </div>
 <div id="now-we-are-ready" class="section level3 hasAnchor" number="7.2.7">
 <h3><span class="header-section-number">7.2.7</span> Now we are ready!<a href="markov-transition-models.html#now-we-are-ready" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="markov-transition-models.html#cb64-1" tabindex="-1"></a>emergence <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdp_pc, </span>
-<span id="cb64-2"><a href="markov-transition-models.html#cb64-2" tabindex="-1"></a>                 <span class="at">data =</span> world_democ0, </span>
-<span id="cb64-3"><a href="markov-transition-models.html#cb64-3" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb64-4"><a href="markov-transition-models.html#cb64-4" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="markov-transition-models.html#cb65-1" tabindex="-1"></a>emergence <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdp_pc, </span>
+<span id="cb65-2"><a href="markov-transition-models.html#cb65-2" tabindex="-1"></a>                 <span class="at">data =</span> world_democ0, </span>
+<span id="cb65-3"><a href="markov-transition-models.html#cb65-3" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb65-4"><a href="markov-transition-models.html#cb65-4" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
 </div>
 </div>
 <div id="democratic-emergence-1" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Democratic Emergence<a href="markov-transition-models.html#democratic-emergence-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="markov-transition-models.html#cb65-1" tabindex="-1"></a><span class="fu">summary</span>(emergence)</span>
-<span id="cb65-2"><a href="markov-transition-models.html#cb65-2" tabindex="-1"></a></span>
-<span id="cb65-3"><a href="markov-transition-models.html#cb65-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb65-4"><a href="markov-transition-models.html#cb65-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdp_pc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
-<span id="cb65-5"><a href="markov-transition-models.html#cb65-5" tabindex="-1"></a>    <span class="at">data =</span> world_democ0, <span class="at">na.action =</span> na.exclude)</span>
-<span id="cb65-6"><a href="markov-transition-models.html#cb65-6" tabindex="-1"></a></span>
-<span id="cb65-7"><a href="markov-transition-models.html#cb65-7" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb65-8"><a href="markov-transition-models.html#cb65-8" tabindex="-1"></a>              Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
-<span id="cb65-9"><a href="markov-transition-models.html#cb65-9" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">1.918e+00</span>  <span class="fl">5.247e-02</span> <span class="sc">-</span><span class="fl">36.551</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb65-10"><a href="markov-transition-models.html#cb65-10" tabindex="-1"></a>l.gdp_pc    <span class="sc">-</span><span class="fl">3.845e-05</span>  <span class="fl">2.018e-05</span>  <span class="sc">-</span><span class="fl">1.906</span>   <span class="fl">0.0567</span> .  </span>
-<span id="cb65-11"><a href="markov-transition-models.html#cb65-11" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb65-12"><a href="markov-transition-models.html#cb65-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
-<span id="cb65-13"><a href="markov-transition-models.html#cb65-13" tabindex="-1"></a></span>
-<span id="cb65-14"><a href="markov-transition-models.html#cb65-14" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
-<span id="cb65-15"><a href="markov-transition-models.html#cb65-15" tabindex="-1"></a></span>
-<span id="cb65-16"><a href="markov-transition-models.html#cb65-16" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">773.12</span>  on <span class="dv">3404</span>  degrees of freedom</span>
-<span id="cb65-17"><a href="markov-transition-models.html#cb65-17" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">767.25</span>  on <span class="dv">3403</span>  degrees of freedom</span>
-<span id="cb65-18"><a href="markov-transition-models.html#cb65-18" tabindex="-1"></a>  (<span class="dv">771</span> observations deleted due to missingness)</span>
-<span id="cb65-19"><a href="markov-transition-models.html#cb65-19" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">771.25</span></span>
-<span id="cb65-20"><a href="markov-transition-models.html#cb65-20" tabindex="-1"></a></span>
-<span id="cb65-21"><a href="markov-transition-models.html#cb65-21" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">8</span></span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="markov-transition-models.html#cb66-1" tabindex="-1"></a><span class="fu">summary</span>(emergence)</span>
+<span id="cb66-2"><a href="markov-transition-models.html#cb66-2" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="markov-transition-models.html#cb66-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb66-4"><a href="markov-transition-models.html#cb66-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdp_pc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb66-5"><a href="markov-transition-models.html#cb66-5" tabindex="-1"></a>    <span class="at">data =</span> world_democ0, <span class="at">na.action =</span> na.exclude)</span>
+<span id="cb66-6"><a href="markov-transition-models.html#cb66-6" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="markov-transition-models.html#cb66-7" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb66-8"><a href="markov-transition-models.html#cb66-8" tabindex="-1"></a>              Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb66-9"><a href="markov-transition-models.html#cb66-9" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">1.918e+00</span>  <span class="fl">5.247e-02</span> <span class="sc">-</span><span class="fl">36.551</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb66-10"><a href="markov-transition-models.html#cb66-10" tabindex="-1"></a>l.gdp_pc    <span class="sc">-</span><span class="fl">3.845e-05</span>  <span class="fl">2.018e-05</span>  <span class="sc">-</span><span class="fl">1.906</span>   <span class="fl">0.0567</span> .  </span>
+<span id="cb66-11"><a href="markov-transition-models.html#cb66-11" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb66-12"><a href="markov-transition-models.html#cb66-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb66-13"><a href="markov-transition-models.html#cb66-13" tabindex="-1"></a></span>
+<span id="cb66-14"><a href="markov-transition-models.html#cb66-14" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
+<span id="cb66-15"><a href="markov-transition-models.html#cb66-15" tabindex="-1"></a></span>
+<span id="cb66-16"><a href="markov-transition-models.html#cb66-16" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">773.12</span>  on <span class="dv">3404</span>  degrees of freedom</span>
+<span id="cb66-17"><a href="markov-transition-models.html#cb66-17" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">767.25</span>  on <span class="dv">3403</span>  degrees of freedom</span>
+<span id="cb66-18"><a href="markov-transition-models.html#cb66-18" tabindex="-1"></a>  (<span class="dv">771</span> observations deleted due to missingness)</span>
+<span id="cb66-19"><a href="markov-transition-models.html#cb66-19" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">771.25</span></span>
+<span id="cb66-20"><a href="markov-transition-models.html#cb66-20" tabindex="-1"></a></span>
+<span id="cb66-21"><a href="markov-transition-models.html#cb66-21" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">8</span></span></code></pre></div>
 <div id="full-modernisation" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Full Modernisation<a href="markov-transition-models.html#full-modernisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="markov-transition-models.html#cb66-1" tabindex="-1"></a>emergence_full <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdp_pc <span class="sc">+</span> l.lifeexp <span class="sc">+</span> </span>
-<span id="cb66-2"><a href="markov-transition-models.html#cb66-2" tabindex="-1"></a>                          l.enrl_gross, </span>
-<span id="cb66-3"><a href="markov-transition-models.html#cb66-3" tabindex="-1"></a>                      <span class="at">data =</span> world_democ0, </span>
-<span id="cb66-4"><a href="markov-transition-models.html#cb66-4" tabindex="-1"></a>                      <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb66-5"><a href="markov-transition-models.html#cb66-5" tabindex="-1"></a>                      <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="markov-transition-models.html#cb67-1" tabindex="-1"></a>emergence_full <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdp_pc <span class="sc">+</span> l.lifeexp <span class="sc">+</span> </span>
+<span id="cb67-2"><a href="markov-transition-models.html#cb67-2" tabindex="-1"></a>                          l.enrl_gross, </span>
+<span id="cb67-3"><a href="markov-transition-models.html#cb67-3" tabindex="-1"></a>                      <span class="at">data =</span> world_democ0, </span>
+<span id="cb67-4"><a href="markov-transition-models.html#cb67-4" tabindex="-1"></a>                      <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb67-5"><a href="markov-transition-models.html#cb67-5" tabindex="-1"></a>                      <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
 </div>
 <div id="democratic-emergence-full-modernisation" class="section level3 hasAnchor" number="7.3.2">
 <h3><span class="header-section-number">7.3.2</span> Democratic Emergence – Full Modernisation<a href="markov-transition-models.html#democratic-emergence-full-modernisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="markov-transition-models.html#cb67-1" tabindex="-1"></a><span class="fu">summary</span>(emergence_full)</span>
-<span id="cb67-2"><a href="markov-transition-models.html#cb67-2" tabindex="-1"></a></span>
-<span id="cb67-3"><a href="markov-transition-models.html#cb67-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb67-4"><a href="markov-transition-models.html#cb67-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdp_pc <span class="sc">+</span> l.lifeexp <span class="sc">+</span> l.enrl_gross, </span>
-<span id="cb67-5"><a href="markov-transition-models.html#cb67-5" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), <span class="at">data =</span> world_democ0, </span>
-<span id="cb67-6"><a href="markov-transition-models.html#cb67-6" tabindex="-1"></a>    <span class="at">na.action =</span> na.exclude)</span>
-<span id="cb67-7"><a href="markov-transition-models.html#cb67-7" tabindex="-1"></a></span>
-<span id="cb67-8"><a href="markov-transition-models.html#cb67-8" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb67-9"><a href="markov-transition-models.html#cb67-9" tabindex="-1"></a>               Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
-<span id="cb67-10"><a href="markov-transition-models.html#cb67-10" tabindex="-1"></a>(Intercept)  <span class="sc">-</span><span class="fl">3.255e+00</span>  <span class="fl">3.815e-01</span>  <span class="sc">-</span><span class="fl">8.531</span>  <span class="sc">&lt;</span> <span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb67-11"><a href="markov-transition-models.html#cb67-11" tabindex="-1"></a>l.gdp_pc     <span class="sc">-</span><span class="fl">8.832e-05</span>  <span class="fl">3.521e-05</span>  <span class="sc">-</span><span class="fl">2.508</span> <span class="fl">0.012131</span> <span class="sc">*</span>  </span>
-<span id="cb67-12"><a href="markov-transition-models.html#cb67-12" tabindex="-1"></a>l.lifeexp     <span class="fl">2.624e-02</span>  <span class="fl">7.870e-03</span>   <span class="fl">3.334</span> <span class="fl">0.000855</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb67-13"><a href="markov-transition-models.html#cb67-13" tabindex="-1"></a>l.enrl_gross <span class="sc">-</span><span class="fl">1.304e-03</span>  <span class="fl">2.651e-03</span>  <span class="sc">-</span><span class="fl">0.492</span> <span class="fl">0.622828</span>    </span>
-<span id="cb67-14"><a href="markov-transition-models.html#cb67-14" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb67-15"><a href="markov-transition-models.html#cb67-15" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
-<span id="cb67-16"><a href="markov-transition-models.html#cb67-16" tabindex="-1"></a></span>
-<span id="cb67-17"><a href="markov-transition-models.html#cb67-17" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
-<span id="cb67-18"><a href="markov-transition-models.html#cb67-18" tabindex="-1"></a></span>
-<span id="cb67-19"><a href="markov-transition-models.html#cb67-19" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">608.53</span>  on <span class="dv">2472</span>  degrees of freedom</span>
-<span id="cb67-20"><a href="markov-transition-models.html#cb67-20" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">589.74</span>  on <span class="dv">2469</span>  degrees of freedom</span>
-<span id="cb67-21"><a href="markov-transition-models.html#cb67-21" tabindex="-1"></a>  (<span class="dv">1703</span> observations deleted due to missingness)</span>
-<span id="cb67-22"><a href="markov-transition-models.html#cb67-22" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">597.74</span></span>
-<span id="cb67-23"><a href="markov-transition-models.html#cb67-23" tabindex="-1"></a></span>
-<span id="cb67-24"><a href="markov-transition-models.html#cb67-24" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">9</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="markov-transition-models.html#cb68-1" tabindex="-1"></a><span class="fu">summary</span>(emergence_full)</span>
+<span id="cb68-2"><a href="markov-transition-models.html#cb68-2" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="markov-transition-models.html#cb68-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb68-4"><a href="markov-transition-models.html#cb68-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdp_pc <span class="sc">+</span> l.lifeexp <span class="sc">+</span> l.enrl_gross, </span>
+<span id="cb68-5"><a href="markov-transition-models.html#cb68-5" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), <span class="at">data =</span> world_democ0, </span>
+<span id="cb68-6"><a href="markov-transition-models.html#cb68-6" tabindex="-1"></a>    <span class="at">na.action =</span> na.exclude)</span>
+<span id="cb68-7"><a href="markov-transition-models.html#cb68-7" tabindex="-1"></a></span>
+<span id="cb68-8"><a href="markov-transition-models.html#cb68-8" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb68-9"><a href="markov-transition-models.html#cb68-9" tabindex="-1"></a>               Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb68-10"><a href="markov-transition-models.html#cb68-10" tabindex="-1"></a>(Intercept)  <span class="sc">-</span><span class="fl">3.255e+00</span>  <span class="fl">3.815e-01</span>  <span class="sc">-</span><span class="fl">8.531</span>  <span class="sc">&lt;</span> <span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb68-11"><a href="markov-transition-models.html#cb68-11" tabindex="-1"></a>l.gdp_pc     <span class="sc">-</span><span class="fl">8.832e-05</span>  <span class="fl">3.521e-05</span>  <span class="sc">-</span><span class="fl">2.508</span> <span class="fl">0.012131</span> <span class="sc">*</span>  </span>
+<span id="cb68-12"><a href="markov-transition-models.html#cb68-12" tabindex="-1"></a>l.lifeexp     <span class="fl">2.624e-02</span>  <span class="fl">7.870e-03</span>   <span class="fl">3.334</span> <span class="fl">0.000855</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb68-13"><a href="markov-transition-models.html#cb68-13" tabindex="-1"></a>l.enrl_gross <span class="sc">-</span><span class="fl">1.304e-03</span>  <span class="fl">2.651e-03</span>  <span class="sc">-</span><span class="fl">0.492</span> <span class="fl">0.622828</span>    </span>
+<span id="cb68-14"><a href="markov-transition-models.html#cb68-14" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb68-15"><a href="markov-transition-models.html#cb68-15" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb68-16"><a href="markov-transition-models.html#cb68-16" tabindex="-1"></a></span>
+<span id="cb68-17"><a href="markov-transition-models.html#cb68-17" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
+<span id="cb68-18"><a href="markov-transition-models.html#cb68-18" tabindex="-1"></a></span>
+<span id="cb68-19"><a href="markov-transition-models.html#cb68-19" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">608.53</span>  on <span class="dv">2472</span>  degrees of freedom</span>
+<span id="cb68-20"><a href="markov-transition-models.html#cb68-20" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">589.74</span>  on <span class="dv">2469</span>  degrees of freedom</span>
+<span id="cb68-21"><a href="markov-transition-models.html#cb68-21" tabindex="-1"></a>  (<span class="dv">1703</span> observations deleted due to missingness)</span>
+<span id="cb68-22"><a href="markov-transition-models.html#cb68-22" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">597.74</span></span>
+<span id="cb68-23"><a href="markov-transition-models.html#cb68-23" tabindex="-1"></a></span>
+<span id="cb68-24"><a href="markov-transition-models.html#cb68-24" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">9</span></span></code></pre></div>
 </div>
 </div>
 <div id="democratic-survival" class="section level2 hasAnchor" number="7.4">
@@ -479,65 +479,65 @@ P(y_{i,t} = 1 | y_{i, t-1} = 1)
 <ul>
 <li>This is easy now, let’s do democratic survival for </li>
 </ul>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="markov-transition-models.html#cb68-1" tabindex="-1"></a>survival <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdp_pc,</span>
-<span id="cb68-2"><a href="markov-transition-models.html#cb68-2" tabindex="-1"></a>                <span class="at">data =</span> world_democ1, </span>
-<span id="cb68-3"><a href="markov-transition-models.html#cb68-3" tabindex="-1"></a>                <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb68-4"><a href="markov-transition-models.html#cb68-4" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb68-5"><a href="markov-transition-models.html#cb68-5" tabindex="-1"></a>Warning<span class="sc">:</span> glm.fit<span class="sc">:</span> fitted probabilities numerically <span class="dv">0</span> or <span class="dv">1</span> occurred</span></code></pre></div>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="markov-transition-models.html#cb69-1" tabindex="-1"></a><span class="fu">summary</span>(survival)</span>
-<span id="cb69-2"><a href="markov-transition-models.html#cb69-2" tabindex="-1"></a></span>
-<span id="cb69-3"><a href="markov-transition-models.html#cb69-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb69-4"><a href="markov-transition-models.html#cb69-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdp_pc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
-<span id="cb69-5"><a href="markov-transition-models.html#cb69-5" tabindex="-1"></a>    <span class="at">data =</span> world_democ1, <span class="at">na.action =</span> na.exclude)</span>
-<span id="cb69-6"><a href="markov-transition-models.html#cb69-6" tabindex="-1"></a></span>
-<span id="cb69-7"><a href="markov-transition-models.html#cb69-7" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb69-8"><a href="markov-transition-models.html#cb69-8" tabindex="-1"></a>             Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
-<span id="cb69-9"><a href="markov-transition-models.html#cb69-9" tabindex="-1"></a>(Intercept) <span class="fl">1.439e+00</span>  <span class="fl">1.006e-01</span>  <span class="fl">14.308</span>  <span class="sc">&lt;</span> <span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb69-10"><a href="markov-transition-models.html#cb69-10" tabindex="-1"></a>l.gdp_pc    <span class="fl">4.401e-04</span>  <span class="fl">8.903e-05</span>   <span class="fl">4.943</span> <span class="fl">7.69e-07</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb69-11"><a href="markov-transition-models.html#cb69-11" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb69-12"><a href="markov-transition-models.html#cb69-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
-<span id="cb69-13"><a href="markov-transition-models.html#cb69-13" tabindex="-1"></a></span>
-<span id="cb69-14"><a href="markov-transition-models.html#cb69-14" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
-<span id="cb69-15"><a href="markov-transition-models.html#cb69-15" tabindex="-1"></a></span>
-<span id="cb69-16"><a href="markov-transition-models.html#cb69-16" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">503.18</span>  on <span class="dv">3084</span>  degrees of freedom</span>
-<span id="cb69-17"><a href="markov-transition-models.html#cb69-17" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">416.42</span>  on <span class="dv">3083</span>  degrees of freedom</span>
-<span id="cb69-18"><a href="markov-transition-models.html#cb69-18" tabindex="-1"></a>  (<span class="dv">138</span> observations deleted due to missingness)</span>
-<span id="cb69-19"><a href="markov-transition-models.html#cb69-19" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">420.42</span></span>
-<span id="cb69-20"><a href="markov-transition-models.html#cb69-20" tabindex="-1"></a></span>
-<span id="cb69-21"><a href="markov-transition-models.html#cb69-21" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">11</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="markov-transition-models.html#cb69-1" tabindex="-1"></a>survival <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdp_pc,</span>
+<span id="cb69-2"><a href="markov-transition-models.html#cb69-2" tabindex="-1"></a>                <span class="at">data =</span> world_democ1, </span>
+<span id="cb69-3"><a href="markov-transition-models.html#cb69-3" tabindex="-1"></a>                <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb69-4"><a href="markov-transition-models.html#cb69-4" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb69-5"><a href="markov-transition-models.html#cb69-5" tabindex="-1"></a>Warning<span class="sc">:</span> glm.fit<span class="sc">:</span> fitted probabilities numerically <span class="dv">0</span> or <span class="dv">1</span> occurred</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="markov-transition-models.html#cb70-1" tabindex="-1"></a><span class="fu">summary</span>(survival)</span>
+<span id="cb70-2"><a href="markov-transition-models.html#cb70-2" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="markov-transition-models.html#cb70-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb70-4"><a href="markov-transition-models.html#cb70-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdp_pc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb70-5"><a href="markov-transition-models.html#cb70-5" tabindex="-1"></a>    <span class="at">data =</span> world_democ1, <span class="at">na.action =</span> na.exclude)</span>
+<span id="cb70-6"><a href="markov-transition-models.html#cb70-6" tabindex="-1"></a></span>
+<span id="cb70-7"><a href="markov-transition-models.html#cb70-7" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb70-8"><a href="markov-transition-models.html#cb70-8" tabindex="-1"></a>             Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb70-9"><a href="markov-transition-models.html#cb70-9" tabindex="-1"></a>(Intercept) <span class="fl">1.439e+00</span>  <span class="fl">1.006e-01</span>  <span class="fl">14.308</span>  <span class="sc">&lt;</span> <span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb70-10"><a href="markov-transition-models.html#cb70-10" tabindex="-1"></a>l.gdp_pc    <span class="fl">4.401e-04</span>  <span class="fl">8.903e-05</span>   <span class="fl">4.943</span> <span class="fl">7.69e-07</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb70-11"><a href="markov-transition-models.html#cb70-11" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb70-12"><a href="markov-transition-models.html#cb70-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb70-13"><a href="markov-transition-models.html#cb70-13" tabindex="-1"></a></span>
+<span id="cb70-14"><a href="markov-transition-models.html#cb70-14" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
+<span id="cb70-15"><a href="markov-transition-models.html#cb70-15" tabindex="-1"></a></span>
+<span id="cb70-16"><a href="markov-transition-models.html#cb70-16" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">503.18</span>  on <span class="dv">3084</span>  degrees of freedom</span>
+<span id="cb70-17"><a href="markov-transition-models.html#cb70-17" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">416.42</span>  on <span class="dv">3083</span>  degrees of freedom</span>
+<span id="cb70-18"><a href="markov-transition-models.html#cb70-18" tabindex="-1"></a>  (<span class="dv">138</span> observations deleted due to missingness)</span>
+<span id="cb70-19"><a href="markov-transition-models.html#cb70-19" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">420.42</span></span>
+<span id="cb70-20"><a href="markov-transition-models.html#cb70-20" tabindex="-1"></a></span>
+<span id="cb70-21"><a href="markov-transition-models.html#cb70-21" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">11</span></span></code></pre></div>
 </div>
 <div id="and-again-full-modernisation" class="section level3 hasAnchor" number="7.4.3">
 <h3><span class="header-section-number">7.4.3</span> And Again: Full Modernisation<a href="markov-transition-models.html#and-again-full-modernisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="markov-transition-models.html#cb70-1" tabindex="-1"></a>survival_full <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdp_pc <span class="sc">+</span> l.lifeexp <span class="sc">+</span> </span>
-<span id="cb70-2"><a href="markov-transition-models.html#cb70-2" tabindex="-1"></a>                         l.enrl_gross,</span>
-<span id="cb70-3"><a href="markov-transition-models.html#cb70-3" tabindex="-1"></a>                     <span class="at">data =</span> world_democ1, </span>
-<span id="cb70-4"><a href="markov-transition-models.html#cb70-4" tabindex="-1"></a>                     <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb70-5"><a href="markov-transition-models.html#cb70-5" tabindex="-1"></a>                     <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb70-6"><a href="markov-transition-models.html#cb70-6" tabindex="-1"></a>Warning<span class="sc">:</span> glm.fit<span class="sc">:</span> fitted probabilities numerically <span class="dv">0</span> or <span class="dv">1</span> occurred</span></code></pre></div>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="markov-transition-models.html#cb71-1" tabindex="-1"></a><span class="fu">summary</span>(survival_full)</span>
-<span id="cb71-2"><a href="markov-transition-models.html#cb71-2" tabindex="-1"></a></span>
-<span id="cb71-3"><a href="markov-transition-models.html#cb71-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb71-4"><a href="markov-transition-models.html#cb71-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdp_pc <span class="sc">+</span> l.lifeexp <span class="sc">+</span> l.enrl_gross, </span>
-<span id="cb71-5"><a href="markov-transition-models.html#cb71-5" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), <span class="at">data =</span> world_democ1, </span>
-<span id="cb71-6"><a href="markov-transition-models.html#cb71-6" tabindex="-1"></a>    <span class="at">na.action =</span> na.exclude)</span>
-<span id="cb71-7"><a href="markov-transition-models.html#cb71-7" tabindex="-1"></a></span>
-<span id="cb71-8"><a href="markov-transition-models.html#cb71-8" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb71-9"><a href="markov-transition-models.html#cb71-9" tabindex="-1"></a>               Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)  </span>
-<span id="cb71-10"><a href="markov-transition-models.html#cb71-10" tabindex="-1"></a>(Intercept)  <span class="sc">-</span><span class="fl">1.397e-02</span>  <span class="fl">7.310e-01</span>  <span class="sc">-</span><span class="fl">0.019</span>   <span class="fl">0.9847</span>  </span>
-<span id="cb71-11"><a href="markov-transition-models.html#cb71-11" tabindex="-1"></a>l.gdp_pc      <span class="fl">1.742e-04</span>  <span class="fl">8.695e-05</span>   <span class="fl">2.003</span>   <span class="fl">0.0451</span> <span class="sc">*</span></span>
-<span id="cb71-12"><a href="markov-transition-models.html#cb71-12" tabindex="-1"></a>l.lifeexp     <span class="fl">2.924e-02</span>  <span class="fl">1.370e-02</span>   <span class="fl">2.134</span>   <span class="fl">0.0328</span> <span class="sc">*</span></span>
-<span id="cb71-13"><a href="markov-transition-models.html#cb71-13" tabindex="-1"></a>l.enrl_gross <span class="sc">-</span><span class="fl">7.503e-04</span>  <span class="fl">4.106e-03</span>  <span class="sc">-</span><span class="fl">0.183</span>   <span class="fl">0.8550</span>  </span>
-<span id="cb71-14"><a href="markov-transition-models.html#cb71-14" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb71-15"><a href="markov-transition-models.html#cb71-15" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
-<span id="cb71-16"><a href="markov-transition-models.html#cb71-16" tabindex="-1"></a></span>
-<span id="cb71-17"><a href="markov-transition-models.html#cb71-17" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
-<span id="cb71-18"><a href="markov-transition-models.html#cb71-18" tabindex="-1"></a></span>
-<span id="cb71-19"><a href="markov-transition-models.html#cb71-19" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">319.90</span>  on <span class="dv">2296</span>  degrees of freedom</span>
-<span id="cb71-20"><a href="markov-transition-models.html#cb71-20" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">264.38</span>  on <span class="dv">2293</span>  degrees of freedom</span>
-<span id="cb71-21"><a href="markov-transition-models.html#cb71-21" tabindex="-1"></a>  (<span class="dv">926</span> observations deleted due to missingness)</span>
-<span id="cb71-22"><a href="markov-transition-models.html#cb71-22" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">272.38</span></span>
-<span id="cb71-23"><a href="markov-transition-models.html#cb71-23" tabindex="-1"></a></span>
-<span id="cb71-24"><a href="markov-transition-models.html#cb71-24" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">12</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="markov-transition-models.html#cb71-1" tabindex="-1"></a>survival_full <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdp_pc <span class="sc">+</span> l.lifeexp <span class="sc">+</span> </span>
+<span id="cb71-2"><a href="markov-transition-models.html#cb71-2" tabindex="-1"></a>                         l.enrl_gross,</span>
+<span id="cb71-3"><a href="markov-transition-models.html#cb71-3" tabindex="-1"></a>                     <span class="at">data =</span> world_democ1, </span>
+<span id="cb71-4"><a href="markov-transition-models.html#cb71-4" tabindex="-1"></a>                     <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb71-5"><a href="markov-transition-models.html#cb71-5" tabindex="-1"></a>                     <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb71-6"><a href="markov-transition-models.html#cb71-6" tabindex="-1"></a>Warning<span class="sc">:</span> glm.fit<span class="sc">:</span> fitted probabilities numerically <span class="dv">0</span> or <span class="dv">1</span> occurred</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="markov-transition-models.html#cb72-1" tabindex="-1"></a><span class="fu">summary</span>(survival_full)</span>
+<span id="cb72-2"><a href="markov-transition-models.html#cb72-2" tabindex="-1"></a></span>
+<span id="cb72-3"><a href="markov-transition-models.html#cb72-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb72-4"><a href="markov-transition-models.html#cb72-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdp_pc <span class="sc">+</span> l.lifeexp <span class="sc">+</span> l.enrl_gross, </span>
+<span id="cb72-5"><a href="markov-transition-models.html#cb72-5" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), <span class="at">data =</span> world_democ1, </span>
+<span id="cb72-6"><a href="markov-transition-models.html#cb72-6" tabindex="-1"></a>    <span class="at">na.action =</span> na.exclude)</span>
+<span id="cb72-7"><a href="markov-transition-models.html#cb72-7" tabindex="-1"></a></span>
+<span id="cb72-8"><a href="markov-transition-models.html#cb72-8" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb72-9"><a href="markov-transition-models.html#cb72-9" tabindex="-1"></a>               Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)  </span>
+<span id="cb72-10"><a href="markov-transition-models.html#cb72-10" tabindex="-1"></a>(Intercept)  <span class="sc">-</span><span class="fl">1.397e-02</span>  <span class="fl">7.310e-01</span>  <span class="sc">-</span><span class="fl">0.019</span>   <span class="fl">0.9847</span>  </span>
+<span id="cb72-11"><a href="markov-transition-models.html#cb72-11" tabindex="-1"></a>l.gdp_pc      <span class="fl">1.742e-04</span>  <span class="fl">8.695e-05</span>   <span class="fl">2.003</span>   <span class="fl">0.0451</span> <span class="sc">*</span></span>
+<span id="cb72-12"><a href="markov-transition-models.html#cb72-12" tabindex="-1"></a>l.lifeexp     <span class="fl">2.924e-02</span>  <span class="fl">1.370e-02</span>   <span class="fl">2.134</span>   <span class="fl">0.0328</span> <span class="sc">*</span></span>
+<span id="cb72-13"><a href="markov-transition-models.html#cb72-13" tabindex="-1"></a>l.enrl_gross <span class="sc">-</span><span class="fl">7.503e-04</span>  <span class="fl">4.106e-03</span>  <span class="sc">-</span><span class="fl">0.183</span>   <span class="fl">0.8550</span>  </span>
+<span id="cb72-14"><a href="markov-transition-models.html#cb72-14" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb72-15"><a href="markov-transition-models.html#cb72-15" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb72-16"><a href="markov-transition-models.html#cb72-16" tabindex="-1"></a></span>
+<span id="cb72-17"><a href="markov-transition-models.html#cb72-17" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
+<span id="cb72-18"><a href="markov-transition-models.html#cb72-18" tabindex="-1"></a></span>
+<span id="cb72-19"><a href="markov-transition-models.html#cb72-19" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">319.90</span>  on <span class="dv">2296</span>  degrees of freedom</span>
+<span id="cb72-20"><a href="markov-transition-models.html#cb72-20" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">264.38</span>  on <span class="dv">2293</span>  degrees of freedom</span>
+<span id="cb72-21"><a href="markov-transition-models.html#cb72-21" tabindex="-1"></a>  (<span class="dv">926</span> observations deleted due to missingness)</span>
+<span id="cb72-22"><a href="markov-transition-models.html#cb72-22" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">272.38</span></span>
+<span id="cb72-23"><a href="markov-transition-models.html#cb72-23" tabindex="-1"></a></span>
+<span id="cb72-24"><a href="markov-transition-models.html#cb72-24" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">12</span></span></code></pre></div>
 </div>
 </div>
 </div>

@@ -299,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-data-set" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">10.1</span> The Data Set<a href="exercises-2.html#the-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-Use the data set called <code>prz.dta</code>. This is the data set used in Przeworski et al.’s 2000 book, Democracy and Development. Deposit this in an appropriate working directory and import the data set into a data frame called . We will only be looking at a few variables – democ = 1 if democracy, 0 otherwise; gdpw - GDP per worker; g = growth rate; oil = 1 if oil producer, 0 otherwise.</p>
+Use the data set called <code>prz.dta</code> which is available in the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a>. This is the data set used in Przeworski et al.’s 2000 book, Democracy and Development. Deposit this in an appropriate working directory and import the data set into a data frame called <code>prz</code>. We will only be looking at a few variables – democ = 1 if democracy, 0 otherwise; gdpw - GDP per worker; g = growth rate; oil = 1 if oil producer, 0 otherwise.</p>
 </div>
 <div id="basics" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Basics<a href="exercises-2.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -307,10 +307,10 @@ Use the data set called <code>prz.dta</code>. This is the data set used in Przew
 <li><p>Run a probit model where is the dependent variable and and are the independent variables. Put the results in column 1 of Table 1. What is (possibly) wrong with this approach? Interpret the coefficients on one or two of the variables.</p></li>
 <li><p>Run the same probit model as before but now include a lagged dependent variable. To create the lagged dependent variable, call:</p></li>
 </ol>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="exercises-2.html#cb81-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb81-2"><a href="exercises-2.html#cb81-2" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb81-3"><a href="exercises-2.html#cb81-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
-<span id="cb81-4"><a href="exercises-2.html#cb81-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="exercises-2.html#cb82-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb82-2"><a href="exercises-2.html#cb82-2" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb82-3"><a href="exercises-2.html#cb82-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
+<span id="cb82-4"><a href="exercises-2.html#cb82-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <p>Put the results in column two of Table 1. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Now estimate a probit “transition to democracy” model i.e. how do growth, wealth and oil affect the probability that a country is a democracy this year given that it was a dictatorship last year. We are also lagging the independent variables by one year. Put the results in column 3 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>
