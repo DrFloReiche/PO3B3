@@ -1,8 +1,8 @@
+fig:excel
 fig:unnamed-chunk-1
 fig:unnamed-chunk-2
-fig:unnamed-chunk-3
-fig:unnamed-chunk-4
-fig:unnamed-chunk-22
+fig:fig1
+fig:distribution
 introduction-to-r
 how-data-are-organised
 r-rstudio-installation
