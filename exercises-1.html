@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 Exercises | PO3B3: Quantitative Pathway</title>
-  <meta name="description" content="10 Exercises | PO3B3: Quantitative Pathway" />
+  <title>6 Exercises | PO3B3: Quantitative Pathway</title>
+  <meta name="description" content="6 Exercises | PO3B3: Quantitative Pathway" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10 Exercises | PO3B3: Quantitative Pathway" />
+  <meta property="og:title" content="6 Exercises | PO3B3: Quantitative Pathway" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10 Exercises | PO3B3: Quantitative Pathway" />
+  <meta name="twitter:title" content="6 Exercises | PO3B3: Quantitative Pathway" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="joint-estimation-of-emergence-and-survival.html"/>
-<link rel="next" href="downlads.html"/>
+<link rel="prev" href="consolidation.html"/>
+<link rel="next" href="markov-transition-models.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -294,52 +294,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercises-2" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">10</span> Exercises<a href="exercises-2.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="the-data-set" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> The Data Set<a href="exercises-2.html#the-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>
-Use the data set called <code>prz.dta</code>. This is the data set used in Przeworski et al.’s 2000 book, Democracy and Development. Deposit this in an appropriate working directory and import the data set into a data frame called . We will only be looking at a few variables – democ = 1 if democracy, 0 otherwise; gdpw - GDP per worker; g = growth rate; oil = 1 if oil producer, 0 otherwise.</p>
-</div>
-<div id="basics" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Basics<a href="exercises-2.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercises-1" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Exercises<a href="exercises-1.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="descriptives" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Descriptives<a href="exercises-1.html#descriptives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For all exercises, use the “WVS” data set.</p>
 <ol style="list-style-type: decimal">
-<li><p>Run a probit model where is the dependent variable and and are the independent variables. Put the results in column 1 of Table 1. What is (possibly) wrong with this approach? Interpret the coefficients on one or two of the variables.</p></li>
-<li><p>Run the same probit model as before but now include a lagged dependent variable. To create the lagged dependent variable, call:</p></li>
-</ol>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="exercises-2.html#cb81-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb81-2"><a href="exercises-2.html#cb81-2" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb81-3"><a href="exercises-2.html#cb81-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
-<span id="cb81-4"><a href="exercises-2.html#cb81-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
-<p>Put the results in column two of Table 1. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p>
-<ol start="3" style="list-style-type: decimal">
-<li><p>Now estimate a probit “transition to democracy” model i.e. how do growth, wealth and oil affect the probability that a country is a democracy this year given that it was a dictatorship last year. We are also lagging the independent variables by one year. Put the results in column 3 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>
-<li><p>Now estimate a probit “survival of democracy” model i.e. how do (lagged) growth, wealth and oil affect the probability that a country is a democracy this year given that it was a democracy last year. Put the results in column 4 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>
+<li>What is the average value for survival/self-expression values? What does this mean?</li>
+<li>Filtering through Waves, how has this average changed?</li>
+<li>Repeat these two steps with traditional/rational values.</li>
+<li>Why is the comparison of these values over time difficult?</li>
 </ol>
 </div>
-<div id="advanced" class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> Advanced<a href="exercises-2.html#advanced" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>
-For this section you will have to read through the instructions for joint estimation, provided separately</p>
-<ol start="5" style="list-style-type: decimal">
-<li>Now interact all the lagged independent variables with the lagged dependent variable. Estimate a fully interactive model and include all the constitutive terms. Put the results in column 5 of Table 1. What is the relationship between these coefficients and those in the previous two columns? Is there any extra information provided by this full interaction model that was not available from the previous two models?</li>
-<li>Now consider the straight probit model, the probit model with the lagged dependent variable, and the full interaction model. Produce the ROC curve for each of these models. Interpret a point on one of these curves. What do the ROC curves tell you about the fit of these three models?</li>
+<div id="linear-regression-1" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Linear Regression<a href="exercises-1.html#linear-regression-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>For which waves do traditional–rational values in the population explain a country’s level of democracy?</li>
+<li>For which waves do survival–self-expression values in the population explain a country’s level of democracy?</li>
+<li>Identify reasons why earlier waves fail to explain the level of democracy.</li>
+<li>Assessed jointly, how much more or less democratic do survival/self-expression value and GDP growth make countries in wave 5 (2005-2009)?</li>
+</ol>
+</div>
+<div id="probit-1" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Probit<a href="exercises-1.html#probit-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>For which waves do traditional–rational values in the population explain a country’s probability to be a democracy?</li>
+<li>For which waves do survival–self-expression values in the population explain a country’s probability to be a democracy?</li>
+<li>Identify reasons why earlier waves fail to explain regime type.</li>
+<li>Calculate a model assessing the impact of GDP growth on the probability of democracy for countries in wave 5.</li>
+<li>How much less likely is a country to be a democracy moving from minimum GDP growth to maximum GDP growth in wave 5?</li>
+<li>Calculate a model assessing the impact of traditional–rational values, and GDP growth on the probability of democracy for countries in wave 5. Interpret the results.</li>
+<li>Considering the main propositions of cultural modernisation, what are the implications of these results? Assess the results of each of the previous tasks in turn.</li>
 </ol>
 <p>You can find the solutions to these exercises in the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a>.</p>
-<p><img src="files/Week%207/table1.png" width="100%" /></p>
 
 </div>
 </div>
 
 
 
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="joint-estimation-of-emergence-and-survival.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="downlads.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="consolidation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="markov-transition-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
