@@ -300,36 +300,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the global data set.</li>
 <li>Estimate a model assessing the impact of per capita GDP and “Adjusted net enrolment rate, primary (% of primary school age children)” in 2000.</li>
 </ol>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="exercises.html#cb56-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;files/Week 3/world.dta&quot;</span>)</span>
-<span id="cb56-2"><a href="exercises.html#cb56-2" tabindex="-1"></a></span>
-<span id="cb56-3"><a href="exercises.html#cb56-3" tabindex="-1"></a>world2000 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, year<span class="sc">==</span><span class="dv">2000</span>)</span>
-<span id="cb56-4"><a href="exercises.html#cb56-4" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="exercises.html#cb56-5" tabindex="-1"></a>world2000<span class="sc">$</span>gdp_pc <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(world2000<span class="sc">$</span>gdp_pc))</span>
-<span id="cb56-6"><a href="exercises.html#cb56-6" tabindex="-1"></a></span>
-<span id="cb56-7"><a href="exercises.html#cb56-7" tabindex="-1"></a>probit1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdp_pc, </span>
-<span id="cb56-8"><a href="exercises.html#cb56-8" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
-<span id="cb56-9"><a href="exercises.html#cb56-9" tabindex="-1"></a>              <span class="at">data =</span> world2000)</span>
-<span id="cb56-10"><a href="exercises.html#cb56-10" tabindex="-1"></a><span class="fu">summary</span>(probit1)</span>
-<span id="cb56-11"><a href="exercises.html#cb56-11" tabindex="-1"></a></span>
-<span id="cb56-12"><a href="exercises.html#cb56-12" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb56-13"><a href="exercises.html#cb56-13" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> gdp_pc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
-<span id="cb56-14"><a href="exercises.html#cb56-14" tabindex="-1"></a>    <span class="at">data =</span> world2000)</span>
-<span id="cb56-15"><a href="exercises.html#cb56-15" tabindex="-1"></a></span>
-<span id="cb56-16"><a href="exercises.html#cb56-16" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb56-17"><a href="exercises.html#cb56-17" tabindex="-1"></a>              Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
-<span id="cb56-18"><a href="exercises.html#cb56-18" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">9.825e-02</span>  <span class="fl">1.160e-01</span>  <span class="sc">-</span><span class="fl">0.847</span> <span class="fl">0.396817</span>    </span>
-<span id="cb56-19"><a href="exercises.html#cb56-19" tabindex="-1"></a>gdp_pc       <span class="fl">4.758e-05</span>  <span class="fl">1.272e-05</span>   <span class="fl">3.742</span> <span class="fl">0.000183</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb56-20"><a href="exercises.html#cb56-20" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb56-21"><a href="exercises.html#cb56-21" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
-<span id="cb56-22"><a href="exercises.html#cb56-22" tabindex="-1"></a></span>
-<span id="cb56-23"><a href="exercises.html#cb56-23" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
-<span id="cb56-24"><a href="exercises.html#cb56-24" tabindex="-1"></a></span>
-<span id="cb56-25"><a href="exercises.html#cb56-25" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">242.95</span>  on <span class="dv">177</span>  degrees of freedom</span>
-<span id="cb56-26"><a href="exercises.html#cb56-26" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">223.39</span>  on <span class="dv">176</span>  degrees of freedom</span>
-<span id="cb56-27"><a href="exercises.html#cb56-27" tabindex="-1"></a>  (<span class="dv">5</span> observations deleted due to missingness)</span>
-<span id="cb56-28"><a href="exercises.html#cb56-28" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">227.39</span></span>
-<span id="cb56-29"><a href="exercises.html#cb56-29" tabindex="-1"></a></span>
-<span id="cb56-30"><a href="exercises.html#cb56-30" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="exercises.html#cb55-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;files/Week 3/world.dta&quot;</span>)</span>
+<span id="cb55-2"><a href="exercises.html#cb55-2" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="exercises.html#cb55-3" tabindex="-1"></a>world2000 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, year<span class="sc">==</span><span class="dv">2000</span>)</span>
+<span id="cb55-4"><a href="exercises.html#cb55-4" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="exercises.html#cb55-5" tabindex="-1"></a>world2000<span class="sc">$</span>gdp_pc <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(world2000<span class="sc">$</span>gdp_pc))</span>
+<span id="cb55-6"><a href="exercises.html#cb55-6" tabindex="-1"></a></span>
+<span id="cb55-7"><a href="exercises.html#cb55-7" tabindex="-1"></a>probit1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdp_pc, </span>
+<span id="cb55-8"><a href="exercises.html#cb55-8" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb55-9"><a href="exercises.html#cb55-9" tabindex="-1"></a>              <span class="at">data =</span> world2000)</span>
+<span id="cb55-10"><a href="exercises.html#cb55-10" tabindex="-1"></a><span class="fu">summary</span>(probit1)</span>
+<span id="cb55-11"><a href="exercises.html#cb55-11" tabindex="-1"></a></span>
+<span id="cb55-12"><a href="exercises.html#cb55-12" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb55-13"><a href="exercises.html#cb55-13" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> gdp_pc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb55-14"><a href="exercises.html#cb55-14" tabindex="-1"></a>    <span class="at">data =</span> world2000)</span>
+<span id="cb55-15"><a href="exercises.html#cb55-15" tabindex="-1"></a></span>
+<span id="cb55-16"><a href="exercises.html#cb55-16" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb55-17"><a href="exercises.html#cb55-17" tabindex="-1"></a>              Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb55-18"><a href="exercises.html#cb55-18" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">9.825e-02</span>  <span class="fl">1.160e-01</span>  <span class="sc">-</span><span class="fl">0.847</span> <span class="fl">0.396817</span>    </span>
+<span id="cb55-19"><a href="exercises.html#cb55-19" tabindex="-1"></a>gdp_pc       <span class="fl">4.758e-05</span>  <span class="fl">1.272e-05</span>   <span class="fl">3.742</span> <span class="fl">0.000183</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb55-20"><a href="exercises.html#cb55-20" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb55-21"><a href="exercises.html#cb55-21" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb55-22"><a href="exercises.html#cb55-22" tabindex="-1"></a></span>
+<span id="cb55-23"><a href="exercises.html#cb55-23" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
+<span id="cb55-24"><a href="exercises.html#cb55-24" tabindex="-1"></a></span>
+<span id="cb55-25"><a href="exercises.html#cb55-25" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">242.95</span>  on <span class="dv">177</span>  degrees of freedom</span>
+<span id="cb55-26"><a href="exercises.html#cb55-26" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">223.39</span>  on <span class="dv">176</span>  degrees of freedom</span>
+<span id="cb55-27"><a href="exercises.html#cb55-27" tabindex="-1"></a>  (<span class="dv">5</span> observations deleted due to missingness)</span>
+<span id="cb55-28"><a href="exercises.html#cb55-28" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">227.39</span></span>
+<span id="cb55-29"><a href="exercises.html#cb55-29" tabindex="-1"></a></span>
+<span id="cb55-30"><a href="exercises.html#cb55-30" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">5</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Design a Table to report results in MS Word.</li>
 <li>What is the probability to be a democracy evaluated at the mean for both independent variables?</li>
