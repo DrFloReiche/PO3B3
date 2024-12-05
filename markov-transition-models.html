@@ -334,9 +334,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="markov-transition-models.html#cb56-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;files/Week 7/world.csv&quot;</span>)</span>
 <span id="cb56-2"><a href="markov-transition-models.html#cb56-2" tabindex="-1"></a></span>
 <span id="cb56-3"><a href="markov-transition-models.html#cb56-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<ul>
-<li>We can now create the lagged democracy value</li>
-</ul>
+<p>We can now create the lagged democracy value.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="markov-transition-models.html#cb57-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
 <span id="cb57-2"><a href="markov-transition-models.html#cb57-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrycode) <span class="sc">%&gt;%</span></span>
 <span id="cb57-3"><a href="markov-transition-models.html#cb57-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democracy =</span> <span class="fu">lag</span>(democracy)) <span class="sc">%&gt;%</span></span>
