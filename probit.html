@@ -196,18 +196,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="part"><span><b>Week 3</b></span></li>
 <li class="chapter" data-level="5" data-path="probit.html"><a href="probit.html"><i class="fa fa-check"></i><b>5</b> Probit</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="probit.html"><a href="probit.html#preliminaries"><i class="fa fa-check"></i><b>5.1</b> Preliminaries</a></li>
-<li class="chapter" data-level="5.2" data-path="probit.html"><a href="probit.html#the-command"><i class="fa fa-check"></i><b>5.2</b> The Command</a></li>
-<li class="chapter" data-level="5.3" data-path="probit.html"><a href="probit.html#the-coefficients"><i class="fa fa-check"></i><b>5.3</b> The Coefficients</a></li>
-<li class="chapter" data-level="5.4" data-path="probit.html"><a href="probit.html#pedicted-probabilities"><i class="fa fa-check"></i><b>5.4</b> Pedicted Probabilities</a>
+<li class="chapter" data-level="5.1" data-path="probit.html"><a href="probit.html#video"><i class="fa fa-check"></i><b>5.1</b> Video</a></li>
+<li class="chapter" data-level="5.2" data-path="probit.html"><a href="probit.html#preliminaries"><i class="fa fa-check"></i><b>5.2</b> Preliminaries</a></li>
+<li class="chapter" data-level="5.3" data-path="probit.html"><a href="probit.html#the-command"><i class="fa fa-check"></i><b>5.3</b> The Command</a></li>
+<li class="chapter" data-level="5.4" data-path="probit.html"><a href="probit.html#the-coefficients"><i class="fa fa-check"></i><b>5.4</b> The Coefficients</a></li>
+<li class="chapter" data-level="5.5" data-path="probit.html"><a href="probit.html#pedicted-probabilities"><i class="fa fa-check"></i><b>5.5</b> Pedicted Probabilities</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="probit.html"><a href="probit.html#setting-the-x-values"><i class="fa fa-check"></i><b>5.4.1</b> Setting the x-values</a></li>
-<li class="chapter" data-level="5.4.2" data-path="probit.html"><a href="probit.html#predicting-the-probability"><i class="fa fa-check"></i><b>5.4.2</b> Predicting the Probability</a></li>
+<li class="chapter" data-level="5.5.1" data-path="probit.html"><a href="probit.html#setting-the-x-values"><i class="fa fa-check"></i><b>5.5.1</b> Setting the x-values</a></li>
+<li class="chapter" data-level="5.5.2" data-path="probit.html"><a href="probit.html#predicting-the-probability"><i class="fa fa-check"></i><b>5.5.2</b> Predicting the Probability</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="probit.html"><a href="probit.html#how-to-report-results"><i class="fa fa-check"></i><b>5.5</b> How to Report Results</a>
+<li class="chapter" data-level="5.6" data-path="probit.html"><a href="probit.html#how-to-report-results"><i class="fa fa-check"></i><b>5.6</b> How to Report Results</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="probit.html"><a href="probit.html#multiple-independent-variables"><i class="fa fa-check"></i><b>5.5.1</b> Multiple Independent Variables</a></li>
-<li class="chapter" data-level="5.5.2" data-path="probit.html"><a href="probit.html#predicting-the-probability-1"><i class="fa fa-check"></i><b>5.5.2</b> Predicting the Probability</a></li>
+<li class="chapter" data-level="5.6.1" data-path="probit.html"><a href="probit.html#multiple-independent-variables"><i class="fa fa-check"></i><b>5.6.1</b> Multiple Independent Variables</a></li>
+<li class="chapter" data-level="5.6.2" data-path="probit.html"><a href="probit.html#predicting-the-probability-1"><i class="fa fa-check"></i><b>5.6.2</b> Predicting the Probability</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>6</b> Exercises</a></li>
@@ -303,14 +304,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="probit" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> Probit<a href="probit.html#probit" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="preliminaries" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Preliminaries<a href="probit.html#preliminaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="video" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Video<a href="probit.html#video" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To start, please watch the following video in which I explain the rationale of a logit model. This is very similar to a probit model; these only vary in the underlying distribution and have some differences in the interpretation of the output, but the intuition is the same.</p>
+<p style="text-align: center;">
+<iframe style="font-size: 1rem;" src="https://www.youtube.com/embed/cquc8dX2_vo?rel=0" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen">
+</iframe>
+</p>
+</div>
+<div id="preliminaries" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Preliminaries<a href="probit.html#preliminaries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As you know from the video, the relationship between our independent variable and the probability of democracy is not linear: the curve was s-shaped, so that the increment in probability is not the same for, say moving from <span class="math inline">\(x_{1}\)</span> to <span class="math inline">\(x_{2}\)</span> and from <span class="math inline">\(x_{2}\)</span> to <span class="math inline">\(x_{3}\)</span>. For illustration see the red bars in the following Figure:</p>
 <p><img src="files/Week%203/probability.png" width="58%" style="display: block; margin: auto;" /></p>
 <p>What we therefore need to do in the world of probit, is to evaluate the probability at individual values of <span class="math inline">\(x_{i}\)</span>, or put differently, assess how much of the bell-shaped curve has slid across our cut-off point <span class="math inline">\(\tau\)</span> (tau) at a particular point <span class="math inline">\(x_{i}\)</span>.</p>
 </div>
-<div id="the-command" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> The Command<a href="probit.html#the-command" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-command" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> The Command<a href="probit.html#the-command" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The command to run a probit is as follows:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="probit.html#cb40-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar</span>
 <span id="cb40-2"><a href="probit.html#cb40-2" tabindex="-1"></a>                     <span class="at">data =</span> dataframe, </span>
@@ -355,17 +364,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb44-20"><a href="probit.html#cb44-20" tabindex="-1"></a></span>
 <span id="cb44-21"><a href="probit.html#cb44-21" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">7</span></span></code></pre></div>
 </div>
-<div id="the-coefficients" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> The Coefficients<a href="probit.html#the-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-coefficients" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> The Coefficients<a href="probit.html#the-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The coefficients are displayed in the results as follows:</p>
 <p><img src="files/Week%203/output.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>But how do we interpret them? As mentioned at the start of this worksheet, we cannot interpret either in a straightforward way, as the relationship between the independent variable and the probability outcome is not linear. Instead, we are going to use predicted probabilities, which evaluate the cdf for those values of the independent variable we are interested in.</p>
 </div>
-<div id="pedicted-probabilities" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Pedicted Probabilities<a href="probit.html#pedicted-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pedicted-probabilities" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Pedicted Probabilities<a href="probit.html#pedicted-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once we have estimated the model, we have determined the shape of the s-shaped curve at the start of the worksheet. What we now need to do, is to evaluate the probability on the y-axis for different values on the x-axis. In our case this is the variable .</p>
-<div id="setting-the-x-values" class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Setting the x-values<a href="probit.html#setting-the-x-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="setting-the-x-values" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Setting the x-values<a href="probit.html#setting-the-x-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us first get a basic overview of the variable . We can do this by calling</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="probit.html#cb45-1" tabindex="-1"></a><span class="fu">summary</span>(europe2000<span class="sc">$</span>lifeexp)</span>
 <span id="cb45-2"><a href="probit.html#cb45-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max.    NA<span class="st">&#39;s </span></span>
@@ -375,8 +384,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you want to change this value for calculations later on, you simply set different values in the dataframe )or specify a new one).</p>
 <p>We now have the shape of the probability curve, and we have agreed on a point on the x-axis. We are finally ready to have a look at the probability to be a democracy at this point.</p>
 </div>
-<div id="predicting-the-probability" class="section level3 hasAnchor" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Predicting the Probability<a href="probit.html#predicting-the-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="predicting-the-probability" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Predicting the Probability<a href="probit.html#predicting-the-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The quantity of interest we are interested in is the probability of being a democracy. To calculate this quantity of interest, we use the function and specify within this functon for which model we want to calculate the quantity, and the data frame in which we specified the value of our x-variable. In our case this variable is and we have assigned the mean value to an object called earlier.</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="probit.html#cb47-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
 <span id="cb47-2"><a href="probit.html#cb47-2" tabindex="-1"></a>        <span class="dv">1</span> </span>
@@ -400,8 +409,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="how-to-report-results" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> How to Report Results<a href="probit.html#how-to-report-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="how-to-report-results" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> How to Report Results<a href="probit.html#how-to-report-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The question is now: how do you report all of this in an article, or closer to home, in your assessment? Let us start by calculating a model which assesses the impact of per capita GDP on the probability to be a democracy in 2000, worldwide. The R commands and output look like this:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="probit.html#cb51-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;world.dta&quot;</span>)</span>
 <span id="cb51-2"><a href="probit.html#cb51-2" tabindex="-1"></a></span>
@@ -533,22 +542,22 @@ Observations
 </table>
 <p>You see, this table manages to convey clearly the relationship we are assessing, the label of the independent variable (not in the form of cryptic variable names), the value of the intercept, the value of the slope coefficient, their respective p-value, and the number of observations. As such, the table itself could already communicate the main take-away message without somebody looking at the text. This needs to be the goal: the table, or figure needs to be able to communicate the message without having to look at the text. In turn, the text needs to be able to communicate the message on its own without looking at the table. But both need to say the same thing.</p>
 <p>After you have reported the results of the regression output in this way, you can then proceed to interpret (in the text) the transition probabilities as discussed above. Again, you might wish to sum up the main results in tabular format.</p>
-<div id="multiple-independent-variables" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> Multiple Independent Variables<a href="probit.html#multiple-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="multiple-independent-variables" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Multiple Independent Variables<a href="probit.html#multiple-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As in multiple linear regression, you can also have multiple independent variables in a probit model. Schematically this would look as follows:</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="probit.html#cb53-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar1 <span class="sc">+</span> indepvar2 <span class="sc">+</span> indepvar3, </span>
 <span id="cb53-2"><a href="probit.html#cb53-2" tabindex="-1"></a>              <span class="at">data =</span> dataframe, </span>
 <span id="cb53-3"><a href="probit.html#cb53-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span></code></pre></div>
 <p>The fun starts when you begin to calculate probabilities for different values for all of these independent variables.</p>
-<div id="setting-the-x-values-1" class="section level4 hasAnchor" number="5.5.1.1">
-<h4><span class="header-section-number">5.5.1.1</span> Setting the x-values<a href="probit.html#setting-the-x-values-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="setting-the-x-values-1" class="section level4 hasAnchor" number="5.6.1.1">
+<h4><span class="header-section-number">5.6.1.1</span> Setting the x-values<a href="probit.html#setting-the-x-values-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You can set the value for each variable individually, such as in this little example:</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="probit.html#cb54-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">gdp_pc=</span><span class="fu">min</span>(europe2000<span class="sc">$</span>gdp_pc, <span class="at">na.rm =</span> T),</span>
 <span id="cb54-2"><a href="probit.html#cb54-2" tabindex="-1"></a>                  <span class="at">lifeexp=</span><span class="fl">75.11</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="predicting-the-probability-1" class="section level3 hasAnchor" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> Predicting the Probability<a href="probit.html#predicting-the-probability-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="predicting-the-probability-1" class="section level3 hasAnchor" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Predicting the Probability<a href="probit.html#predicting-the-probability-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is very much the same as above with one independent variable. It is crucial to remember which variables you have set at which value, so that you can interpret the probability values correctly. As in linear regression, the interpretation of individual variables is ceteris paribus. It therefore makes sense, if you wish to isolate the effect of one, single variable, only to vary the values of that variable, and to leave all the other ones the same. If you varied two variables at the same time, for example, you would no doubt see a change in probability, but you could not attribute it to a single independent variable, any more.</p>
 </div>
 </div>

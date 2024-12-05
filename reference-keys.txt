@@ -42,6 +42,7 @@ parsimony
 r-squared-again
 important-disclaimer
 probit
+video
 preliminaries
 the-command
 the-coefficients
