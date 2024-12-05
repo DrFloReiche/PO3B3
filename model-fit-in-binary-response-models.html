@@ -206,6 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="probit-application.html"><a href="probit-application.html#setting-the-x-values"><i class="fa fa-check"></i><b>6.3.1</b> Setting the x-values</a></li>
 <li class="chapter" data-level="6.3.2" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability"><i class="fa fa-check"></i><b>6.3.2</b> Predicting the Probability</a></li>
+<li class="chapter" data-level="6.3.3" data-path="probit-application.html"><a href="probit-application.html#all-predicted-probabilities"><i class="fa fa-check"></i><b>6.3.3</b> All Predicted Probabilities</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i><b>6.4</b> How to Report Results</a>
 <ul>
@@ -312,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Simple: The proportion of correctly predicted regimes</li>
 <li>But:</li>
 </ul>
-<p><img src="main_files/figure-html/unnamed-chunk-97-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-98-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="roc-curves" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> ROC-Curves<a href="model-fit-in-binary-response-models.html#roc-curves" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -328,15 +329,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="perfect-separation" class="section level3 hasAnchor" number="11.2.1">
 <h3><span class="header-section-number">11.2.1</span> Perfect Separation<a href="model-fit-in-binary-response-models.html#perfect-separation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
 </div>
 <div id="overlap" class="section level3 hasAnchor" number="11.2.2">
 <h3><span class="header-section-number">11.2.2</span> Overlap<a href="model-fit-in-binary-response-models.html#overlap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
 </div>
 <div id="example" class="section level3 hasAnchor" number="11.2.3">
 <h3><span class="header-section-number">11.2.3</span> Example<a href="model-fit-in-binary-response-models.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
 <p>This is for the full model of democratic survival.</p>
 </div>
 <div id="how-is-this-constructed" class="section level3 hasAnchor" number="11.2.4">
@@ -376,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="we-can-also-look-at-this-graphically-again" class="section level3 hasAnchor" number="11.2.7">
 <h3><span class="header-section-number">11.2.7</span> We can also look at this graphically again:<a href="model-fit-in-binary-response-models.html#we-can-also-look-at-this-graphically-again" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-105-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-106-1.png" width="70%" /></p>
 </div>
 <div id="emergence-full-model" class="section level3 hasAnchor" number="11.2.8">
 <h3><span class="header-section-number">11.2.8</span> Emergence: Full Model<a href="model-fit-in-binary-response-models.html#emergence-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -390,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="graphically" class="section level3 hasAnchor" number="11.2.9">
 <h3><span class="header-section-number">11.2.9</span> Graphically<a href="model-fit-in-binary-response-models.html#graphically" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-107-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-108-1.png" width="70%" /></p>
 </div>
 <div id="survival" class="section level3 hasAnchor" number="11.2.10">
 <h3><span class="header-section-number">11.2.10</span> Survival<a href="model-fit-in-binary-response-models.html#survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -401,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb74-5"><a href="model-fit-in-binary-response-models.html#cb74-5" tabindex="-1"></a></span>
 <span id="cb74-6"><a href="model-fit-in-binary-response-models.html#cb74-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
 <span id="cb74-7"><a href="model-fit-in-binary-response-models.html#cb74-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8504</span></span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-109-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-110-1.png" width="70%" /></p>
 </div>
 <div id="for-completenesss-sake" class="section level3 hasAnchor" number="11.2.11">
 <h3><span class="header-section-number">11.2.11</span> For completeness’s sake<a href="model-fit-in-binary-response-models.html#for-completenesss-sake" class="anchor-section" aria-label="Anchor link to header"></a></h3>

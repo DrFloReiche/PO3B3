@@ -49,6 +49,7 @@ the-coefficients
 pedicted-probabilities
 setting-the-x-values
 predicting-the-probability
+all-predicted-probabilities
 how-to-report-results
 multiple-independent-variables
 setting-the-x-values-1
