@@ -1,18 +1,17 @@
-#####################
-# WORKSHEET WEEK 5
-#####################
+###########################
+# PO3B3 - Exercises WEEK 5
+###########################
 
 
 # WORKING DIRECTORY
 #####################
 
-setwd("~/OneDrive - University of Warwick/Warwick/Modules/PO33Q/R/Worksheets/WEEK 5")
+setwd()
 
 
 # PACKAGES
 ############
 
-library(haven)
 library(tidyverse)
 
 
@@ -20,7 +19,8 @@ library(tidyverse)
 # Import Data
 #############
 
-wvs <- read_dta("wvs.dta")
+wvs <- read.csv("wvs.csv")
+
 
 
 
@@ -82,19 +82,19 @@ summary(wvs5$traditional_rational)
 #For which waves do traditional–rational values in the population explain a country’s level of democracy?
 ###############################################################
 
-reg_wvs1 <- lm(polity2 ~ traditional_rational, data=wvs1)
+reg_wvs1 <- lm(polity ~ traditional_rational, data=wvs1)
 summary(reg_wvs1)
 
-reg_wvs2 <- lm(polity2 ~ traditional_rational, data=wvs2)
+reg_wvs2 <- lm(polity ~ traditional_rational, data=wvs2)
 summary(reg_wvs2)
 
-reg_wvs3 <- lm(polity2 ~ traditional_rational, data=wvs3)
+reg_wvs3 <- lm(polity ~ traditional_rational, data=wvs3)
 summary(reg_wvs3)
 
-reg_wvs4 <- lm(polity2 ~ traditional_rational, data=wvs4)
+reg_wvs4 <- lm(polity ~ traditional_rational, data=wvs4)
 summary(reg_wvs4)
 
-reg_wvs5 <- lm(polity2 ~ traditional_rational, data=wvs5)
+reg_wvs5 <- lm(polity ~ traditional_rational, data=wvs5)
 summary(reg_wvs5)
 
 
@@ -104,19 +104,19 @@ summary(reg_wvs5)
 ###############################################################
 
 
-reg_wvs1_ss <- lm(polity2 ~ surv_self, data=wvs1)
+reg_wvs1_ss <- lm(polity ~ surv_self, data=wvs1)
 summary(reg_wvs1_ss)
 
-reg_wvs2_ss <- lm(polity2 ~ surv_self, data=wvs2)
+reg_wvs2_ss <- lm(polity ~ surv_self, data=wvs2)
 summary(reg_wvs2_ss)
 
-reg_wvs3_ss <- lm(polity2 ~ surv_self, data=wvs3)
+reg_wvs3_ss <- lm(polity ~ surv_self, data=wvs3)
 summary(reg_wvs3_ss)
 
-reg_wvs4_ss <- lm(polity2 ~ surv_self, data=wvs4)
+reg_wvs4_ss <- lm(polity ~ surv_self, data=wvs4)
 summary(reg_wvs4_ss)
 
-reg_wvs5_ss <- lm(polity2 ~ surv_self, data=wvs5)
+reg_wvs5_ss <- lm(polity ~ surv_self, data=wvs5)
 summary(reg_wvs5_ss)
 
 
@@ -134,7 +134,7 @@ summary(reg_wvs5_ss)
 # Assessed jointly, how much more or less democratic do survival/self-expression value and GDP growth make countries in wave 5 (2005-2009)?
 ###############################################################
 
-reg_wvs5_joint <- lm(polity2 ~ gdp_growth + surv_self, data=wvs5)
+reg_wvs5_joint <- lm(polity ~ gdp_growth + surv_self, data=wvs5)
 summary(reg_wvs5_joint)
 
 ## >> ceteris paribus, for every additional 1% annual growth in GDP, the level of democracy drops by 0.68 points on the Polity IV scale on average
