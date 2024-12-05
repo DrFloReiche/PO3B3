@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | PO3B3: Quantitative Pathway</title>
-  <meta name="description" content="Page not found | PO3B3: Quantitative Pathway" />
+  <title>2 Linear Regression - Theory | PO3B3: Quantitative Pathway</title>
+  <meta name="description" content="2 Linear Regression - Theory | PO3B3: Quantitative Pathway" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | PO3B3: Quantitative Pathway" />
+  <meta property="og:title" content="2 Linear Regression - Theory | PO3B3: Quantitative Pathway" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | PO3B3: Quantitative Pathway" />
+  <meta name="twitter:title" content="2 Linear Regression - Theory | PO3B3: Quantitative Pathway" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="introduction-to-r.html"/>
+<link rel="next" href="linear-regression-application.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -300,19 +300,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="linear-regression---theory" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Linear Regression - Theory<a href="linear-regression---theory.html#linear-regression---theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Introduction<a href="linear-regression---theory.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Regression is the power house of the social sciences. It is widely applied and takes many different forms. In this Chapter we are going to explore the linear variant, also called Ordinary Least Squares (OLS). This type of regression is used if our dependent variable is continuous. In the following Chapter we will have a look at regression with a binary dependent variable and the calculation of the probability to fall into either of those two categories. But let’s first turn to linear regression.</p>
+</div>
+<div id="what-is-it" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> What is it?<a href="linear-regression---theory.html#what-is-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Regression is not only able to identify the direction of a relationship between an independent and a dependent variable, it is also able to quantify the effect. Let us choose <code>Y</code> as our dependent variable, and <code>X</code> as our independent variable. We have some data which we are displaying in a scatter plot:</p>
+<p><img src="files/Week%202/scatter.png" style="width:50.0%" /></p>
+<p>With a little goodwill we can already see that there is a positive relationship: as <code>X</code> increases, <code>Y</code> increases, as well. Now, imagine taking a ruler and trying to fit in a line that best describes the relationship depicted by these points. This will be our regression line.</p>
+<p>The position of a line in a coordinate system is usually described by two items: the intercept with the Y-axis, and the slope of the line. The slope is defined as rise over run, and indicates by how much Y increases (or decreases is the slope is negative) if we add an additional unit of X. In the notation which follows we will call the intercept <span class="math inline">\(\beta_{0}\)</span>, and the slope <span class="math inline">\(\beta_{1}\)</span>. It will be our task to estimate these values, also called coefficients. You can see this depicted graphically here:</p>
+<p><img src="files/Week%202/regline.png" style="width:50.0%" /></p>
+<p>In the context of the module, we would for example have per capita GDP on the x-axis (independent variable), and Polity V measuring the level of democracy on the y-axis (dependent variable). This would look like this in the year 2015:</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-32"></span>
+<img src="main_files/figure-html/unnamed-chunk-32-1.png" alt="\label{fig:modern}Democracy and Development in 2015" width="50%" />
+<p class="caption">
+Figure 2.1: Democracy and Development in 2015
+</p>
+</div>
+<p><strong>Population</strong></p>
+<p>We will first assume here that we are dealing with the population and not a sample. The regression line we have just drawn would then be called the Population Regression Function (PRF) and is written as follows:</p>
+<p><span class="math display">\[\begin{equation}
+E(Y|X_{i}) = \beta_{0} + \beta_{1} X_{i}
+\end{equation}\]</span></p>
+<p>Because wer are dealing with the population, the line is the geometric locus of all the expected values of the dependent variable <code>Y</code>, given the values of the independent variables <code>X</code>. This has to do with the approach to statistics that underpins this module: frequentist statsctics (as opposed to Bayesian statistics). We are understanding all values to be “in the long run”, and if we sampled repeatedly from a population, then the expected value is the value we would, well, expect to see most often in the long run.</p>
+<p>The regression line is not intercepting with all observations. Only two are located on the line, and all others have a little distance between them and the PRF. These distances between <span class="math inline">\(E(Y|X_{i})\)</span> and <span class="math inline">\(Y_{i}\)</span> are called error terms and are denoted as <span class="math inline">\(\epsilon_{i}\)</span>.</p>
+<p><img src="files/Week%202/errors.png" style="width:50.0%" /></p>
+<p>To describe the observations <span class="math inline">\(Y_{i}\)</span> we therefore need to add the error terms to the PRF:</p>
+<p><span class="math display">\[\begin{equation}
+Y_{i} = \beta_{0} + \beta_{1} X_{i} + \epsilon_{i}
+\end{equation}\]</span></p>
+<p><strong>Sample</strong></p>
+<p>In reality we hardly ever have the population in the social sciences, and we generally have to contend with a sample. Nonetheless, we can construct a regression line on the basis of the sample, the Sample Regression Function (SRF). It is important to note that the nature of the regression line we derive fromt he sample will be different for every sample, as each sample will have other values in it. Rarely, the PRF is the same as the SRF - but we are always using the SRF to estimate the PRF.</p>
+<p>In order to flag this up in the notation we use to specify the SRF, we are using little hats over everything we estimate, like this:</p>
+<p><span class="math display">\[\begin{equation}
+\hat{Y}_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i}
+\end{equation}\]</span></p>
+<p>Analogously, we would would describe the observations <span class="math inline">\(Y_{i}\)</span> by adding the estimated error terms <span class="math inline">\(\hat{\epsilon}_{i}\)</span> to the equation.</p>
+<p><span class="math display">\[\begin{equation}
+Y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i} + \hat{\epsilon}_{i}
+\end{equation}\]</span></p>
+<p>The following graph visdualised the relationship between an observation, the PRF, the SRF and the respective error terms.</p>
+<p><img src="files/Week%202/SRF_PRF.png" style="width:50.0%" /></p>
+</div>
+<div id="ordinary-least-squares-ols" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Ordinary Least Squares (OLS)<a href="linear-regression---theory.html#ordinary-least-squares-ols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When you eye-balled the scatter plot at the start of this Chapter in order to fit a line through it, you have sub-consciously done so by minimising the distance between each of the observations and the line. Or put differently, you have tried to minimise the error term <span class="math inline">\(\hat{\epsilon}_{i}\)</span>. This is basically the intuition behind fitting the SRF mathematically, too. We try to minimise the sum of all error terms, so that all observations are as close to the regression line as possible. The only problem that we encounter when doing this is that these distances will always sum up to zero.</p>
+<p>But similar to calculating the standard deviation where the differences between the observations and the mean would sum up to zero (essentially we are doing the same thing here), we simply square those distances. So we are not minimising the sum of distances between observations and the regression line, but the sum of the <strong>squared</strong> distances between the observations and the regression line. Graphically, we would end up with little squares made out of each <span class="math inline">\(\hat{\epsilon}_{i}\)</span> which gives the the method its name: Ordinary Least Squares (OLS).</p>
+<p><img src="files/Week%202/OLS.png" style="width:50.0%" /></p>
+<p>We are now ready to apply this stuff to a PO3B3-related example!</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="introduction-to-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-regression-application.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -3,6 +3,7 @@ fig:unnamed-chunk-1
 fig:unnamed-chunk-2
 fig:fig1
 fig:distribution
+fig:unnamed-chunk-32
 introduction-to-r
 how-data-are-organised
 r-rstudio-installation
@@ -22,7 +23,11 @@ recoding
 saving
 the-real-data-set
 data-set-codebook
-linear-regression
+linear-regression---theory
+introduction
+what-is-it
+ordinary-least-squares-ols
+linear-regression-application
 the-basic-command
 interpreting-the-output
 the-number-of-observations
@@ -51,7 +56,7 @@ consolidation
 the-world-value-survey
 exercises-1
 descriptives
-linear-regression-1
+linear-regression
 probit-1
 markov-transition-models
 time-series
