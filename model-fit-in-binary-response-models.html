@@ -330,9 +330,9 @@ Figure 11.3: False Negatives and False Positives
 </div>
 <p>But there is another issue: whilst setting <span class="math inline">\(\tau\)</span> at 0.5 makes intuitive sense, there is nothing preventing us from shifting <span class="math inline">\(\tau\)</span> around. Indeed, the number of FPs and FNs very much depends on where we place our cut-off point. For example, if we don’t want any FNs, then we just have to shift <span class="math inline">\(\tau\)</span> sufficiently downwards. Or if we want to avoid FPs we only need to move it far enough upwards. I have illustrated this in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">11.4</a> a) and b), respectively.</p>
 <div class="figure"><span style="display:block;" id="fig:taushift"></span>
-<img src="files/Week%207/taushift.png" alt="\label{fig:taushift}Shifting $    au$" width="75%" />
+<img src="files/Week%207/taushift.png" alt="\label{fig:taushift}Shifting $\tau$" width="75%" />
 <p class="caption">
-Figure 11.4: Shifting $ au$
+Figure 11.4: Shifting <span class="math inline">\(\tau\)</span>
 </p>
 </div>
 <p>These are only three options of placing the threshold. But we have a total of eight observations which means that there are nine potential positions for the cut-off point with each leading to a different conclusion of how well our model fits the observed data. Let’s go through this more systematically and start by placing <span class="math inline">\(\tau\)</span> at the very bottom. Because the number of TNs, TPs, FNs, and FPs will only change at the “next” observation we only need to shift as many times as there are observations. For each shift we record the values of all four quantities in a crosstabulation which is displayed in the following table:</p>
