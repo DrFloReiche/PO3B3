@@ -41,9 +41,9 @@ ceteris-paribus
 parsimony
 r-squared-again
 important-disclaimer
-probit
-video
-preliminaries
+probit---theory
+probit---what-is-it
+probit-application
 the-command
 the-coefficients
 pedicted-probabilities
@@ -59,7 +59,7 @@ the-world-value-survey
 exercises-1
 descriptives
 linear-regression
-probit-1
+probit
 markov-transition-models
 time-series
 what-are-markov-transition-models
