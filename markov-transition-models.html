@@ -427,6 +427,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <p><span class="math display">\[\begin{equation*}
 P(y_{i,t} = 1 | y_{i, t-1} = 1)
 \end{equation*}\]</span></p>
+<p>we call:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="markov-transition-models.html#cb66-1" tabindex="-1"></a>survival <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdppc,</span>
 <span id="cb66-2"><a href="markov-transition-models.html#cb66-2" tabindex="-1"></a>                <span class="at">data =</span> world_democ1, </span>
 <span id="cb66-3"><a href="markov-transition-models.html#cb66-3" tabindex="-1"></a>                <span class="at">na.action =</span> na.exclude,</span>
