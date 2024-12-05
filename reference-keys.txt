@@ -50,7 +50,7 @@ r-squared-again
 important-disclaimer
 probit---theory
 probit---what-is-it
-probit-application
+probitapplication
 the-command
 the-coefficients
 pedicted-probabilities
@@ -73,17 +73,11 @@ time-series-cross-sectional-data
 what-are-markov-transition-models
 conditional-probabilities
 democratic-emergence
-what-else
 lagging-the-independent-variables
 subsetting-the-data-for-conditional-probabilities
-now-we-are-ready
 democratic-emergence-1
-full-modernisation
-democratic-emergence-full-modernisation
 democratic-survival
-conditional-probability
-in-r
-and-again-full-modernisation
+interpretation
 model-fit-in-binary-response-models
 how-to-measure-model-fit
 what-is-it-1
