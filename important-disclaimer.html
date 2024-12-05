@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 Model Fit in Binary Response Models | PO3B3: Quantitative Pathway</title>
-  <meta name="description" content="10 Model Fit in Binary Response Models | PO3B3: Quantitative Pathway" />
+  <title>4 Important Disclaimer | PO3B3: Quantitative Pathway</title>
+  <meta name="description" content="4 Important Disclaimer | PO3B3: Quantitative Pathway" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10 Model Fit in Binary Response Models | PO3B3: Quantitative Pathway" />
+  <meta property="og:title" content="4 Important Disclaimer | PO3B3: Quantitative Pathway" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10 Model Fit in Binary Response Models | PO3B3: Quantitative Pathway" />
+  <meta name="twitter:title" content="4 Important Disclaimer | PO3B3: Quantitative Pathway" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="markov-transition-models.html"/>
-<link rel="next" href="joint-estimation-of-emergence-and-survival.html"/>
+<link rel="prev" href="linear-regression-application.html"/>
+<link rel="next" href="probit.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -301,125 +301,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="model-fit-in-binary-response-models" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">10</span> Model Fit in Binary Response Models<a href="model-fit-in-binary-response-models.html#model-fit-in-binary-response-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="how-to-measure-model-fit" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> How to Measure Model Fit<a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Simple: The proportion of correctly predicted regimes</li>
-<li>But:</li>
-</ul>
-<p><img src="main_files/figure-html/unnamed-chunk-93-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<div id="important-disclaimer" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Important Disclaimer<a href="important-disclaimer.html#important-disclaimer" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>I have discussed linear regression with you this week for two reasons:</p>
+<ol style="list-style-type: decimal">
+<li>I am trying to sketch the methodological development through which the relationship between economic development and democracy has been analysed over time. Lipset started with a simple correlation analysis in 1953, and this quickly developed into linear regression analysis, as it is more powerful and more sophsticated than correlation analysis.</li>
+<li>It forms the foundation for the binary response models (probit in our case) which we will start with next week. To start with, we will only look at the probability to be democratic in a particular year across different countries. But in week 7, we will extend this to not only investigate this relationship across countries, but also over time. This dynamic probit, or Markov Transition Model (MTM), is the model you need to apply in the assessment of the module. Please DO NOT stick to linear regression in the assessment, as OLS is not capable to deal with time-series data. The same applies for a cross-sectional probit. The only method permissible int he assessment is an MTM.</li>
+</ol>
+
 </div>
-<div id="roc-curves" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> ROC-Curves<a href="model-fit-in-binary-response-models.html#roc-curves" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Measure how well a model is able to separate cases</li>
-<li>Capture the trade-off between correctly predicting 1s and 0s.</li>
-<li>Construct a curve which has:
-<ul>
-<li>y-axis: Probability of correctly predicting a 1. (Sensitivity)</li>
-<li>x-axis: (1-Specificity); Specificity: Probability of correctly predicting a 0.</li>
-<li>Diagonal: Model with no covariates</li>
-</ul></li>
-</ul>
-<div id="perfect-separation" class="section level3 hasAnchor" number="10.2.1">
-<h3><span class="header-section-number">10.2.1</span> Perfect Separation<a href="model-fit-in-binary-response-models.html#perfect-separation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
-</div>
-<div id="overlap" class="section level3 hasAnchor" number="10.2.2">
-<h3><span class="header-section-number">10.2.2</span> Overlap<a href="model-fit-in-binary-response-models.html#overlap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
-</div>
-<div id="example" class="section level3 hasAnchor" number="10.2.3">
-<h3><span class="header-section-number">10.2.3</span> Example<a href="model-fit-in-binary-response-models.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
-<p>This is for the full model of democratic survival.</p>
-</div>
-<div id="how-is-this-constructed" class="section level3 hasAnchor" number="10.2.4">
-<h3><span class="header-section-number">10.2.4</span> How is this constructed?<a href="model-fit-in-binary-response-models.html#how-is-this-constructed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="files/Week%207/ROC1.png" width="75%" style="display: block; margin: auto;" />
-</p>
-<p><img src="files/Week%207/ROC2.png" width="75%" style="display: block; margin: auto;" />
-</p>
-</div>
-<div id="interpretation" class="section level3 hasAnchor" number="10.2.5">
-<h3><span class="header-section-number">10.2.5</span> Interpretation<a href="model-fit-in-binary-response-models.html#interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>The further away from the diagonal, the better the model predicts 1s and 0s.</li>
-<li>Area: Would be 100% if the model correctly predicted everything</li>
-<li>This becomes smaller as the model becomes worse</li>
-<li>Good for comparisons between models.</li>
-</ul>
-</div>
-<div id="r" class="section level3 hasAnchor" number="10.2.6">
-<h3><span class="header-section-number">10.2.6</span> R<a href="model-fit-in-binary-response-models.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Let’s start with the simple emergence model</li>
-<li>Load the package</li>
-</ul>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="model-fit-in-binary-response-models.html#cb72-1" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
-<ul>
-<li>and the calculate the curve:</li>
-</ul>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="model-fit-in-binary-response-models.html#cb73-1" tabindex="-1"></a>prob_em <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb73-2"><a href="model-fit-in-binary-response-models.html#cb73-2" tabindex="-1"></a></span>
-<span id="cb73-3"><a href="model-fit-in-binary-response-models.html#cb73-3" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em)</span>
-<span id="cb73-4"><a href="model-fit-in-binary-response-models.html#cb73-4" tabindex="-1"></a></span>
-<span id="cb73-5"><a href="model-fit-in-binary-response-models.html#cb73-5" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em)</span>
-<span id="cb73-6"><a href="model-fit-in-binary-response-models.html#cb73-6" tabindex="-1"></a></span>
-<span id="cb73-7"><a href="model-fit-in-binary-response-models.html#cb73-7" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb73-8"><a href="model-fit-in-binary-response-models.html#cb73-8" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5274</span></span></code></pre></div>
-</div>
-<div id="we-can-also-look-at-this-graphically-again" class="section level3 hasAnchor" number="10.2.7">
-<h3><span class="header-section-number">10.2.7</span> We can also look at this graphically again:<a href="model-fit-in-binary-response-models.html#we-can-also-look-at-this-graphically-again" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-101-1.png" width="70%" /></p>
-</div>
-<div id="emergence-full-model" class="section level3 hasAnchor" number="10.2.8">
-<h3><span class="header-section-number">10.2.8</span> Emergence: Full Model<a href="model-fit-in-binary-response-models.html#emergence-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="model-fit-in-binary-response-models.html#cb74-1" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb74-2"><a href="model-fit-in-binary-response-models.html#cb74-2" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em_full)</span>
-<span id="cb74-3"><a href="model-fit-in-binary-response-models.html#cb74-3" tabindex="-1"></a></span>
-<span id="cb74-4"><a href="model-fit-in-binary-response-models.html#cb74-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
-<span id="cb74-5"><a href="model-fit-in-binary-response-models.html#cb74-5" tabindex="-1"></a></span>
-<span id="cb74-6"><a href="model-fit-in-binary-response-models.html#cb74-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb74-7"><a href="model-fit-in-binary-response-models.html#cb74-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.6413</span></span></code></pre></div>
-</div>
-<div id="graphically" class="section level3 hasAnchor" number="10.2.9">
-<h3><span class="header-section-number">10.2.9</span> Graphically<a href="model-fit-in-binary-response-models.html#graphically" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="main_files/figure-html/unnamed-chunk-103-1.png" width="70%" /></p>
-</div>
-<div id="survival" class="section level3 hasAnchor" number="10.2.10">
-<h3><span class="header-section-number">10.2.10</span> Survival<a href="model-fit-in-binary-response-models.html#survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="model-fit-in-binary-response-models.html#cb75-1" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb75-2"><a href="model-fit-in-binary-response-models.html#cb75-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur)</span>
-<span id="cb75-3"><a href="model-fit-in-binary-response-models.html#cb75-3" tabindex="-1"></a></span>
-<span id="cb75-4"><a href="model-fit-in-binary-response-models.html#cb75-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
-<span id="cb75-5"><a href="model-fit-in-binary-response-models.html#cb75-5" tabindex="-1"></a></span>
-<span id="cb75-6"><a href="model-fit-in-binary-response-models.html#cb75-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb75-7"><a href="model-fit-in-binary-response-models.html#cb75-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8504</span></span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-105-1.png" width="70%" /></p>
-</div>
-<div id="for-completenesss-sake" class="section level3 hasAnchor" number="10.2.11">
-<h3><span class="header-section-number">10.2.11</span> For completeness’s sake<a href="model-fit-in-binary-response-models.html#for-completenesss-sake" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This is the code for the full survival model shown at the beginning of this section:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="model-fit-in-binary-response-models.html#cb76-1" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb76-2"><a href="model-fit-in-binary-response-models.html#cb76-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
-<span id="cb76-3"><a href="model-fit-in-binary-response-models.html#cb76-3" tabindex="-1"></a></span>
-<span id="cb76-4"><a href="model-fit-in-binary-response-models.html#cb76-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
-<span id="cb76-5"><a href="model-fit-in-binary-response-models.html#cb76-5" tabindex="-1"></a></span>
-<span id="cb76-6"><a href="model-fit-in-binary-response-models.html#cb76-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb76-7"><a href="model-fit-in-binary-response-models.html#cb76-7" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-</div>
-</div>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="markov-transition-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="joint-estimation-of-emergence-and-survival.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="linear-regression-application.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
