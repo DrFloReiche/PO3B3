@@ -96,6 +96,6 @@ the-data-set
 basics
 advanced
 downlads
-bibliography
+documents
 data-sets
 r-scripts
