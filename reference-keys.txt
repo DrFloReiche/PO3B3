@@ -89,11 +89,9 @@ model-fit-in-binary-response-models
 how-to-measure-model-fit
 what-is-it-1
 r
-we-can-also-look-at-this-graphically-again
 emergence-full-model
-graphically
 survival
-for-completenesss-sake
+survival-full-model
 joint-estimation-of-emergence-and-survival
 rationale
 example
