@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Probit - Theory | PO3B3: Quantitative Pathway</title>
-  <meta name="description" content="5 Probit - Theory | PO3B3: Quantitative Pathway" />
+  <title>8 Missing Data | PO3B3: Quantitative Pathway</title>
+  <meta name="description" content="8 Missing Data | PO3B3: Quantitative Pathway" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Probit - Theory | PO3B3: Quantitative Pathway" />
+  <meta property="og:title" content="8 Missing Data | PO3B3: Quantitative Pathway" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Probit - Theory | PO3B3: Quantitative Pathway" />
+  <meta name="twitter:title" content="8 Missing Data | PO3B3: Quantitative Pathway" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="important-disclaimer.html"/>
-<link rel="next" href="probitapplication.html"/>
+<link rel="prev" href="exercises.html"/>
+<link rel="next" href="model-building.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -300,30 +300,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="probit---theory" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> Probit - Theory<a href="probit---theory.html#probit---theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Last week, we encountered linear regression analysis which allowed us to quantify the amount and direction of one or more independent variables on a continuous dependent variable. I already mentioned there, that there is also a type of a regression which can deal with a binary dependent variable. This is usually a yes/no scenario, such as democracy / autocracy, war / peace, trade agreement / no trade agreement, … You get the picture. Many problems or questions in political science have binary outcomes, and so you are about to learn a very important and useful method to answer research questions. As in the previous Chapter, I will take you some through some theory first, and then we are applying the theory to an empirical example. This time concerning the survival of passengers on the Titanic.</p>
-<div id="probit---what-is-it" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Probit - What is it?<a href="probit---theory.html#probit---what-is-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A question we can all relate to is whether to go out tonight, or not. The “propensity to go out” is not directly observable, and so we call this a <strong>latent variable</strong>. You can imagine this running from minus infinity to plus infinity, and at some point on this continuum you are making the decision to go out. Let’s call this point tau (<span class="math inline">\(\tau\)</span>). Graphically, this would look like this:</p>
-<p><img src="files/Week%203/tau.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>Your inclination to go out, is likely to be influenced by the amount of money you have in your wallet / bank. If you are broke, you will be less inclined (if you are sensible), and if you are swimming in it, you will be more inclined. So, if the “propensity to go out” (which remember is running from minus to plus infinity) is influenced by your budget, then let’s construct a graph, in which we pop the propensity to go out on the y-axis, and the budget on the x-axis. If we assume that this relationship is linear, we can fit a regression line into this coordinate system, just as we have in the previous week:</p>
-<p><img src="main_files/figure-html/unnamed-chunk-52-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>Whilst this visualises the influence of the budget on the latent variable, what we are aiming for is to make a prediction about the probability of you going out, or not.</p>
-<p>Now imagine, your budget is <span class="math inline">\(x_{1}\)</span>. This is way below the threshold <span class="math inline">\(\tau\)</span> and so the most likely scenario here is that you will stay home. But all of your friends are going out, the sun is shining, and you just scored a 74 in an essay. So there is some chance you will still go out. It is less likely than the budgetary constraint would suggest, but it is there. Where I am going with this is this: over every budgetary point, there is a probability distribution. For a probit model this is a normal distribution<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>). If we draw these probability distributions in, the graph looks like this:</p>
-<p><img src="files/Week%203/tau_prob.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>The probability of going out is coloured in in grey. You can see that even at <span class="math inline">\(x_{1}\)</span> there is a teeny bit of probability that you will go out. As the budget increases, more and more probability slides over the threshold <span class="math inline">\(\tau\)</span>, until we reach the magical point of <span class="math inline">\(x_{5}\)</span> where the probability is 50%. From there on, the amount of probability sliding over <span class="math inline">\(\tau\)</span> is steadily decreasing, because of the shape of the normal distribution.</p>
-<p>We can depict the amount of probability (or the size of the grey area) for each <span class="math inline">\(x_{i}\)</span> in a separate graph which is called the Cumulative Probability (Density Function), or short CDF:</p>
-<p><img src="main_files/figure-html/unnamed-chunk-54-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>This s-shaped curve now gives us the probability (of going out) for each <span class="math inline">\(x_{i}\)</span> (budget). It is important to note that the relationship is not linear, as in linear regression. Because we have an s-shaped curve the increase in probability when going from <span class="math inline">\(x_{2}\)</span> to <span class="math inline">\(x_{3}\)</span> is not the same as going from <span class="math inline">\(x_{3}\)</span> to <span class="math inline">\(x_{4}\)</span>. You can see that visualised here:</p>
-<p><img src="files/Week%203/probability.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>We will therefore not be able to interpret the coefficients in the same way as for OLS. We will be using predicted probabilities instead. But one step at a time. Let’s first get our hands dirty with some data.</p>
+<div id="missing-data" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Missing Data<a href="missing-data.html#missing-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="options-in-r" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Options in R<a href="missing-data.html#options-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Missing data is a real problem in doing empirical research. What compounds this problem is that developing countries are more affected than developed ones. Ironically, we are more interested in developing countries in this module, and so this is going to become a real-life struggle for you over the coming weeks.</p>
+<p>R has multiple ways in which to address missing data. We have already encountered the exclusion of missing values when using descriptive statistics within the <code>setx</code> function in Week 3, such as:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="missing-data.html#cb54-1" tabindex="-1"></a><span class="fu">mean</span>(europe2000<span class="sc">$</span>lifeexp, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>When we run regression models, for example through the function <code>lm</code>, R let’s you specify what you wish to do with observations (rows) that have missing values in them with the function <code>na.action</code>. This option has four logical options<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>:</p>
+<ul>
+<li><code>na.fail</code>: Stop if any missing values are encountered</li>
+<li><code>na.omit</code>: Drop out any rows with missing values anywhere in them and forgets them forever.</li>
+<li><code>na.exclude</code>: Drop out rows with missing values, but keeps track of where they were (so that when you make predictions, for example, you end up with a vector whose length is that of the original response.)</li>
+<li><code>na.pass</code>: Take no action</li>
+</ul>
+<p>By default, R would apply <code>na.omit</code> which we call “listwise deletion”. This means, that as soon as one value within an observation is missing, R drops that entire observation. This can potentially decimate the number of observations for analysis quite drastically! This in turn has implications for inference. Let me illustrate this.</p>
+</div>
+<div id="methodological-implications" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Methodological Implications<a href="missing-data.html#methodological-implications" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In an ideal world, we would have a data set in which each value is present (indicated by the presence of an x in each of the cells of this table):</p>
+<p><img src="files/Week%204/ideal.png" width="40%" /></p>
+<p>Unfortunately, in the real world, we are much more likely to have a Swiss cheese, such as this:</p>
+<div class="figure"><span style="display:block;" id="fig:real"></span>
+<img src="files/Week%204/real.png" alt="\label{fig:real}Schematic of a real data set" width="40%" />
+<p class="caption">
+Figure 8.1: Schematic of a real data set
+</p>
+</div>
+<p>You will already have seen this when opening the data sets we are working with. In Figure <a href="missing-data.html#fig:missing">8.2</a>, for example, the variable <code>gdppc</code> only has three missing values, but <code>agri</code> is completely missing.</p>
+<div class="figure"><span style="display:block;" id="fig:missing"></span>
+<img src="files/Week%204/missingdata.png" alt="\label{fig:missing}Excerpt from the `world` data set" width="80%" />
+<p class="caption">
+Figure 8.2: Excerpt from the <code>world</code> data set
+</p>
+</div>
+<p>If you ran a regression model that uses the variable <code>agri</code> listwise deletion would delete all observations and you would end up with no model. Here, the amount of observations you would lose is obvious. But since different variables have missing values in different places, it is often not as obvious as that. Assume, for example that we wished to use all four variables in our Schematic in Figure <a href="missing-data.html#fig:real">8.1</a>. Even though the “missingness” problem looks much less pronounced than in the <code>agri</code> variable in the <code>world</code> data set (see Figure @ref{fig:missing}), listwise deletion would ensure that we would only be left with two observations out of ten in our model:</p>
+<p><img src="files/Week%204/obs.png" width="40%" /></p>
+<p>So what do you do when you find yourself in such a situation? An obvious answer would be to simply leave out a variable that has a high degree of missingness. This solution is flawed, however. If your theory tells you that the variable plays a role in measuring one of the concepts then leaving it out would create so-called omitted variable bias – a problem you really don’t want to have. A much better solution, therefore, is to use a proxy variable. Take <code>agri</code> as an example. It measures the percentage of GDP generated by agriculture, and would probably enter a statistical model to measure the transition of a traditional society (agricultural) to a modern, industrialised society. So, rather then measuring the move away from <code>agri</code>, you would also measure the transformation into industry. If you can find a variable measuring the percentage of GDP generated by the industry sector, and this variable has fewer observations missing, you could you it instead of <code>agri</code> and still be measuring the same thing.</p>
+<p>Sometimes, it is not as straightforward as this, however, and you will have to resort to variables that have less measurement validity. Assume, for example, you want to measure the populations ability to read. Then <code>literacy</code> from our data set would be an obvious choice. But sadly, it has a high number of observations missing. An alternative is primary gross enrolment (<code>enrol_gross</code>), as pupils learn to read and write in primary school. This variable does not measure the characteristic we are interested in as directly as <code>literacy</code>, but it would allow us to include more observations in our model. It is an art to balance measurement validity against the number of observations, there is no hard and fast rule to help you make this decision. But as long as you discuss and explain your reasoning in the assessment, you will be fine for this module – after all, you are only starting out on this.</p>
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>For logit, the logistic distribution is used. This would lead to very similar results.<a href="probit---theory.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<ol start="5">
+<li id="fn5"><p><a href="https://faculty.nps.edu/sebuttre/home/R/missings.html" class="uri">https://faculty.nps.edu/sebuttre/home/R/missings.html</a><a href="missing-data.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -331,8 +351,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="important-disclaimer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="probitapplication.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercises.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="model-building.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,6 +4,8 @@ fig:unnamed-chunk-2
 fig:fig1
 fig:distribution
 fig:unnamed-chunk-31
+fig:real
+fig:missing
 fig:separation
 fig:overlap
 fig:tntp1
@@ -44,7 +46,7 @@ the-all-important-p-value-in-regression
 the-goodness-of-fit-r-squared
 choosing-variables
 can-i-choose-more-than-one-independent-variable
-ceteris-paribus
+ceteris
 parsimony
 r-squared-again
 important-disclaimer
@@ -62,6 +64,11 @@ multiple-independent-variables
 setting-the-x-values-1
 predicting-the-probability-1
 exercises
+missing-data
+options-in-r
+methodological-implications
+model-building
+control-variables
 consolidation
 the-world-value-survey
 exercises-1

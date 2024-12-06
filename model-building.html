@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Probit - Theory | PO3B3: Quantitative Pathway</title>
-  <meta name="description" content="5 Probit - Theory | PO3B3: Quantitative Pathway" />
+  <title>9 Model Building | PO3B3: Quantitative Pathway</title>
+  <meta name="description" content="9 Model Building | PO3B3: Quantitative Pathway" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Probit - Theory | PO3B3: Quantitative Pathway" />
+  <meta property="og:title" content="9 Model Building | PO3B3: Quantitative Pathway" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Probit - Theory | PO3B3: Quantitative Pathway" />
+  <meta name="twitter:title" content="9 Model Building | PO3B3: Quantitative Pathway" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="important-disclaimer.html"/>
-<link rel="next" href="probitapplication.html"/>
+<link rel="prev" href="missing-data.html"/>
+<link rel="next" href="consolidation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -300,39 +300,258 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="probit---theory" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> Probit - Theory<a href="probit---theory.html#probit---theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Last week, we encountered linear regression analysis which allowed us to quantify the amount and direction of one or more independent variables on a continuous dependent variable. I already mentioned there, that there is also a type of a regression which can deal with a binary dependent variable. This is usually a yes/no scenario, such as democracy / autocracy, war / peace, trade agreement / no trade agreement, … You get the picture. Many problems or questions in political science have binary outcomes, and so you are about to learn a very important and useful method to answer research questions. As in the previous Chapter, I will take you some through some theory first, and then we are applying the theory to an empirical example. This time concerning the survival of passengers on the Titanic.</p>
-<div id="probit---what-is-it" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Probit - What is it?<a href="probit---theory.html#probit---what-is-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A question we can all relate to is whether to go out tonight, or not. The “propensity to go out” is not directly observable, and so we call this a <strong>latent variable</strong>. You can imagine this running from minus infinity to plus infinity, and at some point on this continuum you are making the decision to go out. Let’s call this point tau (<span class="math inline">\(\tau\)</span>). Graphically, this would look like this:</p>
-<p><img src="files/Week%203/tau.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>Your inclination to go out, is likely to be influenced by the amount of money you have in your wallet / bank. If you are broke, you will be less inclined (if you are sensible), and if you are swimming in it, you will be more inclined. So, if the “propensity to go out” (which remember is running from minus to plus infinity) is influenced by your budget, then let’s construct a graph, in which we pop the propensity to go out on the y-axis, and the budget on the x-axis. If we assume that this relationship is linear, we can fit a regression line into this coordinate system, just as we have in the previous week:</p>
-<p><img src="main_files/figure-html/unnamed-chunk-52-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>Whilst this visualises the influence of the budget on the latent variable, what we are aiming for is to make a prediction about the probability of you going out, or not.</p>
-<p>Now imagine, your budget is <span class="math inline">\(x_{1}\)</span>. This is way below the threshold <span class="math inline">\(\tau\)</span> and so the most likely scenario here is that you will stay home. But all of your friends are going out, the sun is shining, and you just scored a 74 in an essay. So there is some chance you will still go out. It is less likely than the budgetary constraint would suggest, but it is there. Where I am going with this is this: over every budgetary point, there is a probability distribution. For a probit model this is a normal distribution<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>). If we draw these probability distributions in, the graph looks like this:</p>
-<p><img src="files/Week%203/tau_prob.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>The probability of going out is coloured in in grey. You can see that even at <span class="math inline">\(x_{1}\)</span> there is a teeny bit of probability that you will go out. As the budget increases, more and more probability slides over the threshold <span class="math inline">\(\tau\)</span>, until we reach the magical point of <span class="math inline">\(x_{5}\)</span> where the probability is 50%. From there on, the amount of probability sliding over <span class="math inline">\(\tau\)</span> is steadily decreasing, because of the shape of the normal distribution.</p>
-<p>We can depict the amount of probability (or the size of the grey area) for each <span class="math inline">\(x_{i}\)</span> in a separate graph which is called the Cumulative Probability (Density Function), or short CDF:</p>
-<p><img src="main_files/figure-html/unnamed-chunk-54-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>This s-shaped curve now gives us the probability (of going out) for each <span class="math inline">\(x_{i}\)</span> (budget). It is important to note that the relationship is not linear, as in linear regression. Because we have an s-shaped curve the increase in probability when going from <span class="math inline">\(x_{2}\)</span> to <span class="math inline">\(x_{3}\)</span> is not the same as going from <span class="math inline">\(x_{3}\)</span> to <span class="math inline">\(x_{4}\)</span>. You can see that visualised here:</p>
-<p><img src="files/Week%203/probability.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>We will therefore not be able to interpret the coefficients in the same way as for OLS. We will be using predicted probabilities instead. But one step at a time. Let’s first get our hands dirty with some data.</p>
+<div id="model-building" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> Model Building<a href="model-building.html#model-building" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>When we are testing a theory, such as modernisation theory, then we usually have a plethora of independent variables to measure the concepts involved in that theory. Take economic development. In its origins, modernisation theory saw development almost purely as economic growth, a notion enshrined in what we refer to now as Classical Modernisation Theory. But as our understanding of what constitutes “development” has changed over time, so have the propositions of modernisation theory. Diamond (1992) made an important contribution to the literature by proposing that wealth, such as per capita GDP, really is only a means to facilitate social change, such as increasing education levels, allowing people to look after their health, etc. He posited that it is these social changes that facilitate democracy. Wealth is necessary, but it is only a first step.</p>
+<p>Modernisation theory, therefore, can be seen as having to parts, the classical, and the new one. When you look at journal articlaes, you will notice that these parts are usually tested separately in regression models, first just the classical component, then just the social component, then both of them together. This is an important strategy in regressiona nalysis, as it allows us to isoloate the explanatory power of not only each part of the theory, but also of individual variables.</p>
+<p>Let me illustrate what I mean by this. First, we need to decide how to actually measure “economic development” and “social change”. There are a lot of options:</p>
+<ul>
+<li>Economic Development
+<ul>
+<li>GDP</li>
+<li>Agricultural Land</li>
+<li>Access to electricity</li>
+<li>Mobile Phone Subscriptions</li>
+<li>…</li>
+</ul></li>
+<li>Social Development
+<ul>
+<li>Education: literacy, primary completion rate, school enrolment, etc.</li>
+<li>Health: life expectancy, tuberculosis incidents, health expenditure, etc.</li>
+<li>…</li>
+</ul></li>
+</ul>
+<p>Once we have selected our variables, we start by runnign bivariate models between each independent variable and democracy as the dependent variable. This give sus information if each variable is individually able to explain democracy, and if so, how well. Then we start to combine independent variables into multivariate models, to test different combinations. This will allow us to see if one independent variable might take explanatory power away from another, and as such explains democracy better. I have done this in the following table:</p>
+<table style="text-align:center">
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="3">
+Polity V
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+<td>
+(3)
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+per capita GDP
+</td>
+<td>
+0.0001<sup>***</sup>
+</td>
+<td>
+</td>
+<td>
+0.0001<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.00003)
+</td>
+<td>
+</td>
+<td>
+(0.00003)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Life Expectancy
+</td>
+<td>
+</td>
+<td>
+0.160<sup>***</sup>
+</td>
+<td>
+0.090
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.054)
+</td>
+<td>
+(0.066)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+2.584<sup>***</sup>
+</td>
+<td>
+-7.373<sup>**</sup>
+</td>
+<td>
+-3.248
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.605)
+</td>
+<td>
+(3.691)
+</td>
+<td>
+(4.339)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+150
+</td>
+<td>
+152
+</td>
+<td>
+150
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.064
+</td>
+<td>
+0.056
+</td>
+<td>
+0.075
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Adjusted R<sup>2</sup>
+</td>
+<td>
+0.057
+</td>
+<td>
+0.050
+</td>
+<td>
+0.063
+</td>
+</tr>
+<tr>
+<td colspan="4" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="3" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>As you can see, both per capita GDP and life expectancy can explain variation in the Polity V score in 2007 (Models 1 and 2, repsectively). But when we combine the two in Model 3, life expectancy loses its significance, whilst per capita retains (an admittedly lower level of) significance. In these three models, we have thus discovered evidence that Diamond was wrong: When we look at the role of per capita GDP and life expectancy simultaneously, per capita GDP is able to explain democracy whilst life expectancy is not.</p>
+<p>How would you make use of this in the assessment? It goes without saying that you will have to run a lot of models to find such a story. But it would make little sense to overburden the reader of your assessment with all of these models (quite apart from constraints on your word count). Instead, you would only include in your assessment those regression models in the results tables which allow you to tell this story.</p>
+<p>Note that in this case, I have also quite neatly tested both the classical and new approach to mdoernisation theory. Model 1 is classical modernisation, Models 2 and 3 test new modernisation theory. We have found evidence that classical modernisation theory is more applicable in this scenario than new modernisation.</p>
+<div id="control-variables" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Control Variables<a href="model-building.html#control-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The selection of independent variables MUST be guided by theory. After all, this is our purpose in running regression models: finding out whether a particular theory can explain an empirical phenomenon we are witnessing. If you select variables that are irrelevant to your theory, then the research design breaks down, as you are no longer focusing on testing your theory. I know it sounds trivial, but you would be surprised how many students mess this up in assessments.</p>
+<p>But there is one – and only one – exception to the rule of not including variables that are not motivated by the theory you are testing: so-called control variables.</p>
+<p>For example, we suspect that the amount of official development aid (ODA) a country has received might influence democracy. Modernisation theory is only concerned with processed WITHIN a country, and so a flow of money coming from outside of the country is not part of the theory. Nonetheless, such funds can either facilitate development, in the sense of helping to build infrastructure such as roads, etc. Or it can be used for democracy promotion directly (the World Bank does tie some of its ODA funds to this purpose), through funding relevant institutions, facilitating elections, etc. So, even though these external funds have no place in our theory, we have strong reason to believe that they affect the dependent variable. And it is for this reason, that we would still include them in our regression model to control for their influence. Why? The principle of ceteris paribus (see <a href="linear-regression-application.html#ceteris">3.3.2</a>) only applies with respect to those variables included in the model. And if we wish to control for ODA, or to purify those coefficients which are motivated by theory from the influence of ODA, we need to include this variable in the model in order to do so.</p>
+<p>Even though I am presenting this here as the last step, you would realistically select these variables together with the ones motivated by the theory, as you will also have to perform conceptualisation and measurement, check data availability, etc.</p>
+
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="3">
-<li id="fn3"><p>For logit, the logistic distribution is used. This would lead to very similar results.<a href="probit---theory.html#fnref3" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="important-disclaimer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="probitapplication.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="missing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="consolidation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
