@@ -437,16 +437,18 @@ Figure 5: Folder Structure
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introduction-to-r.html#cb6-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
 <p>We can then load this package into our library with the <code>library()</code> command.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introduction-to-r.html#cb7-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
-<p>Once you close R at the end of a session, the library will be reset and you have to load packages from scratch (no need to install them again, though).</p>
+<div class="bulb">
+<p>Once you close R at the end of a session, the library will be reset. When you reopen R, you have to load the packages you require again. But you do not have to install them again.</p>
+</div>
 </div>
 <div id="working-with-your-data-set" class="section level2 unnumbered hasAnchor">
 <h2>Working with Your Data Set<a href="introduction-to-r.html#working-with-your-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="opening" class="section level3 unnumbered hasAnchor">
 <h3>Opening<a href="introduction-to-r.html#opening" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We are now ready to open the data set in R - where it is called a “data frame”. First, download the <a href="files/Week%201/example.xlsx">Example</a> data set (also available in the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a>) and place it into the current working directory. To load it into R, we create a new object <code>example</code>, and ask R to read “Sheet 1”” of the Excel file “example.xlsx”.</p>
+<p>We are now ready to open the data set in R - where it is called a “data frame”. First, download the <a href="files/Week%201/example.xlsx">Example</a> data set (also available in the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a>) and place it into the current working directory. To load it into R, we create a new object <code>example</code>, and ask R to read “Sheet 1 of the Excel file”example.xlsx”.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction-to-r.html#cb8-1" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;files/Week 1/example.xlsx&quot;</span>, <span class="at">sheet=</span><span class="st">&quot;Sheet1&quot;</span>)</span></code></pre></div>
-<div class="bulb">
-<p>Make a habit of adding a note underneath each code chunk in your RScript (preceded with a <span style="color:black"><code>#</code></span>) in which you translate the code into plain English.</p>
+<div class="warning">
+<p>Please do not use the “Import Dataset” button in the Environment, but do this properly, manually. We sometimes need to set options for importing data sets, and the “pointy, clicky” approach won’t be able to offer you what you need.</p>
 </div>
 <p>We can now use our data in R!</p>
 </div>
@@ -551,6 +553,9 @@ Figure 6: Distributions with different Standard Deviations
 <span id="cb22-3"><a href="introduction-to-r.html#cb22-3" tabindex="-1"></a>           <span class="fu">ordered</span>(</span>
 <span id="cb22-4"><a href="introduction-to-r.html#cb22-4" tabindex="-1"></a>             <span class="fu">cut</span>(gdp, <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="cn">Inf</span>), </span>
 <span id="cb22-5"><a href="introduction-to-r.html#cb22-5" tabindex="-1"></a>                 <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;high&quot;</span>)))) <span class="ot">-&gt;</span> example</span></code></pre></div>
+<div class="bulb">
+<p>Make a habit of adding a note underneath each of the more complex code chunks in your RScript (preceded with a <span style="color:black"><code>#</code></span>) in which you translate the code into plain English.</p>
+</div>
 <p>Let us now check the structure of the new variable to make sure that we have done everything correctly.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r.html#cb23-1" tabindex="-1"></a><span class="fu">str</span>(example<span class="sc">$</span>gdpcat)</span>
 <span id="cb23-2"><a href="introduction-to-r.html#cb23-2" tabindex="-1"></a> Ord.factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">&quot;low&quot;</span><span class="sc">&lt;</span><span class="st">&quot;high&quot;</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span></span></code></pre></div>
