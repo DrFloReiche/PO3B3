@@ -425,7 +425,7 @@ Figure 5: Folder Structure
 <p>You see that there is a sub-folder for each week of the module (I have only done a few for illustrative purposes), and that each of these folders is divided into lecture and seminar in turn. Into these you can place the lecture and seminar materials, respectively. Create this system now for PO11Q.</p>
 <p>R works with so-called “Working Directories”. You can think of these as drawers from which R takes everything it needs to conduct the analysis (such as the data set), and into which it puts everything it produces (such as graph plots). As this will be an R-specific drawer within the seminar, create yet another sub-folder in your seminar folder, and call it something suitable, such as “PO11Q_Seminar_Week 1”. Do NOT call this “Working Directory”, as you will have many of those, rendering this name completely meaningless. Save the file “EU.xlsx” (available on Moodle) into it.</p>
 <div class="warning">
-<p>Please set up this structure up. If I find you using a random folder on your desktop named “working directory” in the coming weeks, I am going to implode! I mean it.</p>
+<p>Please set up this structure now. If I find you using a random folder on your desktop named “working directory” in the coming weeks, I am going to implode! I mean it.</p>
 </div>
 <p>Now we need to tell R to use this folder. If you know the file structure of your computer you can simply use the command, and enter the path. Here is an example from my computer:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-to-r.html#cb5-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO3B3//Week 1&quot;</span>)</span></code></pre></div>
@@ -505,6 +505,9 @@ Figure 5: Folder Structure
 <li>Standard Deviation</li>
 <li>Variance</li>
 </ul>
+<div class="puzzle">
+<p>Again, if these don’t mean anything to you beyond having heard the term before, please look these up.</p>
+</div>
 <p>They are a lot of effort to calculate by hand, especially for larger data sets, but R can do these with a few intuitive commands. If we want to refer to a particular column in R (which is equivalent to a variable), then we need to specify the data frame within which the variable is located, followed by a $ sign and then the variable name. Schematically, this would look be written as <code>dataframe$variable</code>.</p>
 <p>With this information to hand, we can calculate the mean of the variable <code>gdp</code>:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction-to-r.html#cb13-1" tabindex="-1"></a><span class="fu">mean</span>(example<span class="sc">$</span>gdp)</span>
@@ -516,7 +519,7 @@ Figure 5: Folder Structure
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r.html#cb15-1" tabindex="-1"></a><span class="fu">summary</span>(example<span class="sc">$</span>gdp)</span>
 <span id="cb15-2"><a href="introduction-to-r.html#cb15-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max. </span>
 <span id="cb15-3"><a href="introduction-to-r.html#cb15-3" tabindex="-1"></a>   <span class="dv">3602</span>    <span class="dv">7737</span>   <span class="dv">26218</span>   <span class="dv">26454</span>   <span class="dv">42856</span>   <span class="dv">52704</span> </span></code></pre></div>
-<p>These are all measures of centrality, but centrality alone does not adequately describe a distribution. You can think of two scenarios, in both we have two people in a group and we are trying to describe their age. In group one we have one person who is 50 years old, and one who is 52 years old. Average age = 51. In the second group we have a toddler aged 2, and a very old person aged 100. Same average, but a very different distribution of age. Schematically you can see this in Figure <a href="introduction-to-r.html#fig:distribution">6</a> where two distributions have the same mean, median and mode, but their spread is quite different.</p>
+<p>Mean, median, and also mode (the most frequently occurring value) are all measures of centrality, but centrality alone does not adequately describe a distribution. You can think of two scenarios, in both we have two people in a group and we are trying to describe their age. In group one we have one person who is 50 years old, and one who is 52 years old. Average age = 51. In the second group we have a toddler aged 2, and a very old person aged 100. Same average, but a very different distribution of age. Schematically you can see this in Figure <a href="introduction-to-r.html#fig:distribution">6</a> where two distributions have the same mean, median and mode, but their spread is quite different.</p>
 <div class="figure"><span style="display:block;" id="fig:distribution"></span>
 <img src="main_files/figure-html/distribution-1.png" alt="\label{fig:distribution}Distributions with different Standard Deviations" width="60%" />
 <p class="caption">
