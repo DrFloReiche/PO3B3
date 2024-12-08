@@ -121,6 +121,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -136,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
 <li class="part"><span><b>Week 1</b></span></li>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
 <ul>
@@ -210,6 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -281,6 +306,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="downlads.html"><a href="downlads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
 <li class="chapter" data-level="" data-path="downlads.html"><a href="downlads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
 </ul></li>
+<li class="part"><span><b>List of References</b></span></li>
+<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
 </ul>
 
       </nav>
@@ -303,7 +330,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-data-set" class="section level2 unnumbered hasAnchor">
 <h2>The Data Set<a href="exercises-2.html#the-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-Use the data set called <code>prz.dta</code> which is available in the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a>. This is the data set used in Przeworski et al.’s 2000 book, Democracy and Development. Deposit this in an appropriate working directory and import the data set into a data frame called <code>prz</code>. We will only be looking at a few variables – democ = 1 if democracy, 0 otherwise; gdpw - GDP per worker; g = growth rate; oil = 1 if oil producer, 0 otherwise.</p>
+Use the data set called <code>prz.dta</code> which is available in the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a>. This is the data set used in the book “Democracy and Development” <span class="citation">(Przeworski et al., 2000)</span>. Deposit this in an appropriate working directory and import the data set into a data frame called <code>prz</code>. We will only be looking at a few variables – democ = 1 if democracy, 0 otherwise; gdpw - GDP per worker; g = growth rate; oil = 1 if oil producer, 0 otherwise.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
 </div>
 <div id="basics" class="section level2 unnumbered hasAnchor">
 <h2>Basics<a href="exercises-2.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -324,7 +351,7 @@ Use the data set called <code>prz.dta</code> which is available in the <a href="
 <div id="advanced" class="section level2 unnumbered hasAnchor">
 <h2>Advanced<a href="exercises-2.html#advanced" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-For this section you will have to read through the instructions for joint estimation, provided separately</p>
+This section draws on the instructions for joint estimation.</p>
 <ol start="5" style="list-style-type: decimal">
 <li>Now interact all the lagged independent variables with the lagged dependent variable. Estimate a fully interactive model and include all the constitutive terms. Put the results in column 5 of Table 1. What is the relationship between these coefficients and those in the previous two columns? Is there any extra information provided by this full interaction model that was not available from the previous two models?</li>
 <li>Now consider the straight probit model, the probit model with the lagged dependent variable, and the full interaction model. Produce the ROC curve for each of these models. Interpret a point on one of these curves. What do the ROC curves tell you about the fit of these three models?</li>
@@ -337,6 +364,12 @@ For this section you will have to read through the instructions for joint estima
 
 
 
+<div class="footnotes">
+<hr />
+<ol start="8">
+<li id="fn8"><p>I have taken these exercises from some material written by <a href="https://mattgolder.com/">Matt Golder</a> from whom I learned all this many moons ago.<a href="exercises-2.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>

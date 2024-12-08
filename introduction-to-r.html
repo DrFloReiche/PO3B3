@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
+<link rel="prev" href="website-features.html"/>
 <link rel="next" href="linear-regression---theory.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -121,6 +121,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -136,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
 <li class="part"><span><b>Week 1</b></span></li>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
 <ul>
@@ -210,6 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -281,6 +306,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="downlads.html"><a href="downlads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
 <li class="chapter" data-level="" data-path="downlads.html"><a href="downlads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
 </ul></li>
+<li class="part"><span><b>List of References</b></span></li>
+<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
 </ul>
 
       </nav>
@@ -317,8 +344,11 @@ Figure 1: Sample Data Set
 <ol style="list-style-type: decimal">
 <li>Go to <a href="https://cran.r-project.org/mirrors.html" class="uri">https://cran.r-project.org/mirrors.html</a> and select a server from which you want to download R. It is convention to do this from the server which is nearest to you. Follow on-screen instructions and install the program.</li>
 <li>Go to <a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a> and download RStudio Desktop which is free. Install the program.</li>
-<li>Now open RStudio - you do not need to open R itself, as we will be operating it through RStudio.</li>
+<li>Now open RStudio.</li>
 </ol>
+<div class="bulb">
+<p>Whilst you need to install both R and RStudio, we will never be working with R directly. Instead, we will be operating it through RStudio.</p>
+</div>
 </div>
 <div id="r---getting-started" class="section level2 unnumbered hasAnchor">
 <h2>R - Getting Started<a href="introduction-to-r.html#r---getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -340,7 +370,7 @@ Figure 2: RStudio
 <div id="rscript" class="section level2 unnumbered hasAnchor">
 <h2>RScript<a href="introduction-to-r.html#rscript" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you read the previous section carefully, you will have noticed that I wrote that you <em>can</em> enter the commands” in the Console. You can, but you shouldn’t. What you should be using instead is an RScript. An RScript is a list of commands you use for a project (an essay, your dissertation, an article) to calculate quantities of interest, such as descriptive statistics in the form of mean, median and mode, and produce graphs.</p>
-<p>One of the foundations of scientific research is “reproducibility”“, or”replicability”. This means that “sufficient information exists with which to understand, evaluate, and build upon a prior work if a third party could replicate the results without any additional information from the author.” (King, 1995, p. 444, emphasis removed) This principle applies in academia more generally, because only if you understand what a person has done before you, you can pick their work up whether they left it, and push the boundaries of knowledge further. But a bit closer to home, it is also relevant for conducting quantitative research in assessments. We require you to submit an RScript (or a “do file” if you use Stata) now together with your actual essay. This is not only to check what you have done; data preparation is often the most time-consuming part (as you will soon discover), and this is a way to gain recognition for this work. So it is actually to your advantage, and not a mere plagiarism check.</p>
+<p>One of the foundations of scientific research is “reproducibility”“, or”replicability”. This means that “sufficient information exists with which to understand, evaluate, and build upon a prior work if a third party could replicate the results without any additional information from the author.” <span class="citation">(King, 1995, p. 444, emphasis removed)</span> This principle applies in academia more generally, because only if you understand what a person has done before you, you can pick their work up whether they left it, and push the boundaries of knowledge further. But a bit closer to home, it is also relevant for conducting quantitative research in assessments. We require you to submit an RScript (or a “do file” if you use Stata) now together with your actual essay. This is not only to check what you have done; data preparation is often the most time-consuming part (as you will soon discover), and this is a way to gain recognition for this work. So it is actually to your advantage, and not a mere plagiarism check.</p>
 <p>The creation of an RScript will allow you to open the raw data, and by running the script, to bring it to exactly where you left off. This saves you saving data sets which can take up a lot of work. If you back the script up properly, you also have an insurance against losing all your work a day before the assessment is due.</p>
 <p>To create an RScript, click File <span class="math inline">\(\rightarrow\)</span> New File <span class="math inline">\(\rightarrow\)</span> RScript. A fourth window opens, and your screen will now look something like this:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
@@ -373,6 +403,9 @@ Figure 4: Example of an RScript
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction-to-r.html#cb2-1" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span>
 <span id="cb2-2"><a href="introduction-to-r.html#cb2-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">8</span></span></code></pre></div>
 <p>where the [1] indicates that the 8 is the first component of the result. In this case, we only have one component, so it’s superflous really, but we will soon encounter situations in which results can have a number of different items.</p>
+<div class="bulb">
+<p>You can copy the code from this page by hovering over the code chunk and clicking the icon in the top-right hand corner. You can then paste it into your RScript.</p>
+</div>
 <p>A fundamental component of R is objects. You can define an object by way of a reversed arrow, and you can assign values, characters, or functions to them. If we want to assign the sum of 5 and 3 to an object called <code>result</code>, for example, we call<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introduction-to-r.html#cb3-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span></code></pre></div>
 <p>If we now call the object, R will return its value, 8.</p>
@@ -381,8 +414,20 @@ Figure 4: Example of an RScript
 </div>
 <div id="the-working-directory" class="section level2 unnumbered hasAnchor">
 <h2>The Working Directory<a href="introduction-to-r.html#the-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>It makes sense to create a folder in the file system on your computer for each and every R project. You can then think of this folder as a drawer from which R takes everything it needs to conduct the analysis (such as the data set), and into which it puts everything it produces (such as graph plots). We call such a folder a “Working Directory”. Create a new folder now that will serve as working directory for this seminar and pop the file “example.xlsx” into it.</p>
-<p>Now we need to tell R to use this folder. If you know the file structure of your computer you can simply use the <code>setwd()</code> command, and enter the path. Here is an example from my computer:</p>
+<p>It is imperative that you create a suitable filing system to organise the materials for all of your modules. At the very least you should have a folder called “University” or similar, in which you have a sub-folder for each module you take.</p>
+<p>In those modules in which you are working with R, you need to extend this system a little. I have created a schematic of what I have in mind in Figure <a href="introduction-to-r.html#fig:folder">5</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:folder"></span>
+<img src="files/Week%201/filestructure.png" alt="\label{fig:folder}Folder Structure" width="70%" />
+<p class="caption">
+Figure 5: Folder Structure
+</p>
+</div>
+<p>You see that there is a sub-folder for each week of the module (I have only done a few for illustrative purposes), and that each of these folders is divided into lecture and seminar in turn. Into these you can place the lecture and seminar materials, respectively. Create this system now for PO11Q.</p>
+<p>R works with so-called “Working Directories”. You can think of these as drawers from which R takes everything it needs to conduct the analysis (such as the data set), and into which it puts everything it produces (such as graph plots). As this will be an R-specific drawer within the seminar, create yet another sub-folder in your seminar folder, and call it something suitable, such as “PO11Q_Seminar_Week 1”. Do NOT call this “Working Directory”, as you will have many of those, rendering this name completely meaningless. Save the file “EU.xlsx” (available on Moodle) into it.</p>
+<div class="warning">
+<p>Please set up this structure up. If I find you using a random folder on your desktop named “working directory” in the coming weeks, I am going to implode! I mean it.</p>
+</div>
+<p>Now we need to tell R to use this folder. If you know the file structure of your computer you can simply use the command, and enter the path. Here is an example from my computer:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introduction-to-r.html#cb5-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO3B3//Week 1&quot;</span>)</span></code></pre></div>
 <p>If you don’t know the file structure of your computer, then you can click Session <span class="math inline">\(\rightarrow\)</span> Set Working Directory <span class="math inline">\(\rightarrow\)</span> Choose Directory.</p>
 </div>
@@ -398,8 +443,11 @@ Figure 4: Example of an RScript
 <h2>Working with Your Data Set<a href="introduction-to-r.html#working-with-your-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="opening" class="section level3 unnumbered hasAnchor">
 <h3>Opening<a href="introduction-to-r.html#opening" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We are now ready to open the data set in R - where it is called a “data frame”. First, download the “example.xlsx” data set from the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a> and place it into the current working directory. To load it into R, we create a new object <code>example</code>, and ask R to read “Sheet 1”” of the Excel file “example.xlsx”.</p>
+<p>We are now ready to open the data set in R - where it is called a “data frame”. First, download the <a href="files/Week%201/example.xlsx">Example</a> data set (also available in the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a>) and place it into the current working directory. To load it into R, we create a new object <code>example</code>, and ask R to read “Sheet 1”” of the Excel file “example.xlsx”.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction-to-r.html#cb8-1" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;files/Week 1/example.xlsx&quot;</span>, <span class="at">sheet=</span><span class="st">&quot;Sheet1&quot;</span>)</span></code></pre></div>
+<div class="bulb">
+<p>Make a habit of adding a note underneath each code chunk in your RScript (preceded with a <span style="color:black"><code>#</code></span>) in which you translate the code into plain English.</p>
+</div>
 <p>We can now use our data in R!</p>
 </div>
 <div id="viewing-the-data" class="section level3 unnumbered hasAnchor">
@@ -435,15 +483,18 @@ Figure 4: Example of an RScript
 </ol>
 <p>Within <code>numeric</code> we can distinguish between the following:</p>
 <ul>
-<li><code>factor</code> - nominal</li>
-<li><code>ordered factor</code> - ordinal</li>
+<li><code>factor</code> - nominal variable</li>
+<li><code>ordered factor</code> - ordinal variable</li>
 <li><code>integer</code> - numeric, but only “whole” numbers (discrete)</li>
-<li><code>numeric</code> - any number (interval or ratio)</li>
+<li><code>numeric</code> - any number (interval or ratio scales)</li>
 </ul>
+<div class="puzzle">
+<p>If you are unfamiliar with measurement scales, then please look these up before proceding.</p>
+</div>
 </div>
 <div id="descriptive-statistics" class="section level3 unnumbered hasAnchor">
 <h3>Descriptive Statistics<a href="introduction-to-r.html#descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Quite a large number of descriptive statistics can be calculated. These are:</p>
+<p>Quite a large number of descriptive statistics can be calculated. For example:</p>
 <ul>
 <li>Mean</li>
 <li>Median</li>
@@ -451,8 +502,6 @@ Figure 4: Example of an RScript
 <li>Range</li>
 <li>Standard Deviation</li>
 <li>Variance</li>
-<li>Quartiles and Percentiles</li>
-<li>Interquartile Range</li>
 </ul>
 <p>They are a lot of effort to calculate by hand, especially for larger data sets, but R can do these with a few intuitive commands. If we want to refer to a particular column in R (which is equivalent to a variable), then we need to specify the data frame within which the variable is located, followed by a $ sign and then the variable name. Schematically, this would look be written as <code>dataframe$variable</code>.</p>
 <p>With this information to hand, we can calculate the mean of the variable <code>gdp</code>:</p>
@@ -465,11 +514,11 @@ Figure 4: Example of an RScript
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-r.html#cb15-1" tabindex="-1"></a><span class="fu">summary</span>(example<span class="sc">$</span>gdp)</span>
 <span id="cb15-2"><a href="introduction-to-r.html#cb15-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max. </span>
 <span id="cb15-3"><a href="introduction-to-r.html#cb15-3" tabindex="-1"></a>   <span class="dv">3602</span>    <span class="dv">7737</span>   <span class="dv">26218</span>   <span class="dv">26454</span>   <span class="dv">42856</span>   <span class="dv">52704</span> </span></code></pre></div>
-<p>These are all measures of centrality, but centrality alone does not adequately describe a distribution. You can think of two scenarios, in both we have two people in a group and we are trying to describe their age. In group one we have one person who is 50 years old, and one who is 52 years old. Average age = 51. In the second group we have a toddler aged 2, and a very old person aged 100. Same average, but a very different distribution of age. Schematically you can see this in Figure <a href="introduction-to-r.html#fig:distribution">5</a> where two distributions have the same mean, median and mode, but their spread is quite different.</p>
+<p>These are all measures of centrality, but centrality alone does not adequately describe a distribution. You can think of two scenarios, in both we have two people in a group and we are trying to describe their age. In group one we have one person who is 50 years old, and one who is 52 years old. Average age = 51. In the second group we have a toddler aged 2, and a very old person aged 100. Same average, but a very different distribution of age. Schematically you can see this in Figure <a href="introduction-to-r.html#fig:distribution">6</a> where two distributions have the same mean, median and mode, but their spread is quite different.</p>
 <div class="figure"><span style="display:block;" id="fig:distribution"></span>
 <img src="main_files/figure-html/distribution-1.png" alt="\label{fig:distribution}Distributions with different Standard Deviations" width="60%" />
 <p class="caption">
-Figure 5: Distributions with different Standard Deviations
+Figure 6: Distributions with different Standard Deviations
 </p>
 </div>
 <p>Therefore, we also need to look at the variability of a variable to adequately describe it. Again, there are quite a few measures available. First up is the range; you can either calculate this with two commands by finding out the minimum and maximum separately, or just ask R to give you the range straight away:</p>
@@ -554,7 +603,7 @@ Figure 5: Distributions with different Standard Deviations
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="website-features.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="linear-regression---theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

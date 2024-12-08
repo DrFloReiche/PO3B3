@@ -2,6 +2,7 @@ fig:excel
 fig:unnamed-chunk-1
 fig:unnamed-chunk-2
 fig:fig1
+fig:folder
 fig:distribution
 fig:unnamed-chunk-31
 fig:real

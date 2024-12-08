@@ -121,6 +121,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -136,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
 <li class="part"><span><b>Week 1</b></span></li>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
 <ul>
@@ -210,6 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -281,6 +306,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="downlads.html"><a href="downlads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
 <li class="chapter" data-level="" data-path="downlads.html"><a href="downlads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
 </ul></li>
+<li class="part"><span><b>List of References</b></span></li>
+<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
 </ul>
 
       </nav>
@@ -322,17 +349,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="figure"><span style="display:block;" id="fig:real"></span>
 <img src="files/Week%204/real.png" alt="\label{fig:real}Schematic of a real data set" width="40%" />
 <p class="caption">
-Figure 7: Schematic of a real data set
+Figure 8: Schematic of a real data set
 </p>
 </div>
-<p>You will already have seen this when opening the data sets we are working with. In Figure <a href="missing-data.html#fig:missing">8</a>, for example, the variable <code>gdppc</code> only has three missing values, but <code>agri</code> is completely missing.</p>
+<p>You will already have seen this when opening the data sets we are working with. In Figure <a href="missing-data.html#fig:missing">9</a>, for example, the variable <code>gdppc</code> only has three missing values, but <code>agri</code> is completely missing.</p>
 <div class="figure"><span style="display:block;" id="fig:missing"></span>
 <img src="files/Week%204/missingdata.png" alt="\label{fig:missing}Excerpt from the `world` data set" width="80%" />
 <p class="caption">
-Figure 8: Excerpt from the <code>world</code> data set
+Figure 9: Excerpt from the <code>world</code> data set
 </p>
 </div>
-<p>If you ran a regression model that uses the variable <code>agri</code> listwise deletion would delete all observations and you would end up with no model. Here, the amount of observations you would lose is obvious. But since different variables have missing values in different places, it is often not as obvious as that. Assume, for example that we wished to use all four variables in our Schematic in Figure <a href="missing-data.html#fig:real">7</a>. Even though the “missingness” problem looks much less pronounced than in the <code>agri</code> variable in the <code>world</code> data set (see Figure @ref{fig:missing}), listwise deletion would ensure that we would only be left with two observations out of ten in our model:</p>
+<p>If you ran a regression model that uses the variable <code>agri</code> listwise deletion would delete all observations and you would end up with no model. Here, the amount of observations you would lose is obvious. But since different variables have missing values in different places, it is often not as obvious as that. Assume, for example that we wished to use all four variables in our Schematic in Figure <a href="missing-data.html#fig:real">8</a>. Even though the “missingness” problem looks much less pronounced than in the <code>agri</code> variable in the <code>world</code> data set (see Figure @ref{fig:missing}), listwise deletion would ensure that we would only be left with two observations out of ten in our model:</p>
 <p><img src="files/Week%204/obs.png" width="40%" /></p>
 <p>So what do you do when you find yourself in such a situation? An obvious answer would be to simply leave out a variable that has a high degree of missingness. This solution is flawed, however. If your theory tells you that the variable plays a role in measuring one of the concepts then leaving it out would create so-called omitted variable bias – a problem you really don’t want to have. A much better solution, therefore, is to use a proxy variable. Take <code>agri</code> as an example. It measures the percentage of GDP generated by agriculture, and would probably enter a statistical model to measure the transition of a traditional society (agricultural) to a modern, industrialised society. So, rather then measuring the move away from <code>agri</code>, you would also measure the transformation into industry. If you can find a variable measuring the percentage of GDP generated by the industry sector, and this variable has fewer observations missing, you could you it instead of <code>agri</code> and still be measuring the same thing.</p>
 <p>Sometimes, it is not as straightforward as this, however, and you will have to resort to variables that have less measurement validity. Assume, for example, you want to measure the populations ability to read. Then <code>literacy</code> from our data set would be an obvious choice. But sadly, it has a high number of observations missing. An alternative is primary gross enrolment (<code>enrol_gross</code>), as pupils learn to read and write in primary school. This variable does not measure the characteristic we are interested in as directly as <code>literacy</code>, but it would allow us to include more observations in our model. It is an art to balance measurement validity against the number of observations, there is no hard and fast rule to help you make this decision. But as long as you discuss and explain your reasoning in the assessment, you will be fine for this module – after all, you are only starting out on this.</p>

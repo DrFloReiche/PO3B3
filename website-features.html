@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Model Fit in Binary Response Models6 | PO3B3: Quantitative Pathway</title>
-  <meta name="description" content="Model Fit in Binary Response Models6 | PO3B3: Quantitative Pathway" />
+  <title>Website Features | PO3B3: Quantitative Pathway</title>
+  <meta name="description" content="Website Features | PO3B3: Quantitative Pathway" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Model Fit in Binary Response Models6 | PO3B3: Quantitative Pathway" />
+  <meta property="og:title" content="Website Features | PO3B3: Quantitative Pathway" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Model Fit in Binary Response Models6 | PO3B3: Quantitative Pathway" />
+  <meta name="twitter:title" content="Website Features | PO3B3: Quantitative Pathway" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="markov-transition-models.html"/>
-<link rel="next" href="joint-estimation-of-emergence-and-survival.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="introduction-to-r.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -325,153 +325,30 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="model-fit-in-binary-response-models" class="section level1 unnumbered hasAnchor">
-<h1>Model Fit in Binary Response Models<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a><a href="model-fit-in-binary-response-models.html#model-fit-in-binary-response-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="how-to-measure-model-fit" class="section level2 unnumbered hasAnchor">
-<h2>How to Measure Model Fit<a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are quite a few model fit measures around for binary response models, such as pseudo R-Squared and the Akaike Information Criterion (AIC). What I am going to present here, however, is the so-called ROC curve, as I personally really don’t like the aforementioned measures.</p>
-<div id="what-is-it-1" class="section level3 unnumbered hasAnchor">
-<h3>What is it?<a href="model-fit-in-binary-response-models.html#what-is-it-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The principle idea of ROC is to determine how well our model is able to separate cases into the two categories of our dependent variable. It approaches this question by comparing the actual observed values of the dependent variable with the values the model would predict, given the values of the independent variables.</p>
-<p>Consider Figure <a href="model-fit-in-binary-response-models.html#fig:separation">10</a> a). On the x-axis you see eight observations, marked as coloured diamonds. Red diamonds represent countries which are dictatorships, and blue ones democracies. They are sorted by their respective level of per capita GDP. Now suppose that the displayed CDF is the results of a model we have estimated. With a cut off point <span class="math inline">\(\tau=0.5\)</span> we would correctly predict the group of four observations on the left to be dictatorships. They are True Negatives (TN). The group on the right would be correctly predicted as democracies, these are True Positives (TP). We have no incorrectly classified cases; our model has been able to separate cases perfectly. You can see this represented in the form of distributions in panel b).</p>
-<div class="figure"><span style="display:block;" id="fig:separation"></span>
-<img src="files/Week%207/separate.png" alt="\label{fig:separation}Perfect Separation" width="75%" />
-<p class="caption">
-Figure 10: Perfect Separation
-</p>
+<div id="website-features" class="section level1 unnumbered hasAnchor">
+<h1>Website Features<a href="website-features.html#website-features" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>You will find embedded in the text four different types of boxes which serve different purposes:</p>
+<div class="bulb">
+<p>Some explanations that will hopefully make your work with this webpage or learning the material itself easier.</p>
 </div>
-<p>As you well know by now, the real world is oddly deficient in achieving perfection such as this. We will observe both poor democracies, and rich dictatorships. This scenario is shown in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">11</a> a).</p>
-<div class="figure"><span style="display:block;" id="fig:overlap"></span>
-<img src="files/Week%207/overlap.png" alt="\label{fig:overlap}Overlap" width="75%" />
-<p class="caption">
-Figure 11: Overlap
-</p>
+<div class="puzzle">
+<p>A brief question which tests your understanding of the previous material.</p>
 </div>
-<p>According to the CDF we would predict the poor democracy as a dictatorship. It would be a False Negative (FN). Conversely, we would predict the rich dictatorship as a democracy and would obtain a False Positive (FP). The distribution of cases in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">11</a> b) is not as clearly separated any more as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">10</a> b). Now they overlap, leading to incorrect classifications. These are marked accordingly in Figure @ref{fig:tntp1}. As we are no longer operating in a world in which we only have TNs and TPs, I think we can all agree that our model fit is no longer as good as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">10</a>.</p>
-<div class="figure"><span style="display:block;" id="fig:tntp1"></span>
-<img src="files/Week%207/tntp1.png" alt="\label{fig:tntp1}False Negatives and False Positives" width="30%" />
-<p class="caption">
-Figure 12: False Negatives and False Positives
-</p>
+<div class="warning">
+<p>This appears when you need to be careful with your coding in R to avoid problems.</p>
 </div>
-<p>But there is another issue: whilst setting <span class="math inline">\(\tau\)</span> at 0.5 makes intuitive sense, there is nothing preventing us from shifting <span class="math inline">\(\tau\)</span> around. Indeed, the number of FPs and FNs very much depends on where we place our cut-off point. For example, if we don’t want any FNs, then we just have to shift <span class="math inline">\(\tau\)</span> sufficiently downwards. Or if we want to avoid FPs we only need to move it far enough upwards. I have illustrated this in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">13</a> a) and b), respectively.</p>
-<div class="figure"><span style="display:block;" id="fig:taushift"></span>
-<img src="files/Week%207/taushift.png" alt="\label{fig:taushift}Shifting $\tau$" width="75%" />
-<p class="caption">
-Figure 13: Shifting <span class="math inline">\(\tau\)</span>
-</p>
+
 </div>
-<p>These are only three options of placing the threshold. But we have a total of eight observations which means that there are nine potential positions for the cut-off point with each leading to a different conclusion of how well our model fits the observed data. Let’s go through this more systematically and start by placing <span class="math inline">\(\tau\)</span> at the very bottom. Because the number of TNs, TPs, FNs, and FPs will only change at the “next” observation we only need to shift as many times as there are observations. For each shift we record the values of all four quantities in a crosstabulation which is displayed in the following table:</p>
-<p><img src="files/Week%207/ROC1.png" width="50%" /></p>
-<p>These tables are useful in their own right, but since we will end up with as many of them as there are observations, this can quickly get very messy. There are only eight observations here, but imagine doing these for the <code>world</code> data set with 190 observationsWe therefore need to find a way to condense the information contained in each of the n confusion matrices into a single measure. If you look closely, you will see that TNs and FPs form a close relationship: if we shift up <span class="math inline">\(\tau\)</span> in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">13</a> a) we are reducing the number of FPs and obtain more TNs. As TPs relate in the same way to FNs, we can quantify their respective relationships in the following rates:</p>
-<p><span class="math display">\[\begin{equation}
-\text{False Positive Rate}=\text{Sensitivity}=\frac{\text{False Positives}}{\text{False Positives}+\text{True Negatives}}
-\end{equation}\]</span></p>
-<p>In our case you can think of the False Positive Rate (FPR) as the proportion of incorrectly specified dictatorships.</p>
-<p><span class="math display">\[\begin{align}
-\text{True Positive Rate}&amp;=1-\text{Specificity}=\frac{\text{True Positives}}{\text{True Positives}+\text{False Negatives}}\\[10pt]
-\text{Specificity}          &amp;=1-\text{True Positive Rate}=1-\frac{\text{TP}}{\text{TP}+\text{FN}} \nonumber
-\end{align}\]</span></p>
-<p>For our example the True Positive Rate (TPR) represents the proportion of correctly specified democracies. If we calculate these rates for each of our n confusion matrices, we are already reducing four quantities into two. Let’s do it. To provide a visual aid in this rather laborious process, I have created Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">14</a> which depicts all eight shifts.</p>
-<div class="figure"><span style="display:block;" id="fig:towardsroc"></span>
-<img src="files/Week%207/towardsroc.png" alt="\label{fig:towardsroc}Towards the ROC Curve" width="80%" />
-<p class="caption">
-Figure 14: Towards the ROC Curve
-</p>
-</div>
-<p>The following table displays the confusion matrix for each of the panels in Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">14</a>, as well as the respective TPR and FPR (you are welcome).</p>
-<p><img src="files/Week%207/roctable.png" width="80%" /></p>
-<p>As we only need the TPRs and FPRs going forward, it makes sense to collect these in their own little table:</p>
-<p><img src="files/Week%207/fpr.png" width="30%" /></p>
-<p>We are nearly there! The last step is to display all these values in the form of a curve with the TPR on the y-axis, and the FPR on the x-axis. You can see the result – the ROC curve – in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">15</a> a).</p>
-<div class="figure"><span style="display:block;" id="fig:rocman"></span>
-<img src="files/Week%207/rocman.png" alt="\label{fig:rocman}ROC Curve" width="80%" />
-<p class="caption">
-Figure 15: ROC Curve
-</p>
-</div>
-<p>Note that I have added a diagonal where TPR = FPR. This is sometimes described as a model without independent variables. I like to think of the line as the graphical point where our model would not be able to separate between the two categories, at all. The further the ROC curve is away from the diagonal, the better our model is at separating the two categories. But there are two sides to the diagonal. We want it to be above the diagonal, as here the model is predicting 0s as 0s and 1s as 1s. Underneath, the prediction is inverse and 0s are predicted as 1s, and 1s are predicted as 0s.</p>
-<p>To summarize the position of the curve into a numerical expression, the Area Under Curve (AUC) is used, as shown in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">15</a> b). If the area is 100% we are correctly predicting everything. At 50% the model is incapable of separation, and at 0% the model gets everything wrong. This is very useful to compare different models.</p>
-</div>
-<div id="r" class="section level3 unnumbered hasAnchor">
-<h3>R<a href="model-fit-in-binary-response-models.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>How do you do all of this in R? Let’s start with the simple emergence model. In order to calculate a ROC curve, we need a new package, called <code>pROC</code>. Install it and load it.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="model-fit-in-binary-response-models.html#cb70-1" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
-<p>To calculate the ROC curve, we need a few steps:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="model-fit-in-binary-response-models.html#cb71-1" tabindex="-1"></a>prob_em <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb71-2"><a href="model-fit-in-binary-response-models.html#cb71-2" tabindex="-1"></a></span>
-<span id="cb71-3"><a href="model-fit-in-binary-response-models.html#cb71-3" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em)</span>
-<span id="cb71-4"><a href="model-fit-in-binary-response-models.html#cb71-4" tabindex="-1"></a></span>
-<span id="cb71-5"><a href="model-fit-in-binary-response-models.html#cb71-5" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em)</span>
-<span id="cb71-6"><a href="model-fit-in-binary-response-models.html#cb71-6" tabindex="-1"></a></span>
-<span id="cb71-7"><a href="model-fit-in-binary-response-models.html#cb71-7" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb71-8"><a href="model-fit-in-binary-response-models.html#cb71-8" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5048</span></span></code></pre></div>
-<p>What does each line do?</p>
-<ul>
-<li>predict the probability of democratic emergence for each observation (country year) and store them in a new vector called <code>prob_em</code>.</li>
-<li>add the vector <code>prob_em</code> to the data frame <code>world_democ0</code>. In order to do this, we need to <code>unlist</code> the values in the <code>prob_em</code> vector.</li>
-<li>we then call the <code>roc</code> function inw hich we compare the predicted probabilities (<code>world_democ0$prob_em</code>) with the actual, observed regime type (<code>world_democ0$democracy</code>) and store the result in an object called <code>roc</code></li>
-<li>as a last step we calculate the area under the curve with the <code>auc()</code> function</li>
-</ul>
-<p>But we can also plot the ROC curve:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="model-fit-in-binary-response-models.html#cb72-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-102-1.png" width="70%" /></p>
-<p>Note that <code>print.auc=TRUE</code> prints the numerical value into this plot. You can suppress it by setting it to <code>FALSE</code>.</p>
-<p>Let’s follow this procedure for the other models.</p>
-</div>
-<div id="emergence-full-model" class="section level3 unnumbered hasAnchor">
-<h3>Emergence: Full Model<a href="model-fit-in-binary-response-models.html#emergence-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="model-fit-in-binary-response-models.html#cb73-1" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb73-2"><a href="model-fit-in-binary-response-models.html#cb73-2" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em_full)</span>
-<span id="cb73-3"><a href="model-fit-in-binary-response-models.html#cb73-3" tabindex="-1"></a></span>
-<span id="cb73-4"><a href="model-fit-in-binary-response-models.html#cb73-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
-<span id="cb73-5"><a href="model-fit-in-binary-response-models.html#cb73-5" tabindex="-1"></a></span>
-<span id="cb73-6"><a href="model-fit-in-binary-response-models.html#cb73-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb73-7"><a href="model-fit-in-binary-response-models.html#cb73-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5932</span></span></code></pre></div>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="model-fit-in-binary-response-models.html#cb74-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-104-1.png" width="70%" /></p>
-</div>
-<div id="survival" class="section level3 unnumbered hasAnchor">
-<h3>Survival<a href="model-fit-in-binary-response-models.html#survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="model-fit-in-binary-response-models.html#cb75-1" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb75-2"><a href="model-fit-in-binary-response-models.html#cb75-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur)</span>
-<span id="cb75-3"><a href="model-fit-in-binary-response-models.html#cb75-3" tabindex="-1"></a></span>
-<span id="cb75-4"><a href="model-fit-in-binary-response-models.html#cb75-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
-<span id="cb75-5"><a href="model-fit-in-binary-response-models.html#cb75-5" tabindex="-1"></a></span>
-<span id="cb75-6"><a href="model-fit-in-binary-response-models.html#cb75-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb75-7"><a href="model-fit-in-binary-response-models.html#cb75-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8317</span></span></code></pre></div>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="model-fit-in-binary-response-models.html#cb76-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-106-1.png" width="70%" /></p>
-</div>
-<div id="survival-full-model" class="section level3 unnumbered hasAnchor">
-<h3>Survival: Full Model<a href="model-fit-in-binary-response-models.html#survival-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="model-fit-in-binary-response-models.html#cb77-1" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb77-2"><a href="model-fit-in-binary-response-models.html#cb77-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
-<span id="cb77-3"><a href="model-fit-in-binary-response-models.html#cb77-3" tabindex="-1"></a></span>
-<span id="cb77-4"><a href="model-fit-in-binary-response-models.html#cb77-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
-<span id="cb77-5"><a href="model-fit-in-binary-response-models.html#cb77-5" tabindex="-1"></a>Setting levels<span class="sc">:</span> control <span class="ot">=</span> <span class="dv">0</span>, case <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb77-6"><a href="model-fit-in-binary-response-models.html#cb77-6" tabindex="-1"></a>Setting direction<span class="sc">:</span> controls <span class="sc">&lt;</span> cases</span></code></pre></div>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="model-fit-in-binary-response-models.html#cb78-1" tabindex="-1"></a></span>
-<span id="cb78-2"><a href="model-fit-in-binary-response-models.html#cb78-2" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb78-3"><a href="model-fit-in-binary-response-models.html#cb78-3" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8165</span></span></code></pre></div>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="model-fit-in-binary-response-models.html#cb79-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-107-1.png" width="70%" /></p>
-</div>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="6">
-<li id="fn6"><p>This is a verbatim reproduction from <span class="citation">Reiche (forthcoming)</span>. All figures are copyrighted.<a href="model-fit-in-binary-response-models.html#fnref6" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="markov-transition-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="joint-estimation-of-emergence-and-survival.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction-to-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
