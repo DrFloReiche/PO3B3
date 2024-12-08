@@ -1,10 +1,10 @@
 fig:excel
-fig:unnamed-chunk-4
-fig:unnamed-chunk-5
+fig:unnamed-chunk-1
+fig:unnamed-chunk-2
 fig:fig1
 fig:folder
 fig:distribution
-fig:unnamed-chunk-34
+fig:unnamed-chunk-31
 fig:latent
 fig:out
 fig:towcdf
