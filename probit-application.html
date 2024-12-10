@@ -458,6 +458,9 @@ Number of Fisher Scoring iterations: 5</code></pre>
 <p> 
  </p>
 <table style="text-align:center">
+<caption>
+<strong><span id="tab:reg1"><span id="tab:reg1">Table 1: </span></span>Influence of per capita GDP on Democracy</strong>
+</caption>
 <tr>
 <td colspan="2" style="border-bottom: 1px solid black">
 </td>
@@ -491,14 +494,14 @@ Democracy
 per capita GDP
 </td>
 <td>
-0.0001<sup>***</sup>
+0.058<sup>***</sup>
 </td>
 </tr>
 <tr>
 <td style="text-align:left">
 </td>
 <td>
-(0.00001)
+(0.011)
 </td>
 </tr>
 <tr>
@@ -512,14 +515,14 @@ per capita GDP
 Constant
 </td>
 <td>
--0.162
+-3.731<sup>***</sup>
 </td>
 </tr>
 <tr>
 <td style="text-align:left">
 </td>
 <td>
-(0.116)
+(0.726)
 </td>
 </tr>
 <tr>
@@ -537,7 +540,7 @@ Constant
 Observations
 </td>
 <td>
-181
+183
 </td>
 </tr>
 <tr>
@@ -556,7 +559,7 @@ Observations
  
  
 </center>
-<p>You see, this table manages to convey clearly the relationship we are assessing, the label of the independent variable (not in the form of cryptic variable names), the value of the intercept, the value of the slope coefficient, their respective p-value, and the number of observations. As such, the table itself could already communicate the main take-away message without somebody looking at the text. This needs to be the goal: the table, or figure needs to be able to communicate the message without having to look at the text. In turn, the text needs to be able to communicate the message on its own without looking at the table. But both need to say the same thing.</p>
+<p>You see, this table manages to convey clearly the relationship we are assessing, the label of the independent variable (not in the form of cryptic variable names), the value of the intercept, the value of the slope coefficient, their respective p-value, and the number of observations. It also has an informative caption underneath and is properly labelled (so that it can be cross-referenced in the text). As such, the table itself could already communicate the main take-away message without somebody looking at the text. This needs to be the goal: the table, or figure needs to be able to communicate the message without having to look at the text. In turn, the text needs to be able to communicate the message on its own without looking at the table. But both need to say the same thing.</p>
 <p>After you have reported the results of the regression output in this way, you can then proceed to interpret (in the text) the transition probabilities as discussed above. Again, you might wish to sum up the main results in tabular format.</p>
 <div id="stargazer" class="section level3 unnumbered hasAnchor">
 <h3>Stargazer<a href="probit-application.html#stargazer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -587,7 +590,6 @@ Observations
 <div id="predicting-the-probability-1" class="section level3 unnumbered hasAnchor">
 <h3>Predicting the Probability<a href="probit-application.html#predicting-the-probability-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is very much the same as above with one independent variable. It is crucial to remember which variables you have set at which value, so that you can interpret the probability values correctly. As in linear regression, the interpretation of individual variables is ceteris paribus. It therefore makes sense, if you wish to isolate the effect of one, single variable, only to vary the values of that variable, and to leave all the other ones the same. If you varied two variables at the same time, for example, you would no doubt see a change in probability, but you could not attribute it to a single independent variable, any more.</p>
-<hr />
 </div>
 </div>
 </div>

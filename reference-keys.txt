@@ -10,6 +10,7 @@ fig:out
 fig:towcdf
 fig:cdf
 fig:marginal
+tab:reg1
 fig:real
 fig:missing
 fig:separation
