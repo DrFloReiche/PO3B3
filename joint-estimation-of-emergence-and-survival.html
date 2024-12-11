@@ -364,8 +364,9 @@ P(D_{it})=\Phi((\beta_{0} +\beta_{2}) + (\beta_{1} + \beta_{3}) X_{i,t})
 <div id="example" class="section level2 unnumbered hasAnchor">
 <h2>Example<a href="joint-estimation-of-emergence-and-survival.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To make this more tangible, let’s look at an example. Assume we want to look at the effect of per capita GDP on democratic emergence (i.e. the transition of an autocracy to democracy), and democratic survival (i.e. the transition from democracy to democracy. In this case we would specify the model as follows:</p>
-<p><span class="math display">\[\begin{equation}
+<p><span class="math display" id="eq:interaction">\[\begin{equation}
 P(D_{it})=\Phi(\beta_{0}+\beta_{1} \text{per capita GDP}_{i,t} +\beta_{2} I_{D} + \beta_{3} I_{D} \text{per capita GDP}_{i,t})
+\tag{2}
 \end{equation}\]</span></p>
 <p>The coefficient indicating the impact of per capita GDP on democratic emergence is <span class="math inline">\(\beta_{1}\)</span>. As illustrated above, the indicator variable <span class="math inline">\(I_{D}\)</span> is zero in this case, and the equation would be reduced to</p>
 <p><span class="math display">\[\begin{equation}
@@ -390,6 +391,15 @@ P(D_{it})=\Phi(\beta_{0}+\beta_{1} \text{per capita GDP}_{i,t} +\beta_{2} I_{D} 
 <span id="cb73-2"><a href="joint-estimation-of-emergence-and-survival.html#cb73-2" tabindex="-1"></a>                 <span class="at">data =</span> world,</span>
 <span id="cb73-3"><a href="joint-estimation-of-emergence-and-survival.html#cb73-3" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
 <span id="cb73-4"><a href="joint-estimation-of-emergence-and-survival.html#cb73-4" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
+<div class="bulb">
+<p>If you have done regression analysis before, and you worry about (multi-)collinearity in such a model, then please note that:</p>
+<blockquote>
+<p>Analysts should include all constitutive terms when specifying multiplicative interaction
+models except in very rare circumstances. By constitutive terms, we mean each of the
+elements that constitute the interaction term. Thus, X and Z are the constitutive terms in
+[this model: <span class="math inline">\(y=\beta_0 + \beta_1 X + \beta_2 Z + \beta_4 XZ + \epsilon\)</span>]. <span class="citation">(Brambor et al., 2006, p. 66)</span></p>
+</blockquote>
+</div>
 <p>You obtain the following output:</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="joint-estimation-of-emergence-and-survival.html#cb74-1" tabindex="-1"></a><span class="fu">summary</span>(joint)</span>
 <span id="cb74-2"><a href="joint-estimation-of-emergence-and-survival.html#cb74-2" tabindex="-1"></a></span>

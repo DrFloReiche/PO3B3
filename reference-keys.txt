@@ -21,3 +21,4 @@ fig:taushift
 fig:towardsroc
 fig:rocman
 eq:interactionmodel
+eq:interaction
