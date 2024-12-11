@@ -4,7 +4,8 @@ fig:unnamed-chunk-2
 fig:fig1
 fig:folder
 fig:distribution
-fig:unnamed-chunk-31
+tab:wdicode1
+fig:unnamed-chunk-33
 fig:latent
 fig:out
 fig:towcdf

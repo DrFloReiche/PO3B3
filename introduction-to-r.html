@@ -50,6 +50,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -185,10 +189,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#recoding"><i class="fa fa-check"></i>Recoding</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-set-codebook"><i class="fa fa-check"></i>Data Set – Codebook</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#book-recommendations"><i class="fa fa-check"></i>Book Recommendations</a></li>
 </ul></li>
 <li class="part"><span><b>Week 2</b></span></li>
@@ -391,12 +392,15 @@ Figure 3: The RScript Window
 Figure 4: Example of an RScript
 </p>
 </div>
-<p>If you precede a line with #, you can write annotations to yourself, for example explaining what you do with a particular command. More on this in the next sub-section.</p>
+<p>If you precede a line with <code>#</code>, you can write annotations to yourself, for example explaining what you do with a particular command. More on this in the next sub-section.</p>
 <div id="rscript-structure" class="section level3 unnumbered hasAnchor">
 <h3>RScript Structure<a href="introduction-to-r.html#rscript-structure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Well, I am German, and I like things neat and tidy, so I feel almost compelled to discuss how to properly organise an RScript. But apart from genetical dispositions, a well-organised RScript is also very much in the spirit of reproducibility. It simply makes sense to structure an RScript in such a way that another researcher is able to easily read and understand it.</p>
 <p>First of all, which commands to include? If you introduce me to your current girlfriend or boyfriend, I have no interest in learning about all your past relationships; they have not worked out. In a similar fashion, nobody wants to read through lines of code that are irrelvant. So you will only include in the RScript those commands which produce the output you actually include in the essay or article.</p>
 <p>I stated above that if you precede a line with #, you can write annotations to yourself. This is also a useful way to structure an RScript, for example into exercise numbers, sections of an essay /article, or different stages of data preparation (which we will be doing in due course).</p>
+<div class="warning">
+<p>Now you know how to write in an RScript, avoid using the “Console” to write your code, and only write in the RScript.</p>
+</div>
 <hr />
 </div>
 </div>
@@ -404,10 +408,10 @@ Figure 4: Example of an RScript
 <h2>First Steps in R<a href="introduction-to-r.html#first-steps-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>But enough of the preliminary talk, let’s get started in R. In principle, you can think of R as a massive and powerful calculator. So I will use it as such to start of with. If you want to know what the sum of 5 and 3 is, you type</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction-to-r.html#cb1-1" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span></code></pre></div>
-<p>and press “enter”. In everything that is to follow, commands will be shown in boxes with the output underneath preceded by a hash tag. So, including result, the calculation would look like this:</p>
+<p>and press “command” / “enter” (or “Ctrl” / “enter” if you are on Windows). In everything that is to follow, commands will be shown in boxes with the output underneath preceded by a hash tag. So, including result, the calculation would look like this:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introduction-to-r.html#cb2-1" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">3</span></span>
 <span id="cb2-2"><a href="introduction-to-r.html#cb2-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">8</span></span></code></pre></div>
-<p>where the [1] indicates that the 8 is the first component of the result. In this case, we only have one component, so it’s superflous really, but we will soon encounter situations in which results can have a number of different items.</p>
+<p>where the [1] indicates that the 8 is the first component of the result. In this case, we only have one component, so it’s superfluous really, but we will soon encounter situations in which results can have a number of different items. Note that the result of this operation is displayed in the “Console”, even if you write this in the RScript above.</p>
 <div class="bulb">
 <p>You can copy the code from this page by hovering over the code chunk and clicking the icon in the top-right hand corner. You can then paste it into your RScript.</p>
 </div>
@@ -454,7 +458,7 @@ Figure 5: Folder Structure
 <div id="opening" class="section level3 unnumbered hasAnchor">
 <h3>Opening<a href="introduction-to-r.html#opening" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We are now ready to open the data set in R - where it is called a “data frame”. First, download the <a href="files/Week%201/example.xlsx">Example</a> data set (also available in the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a>) and place it into the current working directory. To load it into R, we create a new object <code>example</code>, and ask R to read “Sheet 1 of the Excel file”example.xlsx”.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction-to-r.html#cb8-1" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;files/Week 1/example.xlsx&quot;</span>, <span class="at">sheet=</span><span class="st">&quot;Sheet1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introduction-to-r.html#cb8-1" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;Week 1/example.xlsx&quot;</span>, <span class="at">sheet=</span><span class="st">&quot;Sheet1&quot;</span>)</span></code></pre></div>
 <div class="warning">
 <p>Please do not use the “Import Dataset” button in the Environment, but do this properly, manually. We sometimes need to set options for importing data sets, and the “pointy, clicky” approach won’t be able to offer you what you need.</p>
 </div>
@@ -582,7 +586,257 @@ Figure 6: Distributions with different Standard Deviations
 <div id="the-real-data-set" class="section level2 unnumbered hasAnchor">
 <h2>The Real Data Set<a href="introduction-to-r.html#the-real-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Download the <code>world.csv</code> data set from the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a> and place it into the current working directory.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r.html#cb22-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;files/Week 1/world.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r.html#cb22-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Week 1/world.csv&quot;</span>)</span></code></pre></div>
+<p>The data are taken from <span class="citation">World Bank (2024)</span>, <span class="citation">Boix et al. (2018)</span>, and <span class="citation">Marshall &amp; Gurr (2020)</span>. Table <a href="introduction-to-r.html#tab:wdicode1">1</a> provides a full code book, but you can also download it <a href="files/Week%201/PO3B3_Codebook.pdf">in pdf format here</a>.</p>
+<table style="width:100%; color: black; margin-left: auto; margin-right: auto; color: black; font-family: Computer Modern; width: auto !important; margin-left: auto; margin-right: auto;" class="table lightable-classic-2">
+<caption>
+<span id="tab:wdicode1">Table 1: </span>WDI Codebook
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+variable
+</th>
+<th style="text-align:left;">
+label
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+Country Name
+</td>
+<td style="text-align:left;">
+Country Name
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+Country Code
+</td>
+<td style="text-align:left;">
+Country Code
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+year
+</td>
+<td style="text-align:left;">
+year
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+democracy
+</td>
+<td style="text-align:left;">
+0 = Autocracy, 1 = Dictatorship (Boix et al., 2018)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+gdppc
+</td>
+<td style="text-align:left;">
+GDP per capita (constant 2010 US$)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+gdpgrowth
+</td>
+<td style="text-align:left;">
+Absolute growth of per capita GDP to previous year (constant 2010 US Dollars)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+enrl_gross
+</td>
+<td style="text-align:left;">
+School enrollment, primary (% gross)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+enrl_net
+</td>
+<td style="text-align:left;">
+School enrollment, primary (% net)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+agri
+</td>
+<td style="text-align:left;">
+Employment in agriculture (% of total employment) (modeled ILO estimate)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+slums
+</td>
+<td style="text-align:left;">
+Population living in slums (% of urban population)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+telephone
+</td>
+<td style="text-align:left;">
+Fixed telephone subscriptions (per 100 people)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+internet
+</td>
+<td style="text-align:left;">
+Individuals using the Internet (% of population)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+tax
+</td>
+<td style="text-align:left;">
+Tax revenue (% of GDP)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+electricity
+</td>
+<td style="text-align:left;">
+Access to electricity (% of population)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+mobile
+</td>
+<td style="text-align:left;">
+Mobile cellular subscriptions (per 100 people)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+service
+</td>
+<td style="text-align:left;">
+Services, value added (% of GDP)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+oil
+</td>
+<td style="text-align:left;">
+Oil rents (% of GDP)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+natural
+</td>
+<td style="text-align:left;">
+Total natural resources rents (% of GDP)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+literacy
+</td>
+<td style="text-align:left;">
+Literacy rate, adult total (% of people ages 15 and above)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+prim_compl
+</td>
+<td style="text-align:left;">
+Primary completion rate, total (% of relevant age group)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+infant
+</td>
+<td style="text-align:left;">
+Mortality rate, infant (per 1,000 live births)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+hosp
+</td>
+<td style="text-align:left;">
+Hospital beds (per 1,000 people)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+tub
+</td>
+<td style="text-align:left;">
+Incidence of tuberculosis (per 100,000 people)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+health_ex
+</td>
+<td style="text-align:left;">
+Current health expenditure (% of GDP)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+ineq
+</td>
+<td style="text-align:left;">
+Income share held by lowest 10%
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+unemploy
+</td>
+<td style="text-align:left;">
+Unemployment, total (% of total labor force) (modeled ILO estimate)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+lifeexp
+</td>
+<td style="text-align:left;">
+Life expectancy at birth, total (years)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+urban
+</td>
+<td style="text-align:left;">
+Urban population (% of total population)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+polity5
+</td>
+<td style="text-align:left;">
+Combined Polity V score
+</td>
+</tr>
+</tbody>
+</table>
 <p>Again, let’s explore the data set through the <code>view()</code> function:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r.html#cb23-1" tabindex="-1"></a><span class="fu">view</span>(world)</span></code></pre></div>
 <p>Now, don’t panic. This data set is big, but you know the basic structure: country by year in rows, and the variables in the column. The value for the variable in a given country in a given year is in the meeting point between row and column.</p>
@@ -600,11 +854,7 @@ Figure 6: Distributions with different Standard Deviations
 <span id="cb26-2"><a href="introduction-to-r.html#cb26-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">56</span></span></code></pre></div>
 <p>In this particular case, it would tell us that we have data for 56 years.</p>
 <p>If this all seems a little much at the moment, don’t worry. As we go through the module, R will become much, much easier to handle!</p>
-<div id="data-set-codebook" class="section level3 unnumbered hasAnchor">
-<h3>Data Set – Codebook<a href="introduction-to-r.html#data-set-codebook" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can download a full codebook <a href="files/Week%201/PO3B3_Codebook.pdf">here</a>.</p>
 <hr />
-</div>
 </div>
 <div id="book-recommendations" class="section level2 unnumbered hasAnchor">
 <h2>Book Recommendations<a href="introduction-to-r.html#book-recommendations" class="anchor-section" aria-label="Anchor link to header"></a></h2>

@@ -50,6 +50,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -185,10 +189,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#recoding"><i class="fa fa-check"></i>Recoding</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-set-codebook"><i class="fa fa-check"></i>Data Set – Codebook</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a></li>
 <li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#book-recommendations"><i class="fa fa-check"></i>Book Recommendations</a></li>
 </ul></li>
 <li class="part"><span><b>Week 2</b></span></li>
@@ -416,7 +417,7 @@ Figure 20: ROC Curve
 </ul>
 <p>But we can also plot the ROC curve:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="model-fit-in-binary-response-models.html#cb66-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-96-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-98-1.png" width="70%" /></p>
 <p>Note that <code>print.auc=TRUE</code> prints the numerical value into this plot. You can suppress it by setting it to <code>FALSE</code>.</p>
 <p>Let’s follow this procedure for the other models.</p>
 </div>
@@ -430,7 +431,7 @@ Figure 20: ROC Curve
 <span id="cb67-6"><a href="model-fit-in-binary-response-models.html#cb67-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
 <span id="cb67-7"><a href="model-fit-in-binary-response-models.html#cb67-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5932</span></span></code></pre></div>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="model-fit-in-binary-response-models.html#cb68-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-98-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-100-1.png" width="70%" /></p>
 </div>
 <div id="survival" class="section level3 unnumbered hasAnchor">
 <h3>Survival<a href="model-fit-in-binary-response-models.html#survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -442,7 +443,7 @@ Figure 20: ROC Curve
 <span id="cb69-6"><a href="model-fit-in-binary-response-models.html#cb69-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
 <span id="cb69-7"><a href="model-fit-in-binary-response-models.html#cb69-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8317</span></span></code></pre></div>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="model-fit-in-binary-response-models.html#cb70-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-100-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-102-1.png" width="70%" /></p>
 </div>
 <div id="survival-full-model" class="section level3 unnumbered hasAnchor">
 <h3>Survival: Full Model<a href="model-fit-in-binary-response-models.html#survival-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -450,13 +451,11 @@ Figure 20: ROC Curve
 <span id="cb71-2"><a href="model-fit-in-binary-response-models.html#cb71-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
 <span id="cb71-3"><a href="model-fit-in-binary-response-models.html#cb71-3" tabindex="-1"></a></span>
 <span id="cb71-4"><a href="model-fit-in-binary-response-models.html#cb71-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
-<span id="cb71-5"><a href="model-fit-in-binary-response-models.html#cb71-5" tabindex="-1"></a>Setting levels<span class="sc">:</span> control <span class="ot">=</span> <span class="dv">0</span>, case <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb71-6"><a href="model-fit-in-binary-response-models.html#cb71-6" tabindex="-1"></a>Setting direction<span class="sc">:</span> controls <span class="sc">&lt;</span> cases</span>
-<span id="cb71-7"><a href="model-fit-in-binary-response-models.html#cb71-7" tabindex="-1"></a></span>
-<span id="cb71-8"><a href="model-fit-in-binary-response-models.html#cb71-8" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb71-9"><a href="model-fit-in-binary-response-models.html#cb71-9" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8165</span></span>
-<span id="cb71-10"><a href="model-fit-in-binary-response-models.html#cb71-10" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-101-1.png" width="70%" /></p>
+<span id="cb71-5"><a href="model-fit-in-binary-response-models.html#cb71-5" tabindex="-1"></a></span>
+<span id="cb71-6"><a href="model-fit-in-binary-response-models.html#cb71-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb71-7"><a href="model-fit-in-binary-response-models.html#cb71-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8165</span></span>
+<span id="cb71-8"><a href="model-fit-in-binary-response-models.html#cb71-8" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="main_files/figure-html/unnamed-chunk-103-1.png" width="70%" /></p>
 </div>
 </div>
 </div>
