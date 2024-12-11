@@ -331,7 +331,14 @@ div.csl-indent {
 <h1>Joint Estimation of Emergence and Survival<a href="joint-estimation-of-emergence-and-survival.html#joint-estimation-of-emergence-and-survival" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="rationale" class="section level2 unnumbered hasAnchor">
 <h2>Rationale<a href="joint-estimation-of-emergence-and-survival.html#rationale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>It is perfectly adequate to estimate the processes of democratic emergence and survival separately. There is a more elegant approach, however, in which emergence and survival are estimated together. The rationale here is that the model will, overall, use more observations and therefore this might influence standard errors and thus statistical significance. As an approach, I would estimate the joint model as outlined here to check statistical significance of variables, and then estimate emergence and survival separately for the calculation of quantities of interest (transitional probabilities).</p>
+<p>It is perfectly adequate to estimate the processes of democratic emergence and survival separately. There is a more elegant approach, however, in which emergence and survival are estimated together. This is often employed in the literature, for example in the article by <span class="citation">Boix &amp; Stokes (2003)</span>. The rationale here is that the model will, overall, use more observations and therefore this might influence standard errors and thus statistical significance.</p>
+<div class="bulb">
+<p>As you will see, the joint estimation requires a lot of manual calculation and general faff. I am mainly showing you this here, so that you can understand the output in aforementioned articles. If you want to employ this yourself, then you could:</p>
+<ul>
+<li>estimate the joint model as outlined here to check statistical significance of variables</li>
+<li>then estimate emergence and survival separately and work with the coefficients to calculate predicted probabilities and ROC curves</li>
+</ul>
+</div>
 <p>So, what’s the setup? Again, we are incorporating the lagged value <span class="math inline">\(y_{t-1}\)</span>, to encapsulate all the history prior to period <span class="math inline">\(t\)</span>. There is just one little trick I need to introduce before we can start on the model: I will replace <span class="math inline">\(y_{t-1}\)</span> by an indicator variable <span class="math inline">\(I_{D}\)</span> in Equation <a href="joint-estimation-of-emergence-and-survival.html#eq:interactionmodel">(1)</a> which assumes the value 1 if a country was a democracy in the previous year, and zero otherwise (notation adapted from Epstein et al., 2006, p. 553). Following on from this, we can write the model as follows<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>:</p>
 <p><span class="math display" id="eq:interactionmodel">\[\begin{equation}
 P(D_{i,t})=\Phi(\beta_{0}+\beta_{1} X_{i,t} +\beta_{2} I_{D} + \beta_{3} I_{D} X_{i,t} + \epsilon_{i,t})
