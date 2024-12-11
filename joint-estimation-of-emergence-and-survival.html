@@ -336,7 +336,7 @@ div.csl-indent {
 <p>As you will see, the joint estimation requires a lot of manual calculation and general faff. I am mainly showing you this here, so that you can understand the output in aforementioned articles. If you want to employ this yourself, then you could:</p>
 <ul>
 <li>estimate the joint model as outlined here to check statistical significance of variables</li>
-<li>then estimate emergence and survival separately and work with the coefficients to calculate predicted probabilities and ROC curves</li>
+<li>then estimate emergence and survival separately and work with those separately estimated models to calculate predicted probabilities and ROC curves</li>
 </ul>
 </div>
 <p>So, what’s the setup? Again, we are incorporating the lagged value <span class="math inline">\(y_{t-1}\)</span>, to encapsulate all the history prior to period <span class="math inline">\(t\)</span>. There is just one little trick I need to introduce before we can start on the model: I will replace <span class="math inline">\(y_{t-1}\)</span> by an indicator variable <span class="math inline">\(I_{D}\)</span> in Equation <a href="joint-estimation-of-emergence-and-survival.html#eq:interactionmodel">(1)</a> which assumes the value 1 if a country was a democracy in the previous year, and zero otherwise (notation adapted from Epstein et al., 2006, p. 553). Following on from this, we can write the model as follows<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>:</p>
