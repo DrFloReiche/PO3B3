@@ -1,11 +1,11 @@
 fig:excel
 fig:unnamed-chunk-1
 fig:unnamed-chunk-2
-fig:fig1
+fig:RScriptex
 fig:folder
 fig:distribution
 tab:wdicode1
-fig:unnamed-chunk-33
+fig:unnamed-chunk-34
 fig:latent
 fig:out
 fig:towcdf
