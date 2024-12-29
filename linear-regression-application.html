@@ -340,7 +340,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="linear-regression-application.html#cb29-1" tabindex="-1"></a>regression <span class="ot">&lt;-</span> <span class="fu">lm</span>(devar <span class="sc">~</span> indepvar, <span class="at">data=</span>dataframe)</span></code></pre></div>
 <p>We specify an object into which we store the results of the regression, here <code>regression</code>, and assign a function to this object called <code>lm</code> which stands for “linear model”. It is then convention to state the dependent variable first in the command, which in our case will always be democracy. This is then followed by a tilde and the independent variable which you want to include.</p>
 <p>In the case of modernisation theory, you might want to test what influence per capita GDP has on democracy. This week we are using the Polity V scale to measure democracy.</p>
-<p>“The ‘Polity Score’ captures [the] regime authority spectrum on a 21-pont scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). (…) The Polity scheme consists of six component measures that record key qualities of of executive recruitment, constraints on executive authority and political competition. It also records changes in the institutionalized qualities of governing authority.”<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>“The ‘Polity Score’ captures [the] regime authority spectrum on a 21-pont scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). (…) The Polity scheme consists of six component measures that record key qualities of of executive recruitment, constraints on executive authority and political competition. It also records changes in the institutionalized qualities of governing authority.”<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 <p>We start by setting the working directory</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="linear-regression-application.html#cb30-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO3B3//Week 2&quot;</span>)</span></code></pre></div>
 <p>and then load the <a href="files/Downloads/Europe.csv">Europe.csv</a> data set into the workspace. We subset this data frame to observations from the year 2000, only.</p>
@@ -493,8 +493,8 @@ div.csl-indent {
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>For more detail see .<a href="linear-regression-application.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<ol start="4">
+<li id="fn4"><p>For more detail see .<a href="linear-regression-application.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

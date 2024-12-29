@@ -344,7 +344,7 @@ div.csl-indent {
 <li>then estimate emergence and survival separately and work with those separately estimated models to calculate predicted probabilities and ROC curves</li>
 </ul>
 </div>
-<p>So, what’s the setup? Again, we are incorporating the lagged value <span class="math inline">\(y_{t-1}\)</span>, to encapsulate all the history prior to period <span class="math inline">\(t\)</span>. There is just one little trick I need to introduce before we can start on the model: I will replace <span class="math inline">\(y_{t-1}\)</span> by an indicator variable <span class="math inline">\(I_{D}\)</span> in Equation <a href="joint-estimation-of-emergence-and-survival.html#eq:interactionmodel">(1)</a> which assumes the value 1 if a country was a democracy in the previous year, and zero otherwise (notation adapted from Epstein et al., 2006, p. 553). Following on from this, we can write the model as follows<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>:</p>
+<p>So, what’s the setup? Again, we are incorporating the lagged value <span class="math inline">\(y_{t-1}\)</span>, to encapsulate all the history prior to period <span class="math inline">\(t\)</span>. There is just one little trick I need to introduce before we can start on the model: I will replace <span class="math inline">\(y_{t-1}\)</span> by an indicator variable <span class="math inline">\(I_{D}\)</span> in Equation <a href="joint-estimation-of-emergence-and-survival.html#eq:interactionmodel">(1)</a> which assumes the value 1 if a country was a democracy in the previous year, and zero otherwise (notation adapted from Epstein et al., 2006, p. 553). Following on from this, we can write the model as follows<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>:</p>
 <p><span class="math display" id="eq:interactionmodel">\[\begin{equation}
 P(D_{i,t})=\Phi(\beta_{0}+\beta_{1} X_{i,t} +\beta_{2} I_{D} + \beta_{3} I_{D} X_{i,t} + \epsilon_{i,t})
 \tag{1}
@@ -450,8 +450,8 @@ elements that constitute the interaction term. Thus, X and Z are the constitutiv
 </div>
 <div class="footnotes">
 <hr />
-<ol start="8">
-<li id="fn8"><p>This discussion draws on <span class="citation">Brambor et al. (2006)</span>. Please note that I am deliberately NOT lagging the independent variables (IVs) on this worksheet to keep notation as simple as possible. If you decide to run the interaction model, make sure you lag the IVs as explained above.<a href="joint-estimation-of-emergence-and-survival.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="9">
+<li id="fn9"><p>This discussion draws on <span class="citation">Brambor et al. (2006)</span>. Please note that I am deliberately NOT lagging the independent variables (IVs) on this worksheet to keep notation as simple as possible. If you decide to run the interaction model, make sure you lag the IVs as explained above.<a href="joint-estimation-of-emergence-and-survival.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
