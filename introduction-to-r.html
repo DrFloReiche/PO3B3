@@ -367,7 +367,7 @@ Figure 1: Sample Data Set
 <li><code>A typewriter font for R functions, values, etc.</code></li>
 </ul>
 <p>Let’s have a look at RStudio itself. When you open the programme, you are presented with the following screen:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="files/Week%201/RStudio.png" alt="\label{fig:RStudio}RStudio" width="60%" />
 <p class="caption">
 Figure 2: RStudio
@@ -383,7 +383,7 @@ Figure 2: RStudio
 <p>One of the foundations of scientific research is “reproducibility”“, or”replicability”. This means that “sufficient information exists with which to understand, evaluate, and build upon a prior work if a third party could replicate the results without any additional information from the author.” <span class="citation">(King, 1995, p. 444, emphasis removed)</span> This principle applies in academia more generally, because only if you understand what a person has done before you, you can pick their work up whether they left it, and push the boundaries of knowledge further. But a bit closer to home, it is also relevant for conducting quantitative research in assessments. We require you to submit an RScript (or a “do file” if you use Stata) now together with your actual essay. This is not only to check what you have done; data preparation is often the most time-consuming part (as you will soon discover), and this is a way to gain recognition for this work. So it is actually to your advantage, and not a mere plagiarism check.</p>
 <p>The creation of an RScript will allow you to open the raw data, and by running the script, to bring it to exactly where you left off. This saves you saving data sets which can take up a lot of work. If you back the script up properly, you also have an insurance against losing all your work a day before the assessment is due.</p>
 <p>To create an RScript, click File <span class="math inline">\(\rightarrow\)</span> New File <span class="math inline">\(\rightarrow\)</span> RScript. A fourth window opens, and your screen will now look something like this:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="files/Week%201/rscript.png" alt="\label{fig:RScript}The RScript Window" width="60%" />
 <p class="caption">
 Figure 3: The RScript Window
@@ -551,23 +551,23 @@ Figure 6: Distributions with different Standard Deviations
 </div>
 <p>Therefore, we also need to look at the variability of a variable to adequately describe it. Again, there are quite a few measures available. First up is the range; you can either calculate this with two commands by finding out the minimum and maximum separately, or just ask R to give you the range straight away:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-to-r.html#cb17-1" tabindex="-1"></a><span class="fu">min</span>(example<span class="sc">$</span>gdp)</span>
-<span id="cb17-2"><a href="introduction-to-r.html#cb17-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3602</span></span>
-<span id="cb17-3"><a href="introduction-to-r.html#cb17-3" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="introduction-to-r.html#cb17-4" tabindex="-1"></a><span class="fu">max</span>(example<span class="sc">$</span>gdp)</span>
-<span id="cb17-5"><a href="introduction-to-r.html#cb17-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">52704</span></span>
-<span id="cb17-6"><a href="introduction-to-r.html#cb17-6" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="introduction-to-r.html#cb17-7" tabindex="-1"></a><span class="fu">range</span>(example<span class="sc">$</span>gdp)</span>
-<span id="cb17-8"><a href="introduction-to-r.html#cb17-8" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="dv">3602</span> <span class="dv">52704</span></span></code></pre></div>
+<span id="cb17-2"><a href="introduction-to-r.html#cb17-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">3602</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction-to-r.html#cb18-1" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="introduction-to-r.html#cb18-2" tabindex="-1"></a><span class="fu">max</span>(example<span class="sc">$</span>gdp)</span>
+<span id="cb18-3"><a href="introduction-to-r.html#cb18-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">52704</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r.html#cb19-1" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="introduction-to-r.html#cb19-2" tabindex="-1"></a><span class="fu">range</span>(example<span class="sc">$</span>gdp)</span>
+<span id="cb19-3"><a href="introduction-to-r.html#cb19-3" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="dv">3602</span> <span class="dv">52704</span></span></code></pre></div>
 <p>The standard deviation is rather long-winded to calculate by hand, but the R command is short and sweet:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction-to-r.html#cb18-1" tabindex="-1"></a><span class="fu">sd</span>(example<span class="sc">$</span>gdp)</span>
-<span id="cb18-2"><a href="introduction-to-r.html#cb18-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">21319.75</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r.html#cb20-1" tabindex="-1"></a><span class="fu">sd</span>(example<span class="sc">$</span>gdp)</span>
+<span id="cb20-2"><a href="introduction-to-r.html#cb20-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">21319.75</span></span></code></pre></div>
 <p>The variance is the squared standard deviation, but you can calculate it with its own command in R, too:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-r.html#cb19-1" tabindex="-1"></a><span class="fu">var</span>(example<span class="sc">$</span>gdp)</span>
-<span id="cb19-2"><a href="introduction-to-r.html#cb19-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">454531709</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r.html#cb21-1" tabindex="-1"></a><span class="fu">var</span>(example<span class="sc">$</span>gdp)</span>
+<span id="cb21-2"><a href="introduction-to-r.html#cb21-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">454531709</span></span></code></pre></div>
 <p>You can get information on the quartiles (these are also measures of spread), the mean, as well as the minimum and maximum of a variable through one, simple command:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-r.html#cb20-1" tabindex="-1"></a><span class="fu">summary</span>(example<span class="sc">$</span>gdp)</span>
-<span id="cb20-2"><a href="introduction-to-r.html#cb20-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max. </span>
-<span id="cb20-3"><a href="introduction-to-r.html#cb20-3" tabindex="-1"></a>   <span class="dv">3602</span>    <span class="dv">7737</span>   <span class="dv">26218</span>   <span class="dv">26454</span>   <span class="dv">42856</span>   <span class="dv">52704</span> </span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r.html#cb22-1" tabindex="-1"></a><span class="fu">summary</span>(example<span class="sc">$</span>gdp)</span>
+<span id="cb22-2"><a href="introduction-to-r.html#cb22-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max. </span>
+<span id="cb22-3"><a href="introduction-to-r.html#cb22-3" tabindex="-1"></a>   <span class="dv">3602</span>    <span class="dv">7737</span>   <span class="dv">26218</span>   <span class="dv">26454</span>   <span class="dv">42856</span>   <span class="dv">52704</span> </span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -577,19 +577,19 @@ Figure 6: Distributions with different Standard Deviations
 <h3>Recoding<a href="introduction-to-r.html#recoding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When conducting quantitative research, variables will rarely come in the format in which you require them to be. I have been kind and reshaped all data you will be using for this module already. Nonetheless, you might come into a position in which you need to recode a variable, and here is how to do it.</p>
 <p>The process is a little more involved, and requires a new package to be installed and loaded: <code>dplyr</code>. This package is part of the so-called <code>tidyverse</code> which is a suite of packages designed to make working with R simpler and commands shorter. You can install all of them by calling <code>install.packages("tidyverse")</code>. Let’s go all out with the <code>tidyverse</code>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-r.html#cb21-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r.html#cb23-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>Now we can recode. Let’s say we want to create a new variable with two categories: low income and high income, where the cut-off sits at $ 20,000. The comnand to do this takes a little explaining. We start by stating the dataframe we wish to work with, <code>example</code>. The symbol which follows, <code>%&gt;%</code>, reads as “and then”, and is called (yes seriously) a pipe. So we take the data frame <code>example</code> “and then” carry out a function called <code>mutate</code>. This function in turn defines the new variable <code>gdpcat</code> by recoding the variable <code>gdp</code>. The command then specifies all categories of the “old” variable <code>gdp</code> and what their respective values in the “new” variable <code>gdpcat</code> are going to be. The categories in each are set in quotation marks, as they are factor / character categories. The last step is then to assign this newly created variable <code>gdpcat</code> to our data frame <code>example</code>.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-r.html#cb22-1" tabindex="-1"></a>example <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="introduction-to-r.html#cb22-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gdpcat=</span></span>
-<span id="cb22-3"><a href="introduction-to-r.html#cb22-3" tabindex="-1"></a>           <span class="fu">ordered</span>(</span>
-<span id="cb22-4"><a href="introduction-to-r.html#cb22-4" tabindex="-1"></a>             <span class="fu">cut</span>(gdp, <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="cn">Inf</span>), </span>
-<span id="cb22-5"><a href="introduction-to-r.html#cb22-5" tabindex="-1"></a>                 <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;high&quot;</span>)))) <span class="ot">-&gt;</span> example</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1" tabindex="-1"></a>example <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="introduction-to-r.html#cb24-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gdpcat=</span></span>
+<span id="cb24-3"><a href="introduction-to-r.html#cb24-3" tabindex="-1"></a>           <span class="fu">ordered</span>(</span>
+<span id="cb24-4"><a href="introduction-to-r.html#cb24-4" tabindex="-1"></a>             <span class="fu">cut</span>(gdp, <span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="cn">Inf</span>), </span>
+<span id="cb24-5"><a href="introduction-to-r.html#cb24-5" tabindex="-1"></a>                 <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;low&quot;</span>,<span class="st">&quot;high&quot;</span>)))) <span class="ot">-&gt;</span> example</span></code></pre></div>
 <div class="bulb">
 <p>Make a habit of adding a note underneath each of the more complex code chunks in your RScript (preceded with a <span style="color:black"><code>#</code></span>) in which you translate the code into plain English.</p>
 </div>
 <p>Let us now check the structure of the new variable to make sure that we have done everything correctly.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-r.html#cb23-1" tabindex="-1"></a><span class="fu">str</span>(example<span class="sc">$</span>gdpcat)</span>
-<span id="cb23-2"><a href="introduction-to-r.html#cb23-2" tabindex="-1"></a> Ord.factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">&quot;low&quot;</span><span class="sc">&lt;</span><span class="st">&quot;high&quot;</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r.html#cb25-1" tabindex="-1"></a><span class="fu">str</span>(example<span class="sc">$</span>gdpcat)</span>
+<span id="cb25-2"><a href="introduction-to-r.html#cb25-2" tabindex="-1"></a> Ord.factor w<span class="sc">/</span> <span class="dv">2</span> levels <span class="st">&quot;low&quot;</span><span class="sc">&lt;</span><span class="st">&quot;high&quot;</span><span class="sc">:</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span></span></code></pre></div>
 <p>In my case all looks fine - make sure yours looks the same.</p>
 </div>
 <div id="saving" class="section level3 unnumbered hasAnchor">
@@ -601,7 +601,7 @@ Figure 6: Distributions with different Standard Deviations
 <div id="the-real-data-set" class="section level2 unnumbered hasAnchor">
 <h2>The Real Data Set<a href="introduction-to-r.html#the-real-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Download the <code>world.csv</code> data set from the <a href="https://drfloreiche.github.io/PO3B3/downlads.html">Downloads Section</a> and place it into the current working directory.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Week 1/world.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r.html#cb26-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Week 1/world.csv&quot;</span>)</span></code></pre></div>
 <p>The data are taken from <span class="citation">World Bank (2024)</span>, <span class="citation">Boix et al. (2018)</span>, and <span class="citation">Marshall &amp; Gurr (2020)</span>. Table <a href="introduction-to-r.html#tab:wdicode1">1</a> provides a full code book, but you can also download it <a href="files/Week%201/PO3B3_Codebook.pdf">in pdf format here</a>.</p>
 <table style="width:100%; color: black; margin-left: auto; margin-right: auto;" class="table">
 <caption>
@@ -853,20 +853,20 @@ Combined Polity V score
 </tbody>
 </table>
 <p>Again, let’s explore the data set through the <code>view()</code> function:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r.html#cb25-1" tabindex="-1"></a><span class="fu">view</span>(world)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r.html#cb27-1" tabindex="-1"></a><span class="fu">view</span>(world)</span></code></pre></div>
 <p>Now, don’t panic. This data set is big, but you know the basic structure: country by year in rows, and the variables in the column. The value for the variable in a given country in a given year is in the meeting point between row and column.</p>
 <p>The data are (yes, the word “data” is plural) organised by country name in the first instance. So the first country you see is Afghanistan. There are multiple rows for Afghanistan, because each row gives you information about the value in a particular year (second column). This is repeated for every country in the world, leading to a total of 9.456 observations, to save you scrolling all the way down. Schematically, the structure of this data set looks as follows:</p>
 <p><img src="files/Week%201/tscs.png" width="25%" /></p>
 <p>When you look at the data set in R, you will see that not every box contains a value - this means that the data are missing for this particular country-year for that particular variable. This is an issue we will be discussing a later stage in more detail, but I can already say now, that this issue is more pronounced in developing countries than in developed ones, and that it often severely limits the variables you can include in the analysis.</p>
 <p>Let us conclude today with some more descriptive statistics to get used to entering and executing commands. Say, we want to find out the average GDP per capita of the UK since 1960 (which is when this data set begins, it ends in 2015). To do this, we first need to create a data frame which only contains data for GB. We call this process “subsetting”. The <code>filter</code> function comes out the <code>dplyr</code> package, and takes a particular data frame and filters all those observations which meet the condition specified. We will use this a lot on this module, and so it makes sense to remember this one well:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r.html#cb26-1" tabindex="-1"></a>GB <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, countrycode<span class="sc">==</span><span class="st">&quot;GBR&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r.html#cb28-1" tabindex="-1"></a>GB <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, countrycode<span class="sc">==</span><span class="st">&quot;GBR&quot;</span>)</span></code></pre></div>
 <p>We can now produce</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r.html#cb27-1" tabindex="-1"></a><span class="fu">summary</span>(GB<span class="sc">$</span>gdppc)</span>
-<span id="cb27-2"><a href="introduction-to-r.html#cb27-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max. </span>
-<span id="cb27-3"><a href="introduction-to-r.html#cb27-3" tabindex="-1"></a>   <span class="dv">1398</span>    <span class="dv">3606</span>   <span class="dv">14553</span>   <span class="dv">18629</span>   <span class="dv">29091</span>   <span class="dv">50398</span> </span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-r.html#cb29-1" tabindex="-1"></a><span class="fu">summary</span>(GB<span class="sc">$</span>gdppc)</span>
+<span id="cb29-2"><a href="introduction-to-r.html#cb29-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max. </span>
+<span id="cb29-3"><a href="introduction-to-r.html#cb29-3" tabindex="-1"></a>   <span class="dv">1398</span>    <span class="dv">3606</span>   <span class="dv">14553</span>   <span class="dv">18629</span>   <span class="dv">29091</span>   <span class="dv">50398</span> </span></code></pre></div>
 <p>and all other descriptive statistics outlined before for “Great Britain”. If you want the number of observations, then you can display them by calling:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r.html#cb28-1" tabindex="-1"></a><span class="fu">length</span>(GB<span class="sc">$</span>gdppc)</span>
-<span id="cb28-2"><a href="introduction-to-r.html#cb28-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">56</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introduction-to-r.html#cb30-1" tabindex="-1"></a><span class="fu">length</span>(GB<span class="sc">$</span>gdppc)</span>
+<span id="cb30-2"><a href="introduction-to-r.html#cb30-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">56</span></span></code></pre></div>
 <p>In this particular case, it would tell us that we have data for 56 years.</p>
 <p>If this all seems a little much at the moment, don’t worry. As we go through the module, R will become much, much easier to handle!</p>
 <hr />
