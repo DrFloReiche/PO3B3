@@ -367,7 +367,7 @@ Figure 1: Sample Data Set
 <li><code>A typewriter font for R functions, values, etc.</code></li>
 </ul>
 <p>Let’s have a look at RStudio itself. When you open the programme, you are presented with the following screen:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="files/Week%201/RStudio.png" alt="\label{fig:RStudio}RStudio" width="60%" />
 <p class="caption">
 Figure 2: RStudio
@@ -383,7 +383,7 @@ Figure 2: RStudio
 <p>One of the foundations of scientific research is “reproducibility”“, or”replicability”. This means that “sufficient information exists with which to understand, evaluate, and build upon a prior work if a third party could replicate the results without any additional information from the author.” <span class="citation">(King, 1995, p. 444, emphasis removed)</span> This principle applies in academia more generally, because only if you understand what a person has done before you, you can pick their work up whether they left it, and push the boundaries of knowledge further. But a bit closer to home, it is also relevant for conducting quantitative research in assessments. We require you to submit an RScript (or a “do file” if you use Stata) now together with your actual essay. This is not only to check what you have done; data preparation is often the most time-consuming part (as you will soon discover), and this is a way to gain recognition for this work. So it is actually to your advantage, and not a mere plagiarism check.</p>
 <p>The creation of an RScript will allow you to open the raw data, and by running the script, to bring it to exactly where you left off. This saves you saving data sets which can take up a lot of work. If you back the script up properly, you also have an insurance against losing all your work a day before the assessment is due.</p>
 <p>To create an RScript, click File <span class="math inline">\(\rightarrow\)</span> New File <span class="math inline">\(\rightarrow\)</span> RScript. A fourth window opens, and your screen will now look something like this:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="files/Week%201/rscript.png" alt="\label{fig:RScript}The RScript Window" width="60%" />
 <p class="caption">
 Figure 3: The RScript Window
@@ -615,12 +615,6 @@ variable
 <th style="text-align:left;">
 label
 </th>
-<th style="text-align:left;">
-X
-</th>
-<th style="text-align:left;">
-X.1
-</th>
 </tr>
 </thead>
 <tbody>
@@ -631,12 +625,6 @@ Country Code
 <td style="text-align:left;">
 Country Code
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -645,12 +633,6 @@ Country Name
 <td style="text-align:left;">
 Country Name
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -658,12 +640,6 @@ year
 </td>
 <td style="text-align:left;">
 year
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -673,12 +649,6 @@ agri
 <td style="text-align:left;">
 Employment in agriculture (% of total employment) (modeled ILO estimate)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -686,12 +656,6 @@ attend
 </td>
 <td style="text-align:left;">
 Births attended by skilled health staff (% of total)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -701,12 +665,6 @@ democracy
 <td style="text-align:left;">
 0 = Autocracy, 1 = Dictatorship (Boix et al., 2018)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -714,12 +672,6 @@ electricity
 </td>
 <td style="text-align:left;">
 Access to electricity (% of population)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -729,12 +681,6 @@ enrl_gross
 <td style="text-align:left;">
 School enrollment, primary (% gross)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -742,12 +688,6 @@ enrl_net
 </td>
 <td style="text-align:left;">
 School enrollment, primary (% net)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -757,12 +697,6 @@ gdpgrowth
 <td style="text-align:left;">
 Absolute growth of per capita GDP to previous year (constant 2010 US Dollars)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -770,12 +704,6 @@ gdppc
 </td>
 <td style="text-align:left;">
 GDP per capita (constant 2010 US$)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -785,12 +713,6 @@ health_ex
 <td style="text-align:left;">
 Current health expenditure (% of GDP)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -798,12 +720,6 @@ hosp
 </td>
 <td style="text-align:left;">
 Hospital beds (per 1,000 people)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -813,12 +729,6 @@ ineq
 <td style="text-align:left;">
 Income share held by lowest 10%
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -826,12 +736,6 @@ infant
 </td>
 <td style="text-align:left;">
 Mortality rate, infant (per 1,000 live births)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -841,12 +745,6 @@ internet
 <td style="text-align:left;">
 Individuals using the Internet (% of population)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -854,12 +752,6 @@ lifeexp
 </td>
 <td style="text-align:left;">
 Life expectancy at birth, total (years)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -869,12 +761,6 @@ literacy
 <td style="text-align:left;">
 Literacy rate, adult total (% of people ages 15 and above)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -882,12 +768,6 @@ military
 </td>
 <td style="text-align:left;">
 Military Expenditure (% of GDP)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -897,12 +777,6 @@ mobile
 <td style="text-align:left;">
 Mobile cellular subscriptions (per 100 people)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -910,12 +784,6 @@ natural
 </td>
 <td style="text-align:left;">
 Total natural resources rents (% of GDP)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -925,12 +793,6 @@ oil
 <td style="text-align:left;">
 Oil rents (% of GDP)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -938,12 +800,6 @@ polity5
 </td>
 <td style="text-align:left;">
 Combined Polity V score
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -953,12 +809,6 @@ prenatal
 <td style="text-align:left;">
 Pregnant women receiving prenatal care of at least four visits
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -966,12 +816,6 @@ prim_compl
 </td>
 <td style="text-align:left;">
 Primary completion rate, total (% of relevant age group)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -981,12 +825,6 @@ service
 <td style="text-align:left;">
 Services, value added (% of GDP)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -994,12 +832,6 @@ slums
 </td>
 <td style="text-align:left;">
 Population living in slums (% of urban population)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -1009,12 +841,6 @@ tax
 <td style="text-align:left;">
 Tax revenue (% of GDP)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -1022,12 +848,6 @@ telephone
 </td>
 <td style="text-align:left;">
 Fixed telephone subscriptions (per 100 people)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 <tr>
@@ -1037,12 +857,6 @@ tub
 <td style="text-align:left;">
 Incidence of tuberculosis (per 100,000 people)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -1051,12 +865,6 @@ unemploy
 <td style="text-align:left;">
 Unemployment, total (% of total labor force) (modeled ILO estimate)
 </td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
 </tr>
 <tr>
 <td style="text-align:left;min-width: 1.25in; ">
@@ -1064,36 +872,6 @@ urban
 </td>
 <td style="text-align:left;">
 Urban population (% of total population)
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;min-width: 1.25in; ">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
-</td>
-</tr>
-<tr>
-<td style="text-align:left;min-width: 1.25in; ">
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-NA
-</td>
-<td style="text-align:left;">
-NA
 </td>
 </tr>
 </tbody>
